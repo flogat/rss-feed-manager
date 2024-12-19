@@ -150,7 +150,10 @@ function loadFeeds(sort = currentSort) {
                         <td>${feed.last_scan_trigger}</td>
                         <td>${feed.status}</td>
                         <td>
-                            <button class="btn btn-sm btn-primary refresh-feed" data-feed-id="${feed.id}">
+                            <a href="/feeds/${feed.id}/articles" class="btn btn-sm btn-primary">
+                                <i class="bi bi-list-ul"></i>
+                            </a>
+                            <button class="btn btn-sm btn-secondary refresh-feed" data-feed-id="${feed.id}">
                                 <i class="bi bi-arrow-clockwise"></i>
                             </button>
                             <button class="btn btn-sm btn-info download-feed" data-feed-id="${feed.id}">

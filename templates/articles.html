@@ -11,7 +11,7 @@
             {% endif %}
         </h5>
         <div>
-            <a href="{{ url_for('feed.download_articles') if not feed else url_for('feed.download_feed_articles', feed_id=feed.id) }}" class="btn btn-info">
+            <a href="{{ url_for('feed.download_all_articles') if not feed else url_for('feed.download_feed_articles', feed_id=feed.id) }}" class="btn btn-info">
                 <i class="bi bi-download"></i> Download CSV
             </a>
         </div>
