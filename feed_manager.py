@@ -313,17 +313,22 @@ def download_feeds():
         
         si = StringIO()
         cw = csv.writer(si)
-        # Headers are always included
-        cw.writerow(['Title', 'URL', 'Status', 'Last Updated', 'Number of Articles', 'Last Article Date'])
+        # Headers according to new structure
+        cw.writerow(['Feed URL', 'Source Name', 'Category', 'Status', 'Last Checked', 'Items Collected', 'Newest Item'])
         
         for feed in feeds:
+            # Get the newest article for this feed
+            newest_article = Article.query.filter_by(feed_id=feed.id).order_by(Article.published_date.desc()).first()
+            newest_item_title = newest_article.title if newest_article else ''
+            
             cw.writerow([
-                feed.title,
-                feed.url,
-                feed.status,
-                feed.last_updated.isoformat() if feed.last_updated else '',
-                feed.num_articles,
-                feed.last_article_date.isoformat() if feed.last_article_date else ''
+                feed.url,                   # Feed URL
+                feed.title or '',           # Source Name
+                'Startups',                 # Category (default to Startups for now)
+                feed.status.upper(),        # Status in uppercase
+                feed.last_scan_time.isoformat() if feed.last_scan_time else '',  # Last Checked
+                feed.num_articles,          # Items Collected
+                newest_item_title          # Newest Item
             ])
         
         output = si.getvalue()

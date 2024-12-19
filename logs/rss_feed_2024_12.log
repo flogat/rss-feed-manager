@@ -1347,3 +1347,203 @@
 2024-12-19 14:34:44,203 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:34:44] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
 2024-12-19 14:34:44,539 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:34:44] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
 2024-12-19 14:34:45,575 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:34:45] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:34:49,068 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:34:49] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:34:50,573 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:34:50] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:34:54,310 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:34:54] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:34:55,573 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:34:55] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:34:59,080 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:34:59] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:35:00,572 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:35:00] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:35:04,065 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:35:04] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:35:05,581 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:35:05] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:35:09,073 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:35:09] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:35:10,571 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:35:10] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:35:14,086 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:35:14] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:35:15,575 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:35:15] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:35:19,068 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:35:19] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:35:19,932 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:35:19] "GET /api/articles/download?start_date=2024-12-12&end_date=2024-12-19 HTTP/1.1" 200 -
+2024-12-19 14:35:20,579 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:35:20] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:35:24,070 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:35:24] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:35:25,584 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:35:25] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:35:29,082 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:35:29] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:35:30,615 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:35:30] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:35:34,068 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:35:34] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:35:35,581 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:35:35] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:35:39,084 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:35:39] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:35:40,575 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:35:40] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:35:42,676 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:35:42] "GET /api/articles/download?start_date=2024-12-12&end_date=2024-12-20 HTTP/1.1" 200 -
+2024-12-19 14:35:44,081 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:35:44] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:35:45,578 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:35:45] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:35:49,089 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:35:49] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:35:50,576 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:35:50] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:35:54,073 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:35:54] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:35:55,573 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:35:55] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:35:59,067 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:35:59] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:36:00,577 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:36:00] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:36:04,071 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:36:04] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:36:05,572 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:36:05] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:36:09,078 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:36:09] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:36:10,573 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:36:10] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:36:14,078 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:36:14] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:36:15,568 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:36:15] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:36:19,074 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:36:19] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:36:20,570 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:36:20] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:36:22,645 - root - ERROR - Error updating feed https://www.digitalkompakt.de/feed/: object has no attribute 'title'
+2024-12-19 14:36:24,068 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:36:24] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:36:25,577 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:36:25] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:36:29,089 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:36:29] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:36:30,570 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:36:30] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:36:34,037 - root - ERROR - Error updating feed https://www.handelsblatt.com/rss/HB_Boerse.xml: object has no attribute 'title'
+2024-12-19 14:36:34,068 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:36:34] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:36:35,571 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:36:35] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:36:39,083 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:36:39] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:36:40,578 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:36:40] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:36:44,067 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:36:44] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:36:45,569 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:36:45] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:36:49,067 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:36:49] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:36:50,580 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:36:50] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:36:54,067 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:36:54] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:36:55,570 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:36:55] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:36:56,132 - root - ERROR - Error updating feed https://www.faz.net/aktuell/wirtschaft/?rssview=1: object has no attribute 'title'
+2024-12-19 14:36:59,069 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:36:59] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:37:00,569 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:00] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:37:04,075 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:04] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:37:05,571 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:05] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:37:09,689 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:09] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:37:10,682 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:10] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:37:14,698 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:14] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:37:15,682 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:15] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:37:19,686 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:19] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:37:20,682 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:20] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:37:24,066 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:24] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:37:25,578 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:25] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:37:29,064 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:29] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:37:30,569 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:30] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:37:34,064 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:34] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:37:35,575 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:35] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:37:39,085 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:39] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:37:40,578 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:40] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:37:41,910 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 14:37:41,911 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 14:37:41 UTC)" (scheduled at 2024-12-19 14:37:41.910218+00:00)
+2024-12-19 14:37:41,912 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 14:40:41.910218+00:00 (in 179.998196 seconds)
+2024-12-19 14:37:41,928 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 14:40:41 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 188, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 14:37:42,459 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 14:37:42,459 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 14:37:42 UTC)" (scheduled at 2024-12-19 14:37:42.458468+00:00)
+2024-12-19 14:37:42,460 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 14:40:42.458468+00:00 (in 179.998416 seconds)
+2024-12-19 14:37:42,462 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 14:40:42 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 188, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 14:37:44,066 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:44] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:37:45,534 - werkzeug - INFO -  * Detected change in '/home/runner/VentureWeeklyTracker/feed_manager.py', reloading
+2024-12-19 14:37:45,635 - werkzeug - INFO -  * Restarting with stat
+2024-12-19 14:37:46,515 - root - INFO - Admin user initialized successfully
+2024-12-19 14:37:46,517 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-19 14:37:46,519 - apscheduler.scheduler - INFO - Added job "Refresh RSS Feeds" to job store "default"
+2024-12-19 14:37:46,519 - apscheduler.scheduler - INFO - Scheduler started
+2024-12-19 14:37:46,520 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 14:37:46,520 - root - INFO - Scheduler started successfully
+2024-12-19 14:37:46,520 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 14:40:46.517075+00:00 (in 179.996686 seconds)
+2024-12-19 14:37:46,520 - root - INFO - Next automatic scan scheduled for: 2024-12-19 14:40:46.517075+00:00
+2024-12-19 14:37:46,521 - root - INFO - Scheduler started successfully
+2024-12-19 14:37:46,542 - werkzeug - WARNING -  * Debugger is active!
+2024-12-19 14:37:46,544 - werkzeug - INFO -  * Debugger PIN: 899-727-537
+2024-12-19 14:37:46,620 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:46] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:37:48,586 - root - INFO - Admin user initialized successfully
+2024-12-19 14:37:48,587 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-19 14:37:48,587 - apscheduler.scheduler - INFO - Added job "Refresh RSS Feeds" to job store "default"
+2024-12-19 14:37:48,587 - apscheduler.scheduler - INFO - Scheduler started
+2024-12-19 14:37:48,588 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 14:37:48,588 - root - INFO - Scheduler started successfully
+2024-12-19 14:37:48,588 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 14:40:48.587190+00:00 (in 179.998455 seconds)
+2024-12-19 14:37:48,588 - root - INFO - Next automatic scan scheduled for: 2024-12-19 14:40:48.587190+00:00
+2024-12-19 14:37:48,589 - root - INFO - Scheduler started successfully
+2024-12-19 14:37:49,431 - root - INFO - Admin user initialized successfully
+2024-12-19 14:37:49,432 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-19 14:37:49,433 - apscheduler.scheduler - INFO - Added job "Refresh RSS Feeds" to job store "default"
+2024-12-19 14:37:49,433 - apscheduler.scheduler - INFO - Scheduler started
+2024-12-19 14:37:49,433 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 14:37:49,434 - root - INFO - Scheduler started successfully
+2024-12-19 14:37:49,434 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 14:40:49.432540+00:00 (in 179.998399 seconds)
+2024-12-19 14:37:49,434 - root - INFO - Next automatic scan scheduled for: 2024-12-19 14:40:49.432540+00:00
+2024-12-19 14:37:49,434 - root - INFO - Scheduler started successfully
+2024-12-19 14:37:49,444 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.196.129:5000
+2024-12-19 14:37:49,444 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-19 14:37:49,445 - werkzeug - INFO -  * Restarting with stat
+2024-12-19 14:37:49,938 - root - INFO - Admin user initialized successfully
+2024-12-19 14:37:49,938 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-19 14:37:49,939 - apscheduler.scheduler - INFO - Added job "Refresh RSS Feeds" to job store "default"
+2024-12-19 14:37:49,939 - apscheduler.scheduler - INFO - Scheduler started
+2024-12-19 14:37:49,940 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 14:37:49,940 - root - INFO - Scheduler started successfully
+2024-12-19 14:37:49,940 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 14:40:49.938736+00:00 (in 179.998358 seconds)
+2024-12-19 14:37:49,940 - root - INFO - Next automatic scan scheduled for: 2024-12-19 14:40:49.938736+00:00
+2024-12-19 14:37:49,940 - root - INFO - Scheduler started successfully
+2024-12-19 14:37:49,947 - werkzeug - WARNING -  * Debugger is active!
+2024-12-19 14:37:49,949 - werkzeug - INFO -  * Debugger PIN: 174-422-003
+2024-12-19 14:37:50,490 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:50] "[32mGET / HTTP/1.1[0m" 302 -
+2024-12-19 14:37:50,503 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:50] "GET /login?next=/ HTTP/1.1" 200 -
+2024-12-19 14:37:50,517 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:50] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-12-19 14:37:50,988 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:50] "GET / HTTP/1.1" 200 -
+2024-12-19 14:37:51,939 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:51] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-12-19 14:37:52,371 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:52] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-12-19 14:37:52,607 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:52] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:37:54,684 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:54] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:37:57,682 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:37:57] "GET /api/feeds HTTP/1.1" 200 -
