@@ -145,7 +145,7 @@ function loadFeeds(sort = currentSort) {
                         <td>${feed.url}</td>
                         <td>${feed.num_articles}</td>
                         <td>${feed.recent_articles}</td>
-                        <td>${formatTimestamp(feed.last_article_date)}</td>
+                        <td>${formatTimestamp(feed.last_article_date, true)}</td>
                         <td>${formatTimestamp(feed.last_scan_time, true)}</td>
                         <td>${feed.last_scan_trigger}</td>
                         <td>${feed.status}</td>
