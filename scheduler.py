@@ -2,8 +2,9 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from feed_manager import update_all_feeds
 import logging
 
+scheduler = BackgroundScheduler()
+
 def init_scheduler():
-    scheduler = BackgroundScheduler()
     scheduler.add_job(
         func=lambda: update_all_feeds(trigger='automatic'),
         trigger="interval",

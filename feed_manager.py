@@ -18,9 +18,8 @@ def dashboard():
 @feed_bp.route('/api/feeds')
 @login_required
 def get_feeds():
-    from scheduler import BackgroundScheduler
-    scheduler = BackgroundScheduler()
-    next_scan = scheduler.get_job('refresh_feeds').next_run_time
+    from scheduler import scheduler
+    next_scan = scheduler.get_job('refresh_feeds').next_run_time if scheduler.get_job('refresh_feeds') else None
     
     feeds = RSSFeed.query.all()
     seven_days_ago = datetime.utcnow() - timedelta(days=7)
