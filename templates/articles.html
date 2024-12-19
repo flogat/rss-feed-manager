@@ -52,14 +52,14 @@
             <ul class="pagination justify-content-center">
                 {% if articles.has_prev %}
                 <li class="page-item">
-                    <a class="page-link" href="{{ url_for('feed.view_articles', page=articles.prev_num, sort=request.args.get('sort', 'published_date'), order=request.args.get('order', 'desc')) }}">Previous</a>
+                    <a class="page-link" href="{{ url_for('feed.view_articles', feed_id=feed.id if feed else None, page=articles.prev_num, sort=request.args.get('sort', 'published_date'), order=request.args.get('order', 'desc')) }}">Previous</a>
                 </li>
                 {% endif %}
                 
                 {% for page_num in articles.iter_pages(left_edge=2, left_current=2, right_current=3, right_edge=2) %}
                 {% if page_num %}
                 <li class="page-item {% if page_num == articles.page %}active{% endif %}">
-                    <a class="page-link" href="{{ url_for('feed.view_articles', page=page_num, sort=request.args.get('sort', 'published_date'), order=request.args.get('order', 'desc')) }}">{{ page_num }}</a>
+                    <a class="page-link" href="{{ url_for('feed.view_articles', feed_id=feed.id if feed else None, page=page_num, sort=request.args.get('sort', 'published_date'), order=request.args.get('order', 'desc')) }}">{{ page_num }}</a>
                 </li>
                 {% else %}
                 <li class="page-item disabled"><span class="page-link">...</span></li>
@@ -68,7 +68,7 @@
                 
                 {% if articles.has_next %}
                 <li class="page-item">
-                    <a class="page-link" href="{{ url_for('feed.view_articles', page=articles.next_num, sort=request.args.get('sort', 'published_date'), order=request.args.get('order', 'desc')) }}">Next</a>
+                    <a class="page-link" href="{{ url_for('feed.view_articles', feed_id=feed.id if feed else None, page=articles.next_num, sort=request.args.get('sort', 'published_date'), order=request.args.get('order', 'desc')) }}">Next</a>
                 </li>
                 {% endif %}
             </ul>
