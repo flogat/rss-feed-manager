@@ -30,4 +30,5 @@ app.register_blueprint(auth_bp)
 app.register_blueprint(feed_bp)
 
 with app.app_context():
+    db.drop_all()  # Temporarily drop all tables to recreate with new schema
     db.create_all()
