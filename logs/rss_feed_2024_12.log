@@ -1016,3 +1016,81 @@
 2024-12-19 14:29:16,906 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:29:16] "GET /static/css/style.css HTTP/1.1" 200 -
 2024-12-19 14:29:17,402 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:29:17] "GET /api/feeds HTTP/1.1" 200 -
 2024-12-19 14:29:22,396 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:29:22] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:29:27,403 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:29:27] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:29:32,396 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:29:32] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:29:37,393 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:29:37] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:29:45,667 - root - INFO - Admin user initialized successfully
+2024-12-19 14:29:45,668 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-19 14:29:45,669 - apscheduler.scheduler - INFO - Added job "Refresh RSS Feeds" to job store "default"
+2024-12-19 14:29:45,669 - apscheduler.scheduler - INFO - Scheduler started
+2024-12-19 14:29:45,669 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 14:29:45,669 - root - INFO - Scheduler started successfully
+2024-12-19 14:29:45,670 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 14:32:45.668263+00:00 (in 179.998280 seconds)
+2024-12-19 14:29:45,670 - root - INFO - Next automatic scan scheduled for: 2024-12-19 14:32:45.668263+00:00
+2024-12-19 14:29:45,670 - root - INFO - Scheduler started successfully
+2024-12-19 14:29:45,680 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.196.129:5000
+2024-12-19 14:29:45,680 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-19 14:29:45,681 - werkzeug - INFO -  * Restarting with stat
+2024-12-19 14:29:46,233 - root - INFO - Admin user initialized successfully
+2024-12-19 14:29:46,234 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-19 14:29:46,235 - apscheduler.scheduler - INFO - Added job "Refresh RSS Feeds" to job store "default"
+2024-12-19 14:29:46,235 - apscheduler.scheduler - INFO - Scheduler started
+2024-12-19 14:29:46,235 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 14:29:46,235 - root - INFO - Scheduler started successfully
+2024-12-19 14:29:46,236 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 14:32:46.234342+00:00 (in 179.998327 seconds)
+2024-12-19 14:29:46,236 - root - INFO - Next automatic scan scheduled for: 2024-12-19 14:32:46.234342+00:00
+2024-12-19 14:29:46,237 - root - INFO - Scheduler started successfully
+2024-12-19 14:29:46,247 - werkzeug - WARNING -  * Debugger is active!
+2024-12-19 14:29:46,249 - werkzeug - INFO -  * Debugger PIN: 144-155-764
+2024-12-19 14:29:46,295 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:29:46] "GET / HTTP/1.1" 200 -
+2024-12-19 14:29:46,549 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:29:46] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2024-12-19 14:29:46,554 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:29:46] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-12-19 14:29:47,075 - root - INFO - Admin user initialized successfully
+2024-12-19 14:29:47,075 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-19 14:29:47,076 - apscheduler.scheduler - INFO - Added job "Refresh RSS Feeds" to job store "default"
+2024-12-19 14:29:47,076 - apscheduler.scheduler - INFO - Scheduler started
+2024-12-19 14:29:47,076 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 14:29:47,077 - root - INFO - Scheduler started successfully
+2024-12-19 14:29:47,077 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 14:32:47.075666+00:00 (in 179.998117 seconds)
+2024-12-19 14:29:47,077 - root - INFO - Next automatic scan scheduled for: 2024-12-19 14:32:47.075666+00:00
+2024-12-19 14:29:47,078 - root - INFO - Scheduler started successfully
+2024-12-19 14:29:47,974 - root - INFO - Admin user initialized successfully
+2024-12-19 14:29:47,975 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-19 14:29:47,976 - apscheduler.scheduler - INFO - Added job "Refresh RSS Feeds" to job store "default"
+2024-12-19 14:29:47,976 - apscheduler.scheduler - INFO - Scheduler started
+2024-12-19 14:29:47,976 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 14:29:47,977 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 14:32:47.975368+00:00 (in 179.998294 seconds)
+2024-12-19 14:29:47,976 - root - INFO - Scheduler started successfully
+2024-12-19 14:29:47,977 - root - INFO - Next automatic scan scheduled for: 2024-12-19 14:32:47.975368+00:00
+2024-12-19 14:29:47,977 - root - INFO - Scheduler started successfully
+2024-12-19 14:29:47,987 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.196.129:5000
+2024-12-19 14:29:47,987 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-19 14:29:47,988 - werkzeug - INFO -  * Restarting with stat
+2024-12-19 14:29:48,527 - root - INFO - Admin user initialized successfully
+2024-12-19 14:29:48,528 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-19 14:29:48,529 - apscheduler.scheduler - INFO - Added job "Refresh RSS Feeds" to job store "default"
+2024-12-19 14:29:48,529 - apscheduler.scheduler - INFO - Scheduler started
+2024-12-19 14:29:48,530 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 14:29:48,530 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 14:32:48.528737+00:00 (in 179.997949 seconds)
+2024-12-19 14:29:48,530 - root - INFO - Scheduler started successfully
+2024-12-19 14:29:48,531 - root - INFO - Next automatic scan scheduled for: 2024-12-19 14:32:48.528737+00:00
+2024-12-19 14:29:48,531 - root - INFO - Scheduler started successfully
+2024-12-19 14:29:48,541 - werkzeug - WARNING -  * Debugger is active!
+2024-12-19 14:29:48,543 - werkzeug - INFO -  * Debugger PIN: 142-265-885
+2024-12-19 14:29:48,600 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:29:48] "GET / HTTP/1.1" 200 -
+2024-12-19 14:29:48,644 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:29:48] "[32mGET / HTTP/1.1[0m" 302 -
+2024-12-19 14:29:48,652 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:29:48] "GET /login?next=/ HTTP/1.1" 200 -
+2024-12-19 14:29:48,678 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:29:48] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-12-19 14:29:48,792 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:29:48] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-12-19 14:29:48,800 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:29:48] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2024-12-19 14:29:49,687 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:29:49] "GET / HTTP/1.1" 200 -
+2024-12-19 14:29:49,730 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:29:49] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 14:29:49,918 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:29:49] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2024-12-19 14:29:49,925 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:29:49] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-12-19 14:29:50,527 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 14:29:50] "GET /api/feeds HTTP/1.1" 200 -
