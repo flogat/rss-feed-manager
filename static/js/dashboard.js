@@ -267,6 +267,17 @@ $(document).ready(function() {
     });
     
     // Handle article download form submission
+    // Initialize download modal dates when shown
+    $('#downloadModal').on('show.bs.modal', function() {
+        const today = new Date();
+        const sevenDaysAgo = new Date(today);
+        sevenDaysAgo.setDate(today.getDate() - 7);
+        
+        // Format dates as YYYY-MM-DD
+        $('#startDate').val(sevenDaysAgo.toISOString().split('T')[0]);
+        $('#endDate').val(today.toISOString().split('T')[0]);
+    });
+
     $('#downloadForm').submit(function(e) {
         e.preventDefault();
         const startDate = $('#startDate').val();
