@@ -122,10 +122,16 @@ function loadFeeds(sort = currentSort) {
             let totalArticles = feeds.reduce((sum, feed) => sum + feed.num_articles, 0);
             let recentArticles = feeds.reduce((sum, feed) => sum + feed.recent_articles, 0);
             
-            $('#feedSummary').html(`
-                Total Feeds: ${feeds.length} (${activeFeeds} active)<br>
-                Total Articles: ${totalArticles} (${recentArticles} in last 7 days)
-            `);
+            let summaryHtml = `Total Feeds: ${feeds.length} (${activeFeeds} active)<br>
+                Total Articles: ${totalArticles} (${recentArticles} in last 7 days)`;
+            
+            // Add scan progress information if scanning is active
+            if (scanProgress && scanProgress.is_scanning) {
+                summaryHtml += `<br><br>Currently scanning: ${scanProgress.current_feed || 'Unknown feed'}<br>
+                    Progress: ${scanProgress.current_index} of ${scanProgress.total_feeds} feeds`;
+            }
+            
+            $('#feedSummary').html(summaryHtml);
             
             // Update next scan time without resetting the timer if it's already running
             if (response.next_scan) {
