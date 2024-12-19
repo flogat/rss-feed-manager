@@ -3,6 +3,7 @@ from datetime import datetime
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from flask_migrate import Migrate
 from sqlalchemy.orm import DeclarativeBase
 import logging
 
@@ -11,6 +12,7 @@ class Base(DeclarativeBase):
 
 db = SQLAlchemy(model_class=Base)
 login_manager = LoginManager()
+migrate = Migrate()
 
 def create_app():
     # Create app
@@ -30,6 +32,7 @@ def create_app():
     # Initialize extensions
     db.init_app(app)
     login_manager.init_app(app)
+    migrate.init_app(app, db)
     login_manager.login_view = 'auth.login'
 
     # Import routes after app initialization to avoid circular imports
@@ -44,11 +47,4 @@ def create_app():
 # Create the application instance
 app = create_app()
 
-# Initialize database
-with app.app_context():
-    try:
-        db.create_all()
-        logging.info("Database tables created successfully")
-    except Exception as e:
-        logging.error(f"Error creating database tables: {str(e)}")
-        raise
+# Database will be initialized through Flask-Migrate commands
