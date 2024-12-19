@@ -39,13 +39,19 @@ $(document).ready(function() {
 
     // Refresh feeds
     $('#refreshFeeds').click(function() {
+        // Update all feed statuses to reloading
+        $('#feedsList tr').each(function() {
+            $(this).find('td:nth-child(8)').html(getStatusBadge('reloading'));
+        });
+        
         $.post('/api/feeds/refresh')
             .done(function() {
-                loadFeeds();
+                setTimeout(loadFeeds, 1000); // Slight delay to ensure backend has updated
             })
             .fail(function(xhr) {
                 const error = xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error occurred';
-                showError('Error refreshing feeds: ' + error);
+                showError('Error reloading feeds: ' + error);
+                loadFeeds(); // Reload to show current status
             });
     });
 
@@ -241,13 +247,17 @@ function formatRelativeTime(dateStr) {
 }
 
 function getStatusBadge(status) {
+    // Normalize status to ensure consistency
+    if (status === 'refreshing') status = 'reloading';
+    
     const classes = {
         'active': 'bg-success',
         'error': 'bg-danger',
-        'reloading': 'bg-warning',
-        'refreshing': 'bg-warning' // Added to handle 'refreshing' status
+        'reloading': 'bg-warning'
     };
-    return `<span class="badge ${classes[status] || 'bg-secondary'}">${status}</span>`;
+    
+    const spinnerIcon = status === 'reloading' ? '<i class="bi bi-arrow-repeat spin me-1"></i>' : '';
+    return `<span class="badge ${classes[status] || 'bg-secondary'}">${spinnerIcon}${status}</span>`;
 }
 
 function refreshSingleFeed(feedId) {
