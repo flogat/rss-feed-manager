@@ -1,0 +1,28 @@
+2024-12-19 13:12:21,665 - tzlocal - DEBUG - No explicit setting existed. Use localtime
+2024-12-19 13:12:21,667 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-19 13:12:21,668 - apscheduler.scheduler - INFO - Added job "Refresh RSS Feeds" to job store "default"
+2024-12-19 13:12:21,668 - apscheduler.scheduler - INFO - Scheduler started
+2024-12-19 13:12:21,669 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 13:12:21,669 - root - INFO - Scheduler started successfully
+2024-12-19 13:12:21,669 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 14:12:21.667501+00:00 (in 3599.997767 seconds)
+2024-12-19 13:12:21,691 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.196.129:5000
+2024-12-19 13:12:21,692 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-19 13:12:21,695 - werkzeug - INFO -  * Restarting with stat
+2024-12-19 13:12:22,175 - tzlocal - DEBUG - No explicit setting existed. Use localtime
+2024-12-19 13:12:22,176 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-19 13:12:22,176 - apscheduler.scheduler - INFO - Added job "Refresh RSS Feeds" to job store "default"
+2024-12-19 13:12:22,176 - apscheduler.scheduler - INFO - Scheduler started
+2024-12-19 13:12:22,177 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 13:12:22,177 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 14:12:22.175964+00:00 (in 3599.998280 seconds)
+2024-12-19 13:12:22,177 - root - INFO - Scheduler started successfully
+2024-12-19 13:12:22,187 - werkzeug - WARNING -  * Debugger is active!
+2024-12-19 13:12:22,189 - werkzeug - INFO -  * Debugger PIN: 122-406-735
+2024-12-19 13:12:29,103 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:12:29] "[32mGET / HTTP/1.1[0m" 302 -
+2024-12-19 13:12:29,120 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:12:29] "GET /login?next=/ HTTP/1.1" 200 -
+2024-12-19 13:12:29,147 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:12:29] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-12-19 13:12:29,865 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:12:29] "[32mGET / HTTP/1.1[0m" 302 -
+2024-12-19 13:12:30,040 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:12:30] "GET /login?next=/ HTTP/1.1" 200 -
+2024-12-19 13:12:31,013 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:12:31] "GET /static/css/style.css HTTP/1.1" 200 -

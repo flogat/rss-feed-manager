@@ -1,0 +1,33 @@
+.card {
+    margin-bottom: 1.5rem;
+}
+
+.navbar {
+    margin-bottom: 2rem;
+}
+
+.table td, .table th {
+    vertical-align: middle;
+}
+
+.badge {
+    font-size: 0.8rem;
+    padding: 0.35em 0.65em;
+}
+
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+.table-responsive {
+    margin-bottom: 1rem;
+}
+
+.modal-content {
+    border-radius: 0.5rem;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
