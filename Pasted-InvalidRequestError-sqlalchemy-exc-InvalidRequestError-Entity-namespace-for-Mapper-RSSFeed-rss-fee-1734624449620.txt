@@ -1,0 +1,42 @@
+InvalidRequestError
+sqlalchemy.exc.InvalidRequestError: Entity namespace for "Mapper[RSSFeed(rss_feed)]" has no property "feed_id"
+
+Traceback (most recent call last)
+File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/sql/base.py", line 2181, in _entity_namespace_key
+return getattr(ns, key)  # type: ignore
+       ^^^^^^^^^^^^^^^^
+The above exception was the direct cause of the following exception:
+File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask/app.py", line 1536, in __call__
+return self.wsgi_app(environ, start_response)
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask/app.py", line 1514, in wsgi_app
+response = self.handle_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask/app.py", line 1511, in wsgi_app
+response = self.full_dispatch_request()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask/app.py", line 919, in full_dispatch_request
+rv = self.handle_user_exception(e)
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask/app.py", line 917, in full_dispatch_request
+rv = self.dispatch_request()
+     ^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask/app.py", line 902, in dispatch_request
+return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+return current_app.ensure_sync(func)(*args, **kwargs)
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 37, in view_articles
+query = query.filter_by(feed_id=feed_id)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/query.py", line 1983, in filter_by
+clauses = [
+          
+File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/query.py", line 1984, in <listcomp>
+_entity_namespace_key(from_entity, key) == value
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/sql/base.py", line 2183, in _entity_namespace_key
+raise exc.InvalidRequestError(
+^^^^^^^^^^
+sqlalchemy.exc.InvalidRequestError: Entity namespace for "Mapper[RSSFeed(rss_feed)]" has no property "feed_id"

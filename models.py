@@ -35,4 +35,4 @@ class Article(db.Model):
     description = db.Column(db.Text)
     published_date = db.Column(db.DateTime)
     collected_date = db.Column(db.DateTime, default=datetime.utcnow)
-    feed = db.relationship('RSSFeed', backref='articles')
+    feed = db.relationship('RSSFeed', backref=db.backref('articles', lazy='dynamic'))

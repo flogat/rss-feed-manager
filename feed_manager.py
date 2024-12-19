@@ -28,13 +28,13 @@ def view_articles(feed_id=None):
     order = request.args.get('order', 'desc')
     
     # Base query with eager loading of feed relationship
-    query = Article.query.join(Article.feed)
+    query = Article.query.join(RSSFeed, Article.feed_id == RSSFeed.id)
     
     # Add feed filter if feed_id is provided
     feed = None
     if feed_id:
         feed = RSSFeed.query.get_or_404(feed_id)
-        query = query.filter_by(feed_id=feed_id)
+        query = query.filter(Article.feed_id == feed_id)
     
     # Add sorting
     sort_column = getattr(Article, sort, Article.published_date)
