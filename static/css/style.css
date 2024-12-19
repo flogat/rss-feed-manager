@@ -77,19 +77,22 @@ img.background {
     max-width: 300px;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
 }
 
 /* Specific column widths */
 .table td:nth-child(1), /* Title column */
-.table td:nth-child(2) { /* URL column */
+.table td:nth-child(2), /* URL column */
+.table td:nth-child(5), /* Last Article column */
+.table td:nth-child(6) { /* Last Scan column */
     max-width: 250px;
     word-wrap: break-word;
     white-space: normal;
 }
 
 .table th:nth-child(1),
-.table th:nth-child(2) {
+.table th:nth-child(2),
+.table th:nth-child(5),
+.table th:nth-child(6) {
     min-width: 200px;
 }
 
@@ -128,6 +131,7 @@ img.background {
 
 .table-responsive {
     margin-bottom: 1rem;
+    overflow-x: visible;
 }
 
 .modal-content {
