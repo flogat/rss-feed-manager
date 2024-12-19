@@ -59,17 +59,22 @@
 
 /* Custom styling */
 body {
-    background-color: #f8f9fa;
+    background: url('/static/img/background.png') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
 }
 
 .container {
     background-color: rgba(255, 255, 255, 0.97);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .jumbotron {
     padding: 1rem 0rem;
     margin-bottom: 0px;
-    background-color: rgba(8, 88, 88, 0);
+    background-color: transparent;
 }
 
 .progress {
@@ -79,14 +84,16 @@ body {
 /* Table styling */
 .table {
     margin-bottom: 0;
+    background-color: white;
 }
 
 .table th {
-    background-color: rgba(0, 0, 0, 0.03);
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
 }
 
 .table-hover tbody tr:hover {
-    background-color: rgba(0, 0, 0, 0.075);
+    background-color: #f8f9fa;
 }
 
 /* Animation */
