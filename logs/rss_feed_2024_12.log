@@ -252,3 +252,92 @@
 2024-12-19 13:21:14,625 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:21:14] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
 2024-12-19 13:21:15,095 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:21:15] "[35m[1mGET /api/feeds HTTP/1.1[0m" 500 -
 2024-12-19 13:21:16,149 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:21:16] "[35m[1mGET /api/feeds HTTP/1.1[0m" 500 -
+2024-12-19 13:24:12,639 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:24:12] "GET / HTTP/1.1" 200 -
+2024-12-19 13:24:13,613 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:24:13] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-12-19 13:24:13,637 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:24:13] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-12-19 13:24:14,248 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:24:14] "[35m[1mGET /api/feeds HTTP/1.1[0m" 500 -
+2024-12-19 13:24:18,644 - root - ERROR - Error adding feed: (sqlite3.OperationalError) table rss_feed has no column named num_articles
+[SQL: INSERT INTO rss_feed (url, title, last_updated, status, error_count, last_error, num_articles, last_article_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('https://www.deutsche-startups.de/feed/', None, '2024-12-19 13:24:18.644572', 'active', 0, None, 0, None)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2024-12-19 13:24:18,645 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:24:18] "[35m[1mPOST /api/feeds HTTP/1.1[0m" 500 -
+2024-12-19 13:24:30,448 - root - ERROR - Error adding feed: (sqlite3.OperationalError) table rss_feed has no column named num_articles
+[SQL: INSERT INTO rss_feed (url, title, last_updated, status, error_count, last_error, num_articles, last_article_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('https://www.deutsche-startups.de/feed/', None, '2024-12-19 13:24:30.448375', 'active', 0, None, 0, None)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2024-12-19 13:24:30,449 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:24:30] "[35m[1mPOST /api/feeds HTTP/1.1[0m" 500 -
+2024-12-19 13:25:01,955 - root - ERROR - Error adding feed: (sqlite3.OperationalError) table rss_feed has no column named num_articles
+[SQL: INSERT INTO rss_feed (url, title, last_updated, status, error_count, last_error, num_articles, last_article_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('https://www.deutsche-startups.de/feed/', None, '2024-12-19 13:25:01.954825', 'active', 0, None, 0, None)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2024-12-19 13:25:01,955 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:25:01] "[35m[1mPOST /api/feeds HTTP/1.1[0m" 500 -
+2024-12-19 13:25:28,267 - root - ERROR - Error adding feed: (sqlite3.OperationalError) table rss_feed has no column named num_articles
+[SQL: INSERT INTO rss_feed (url, title, last_updated, status, error_count, last_error, num_articles, last_article_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('https://www.deutsche-startups.de/feed/', None, '2024-12-19 13:25:28.267447', 'active', 0, None, 0, None)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2024-12-19 13:25:28,268 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:25:28] "[35m[1mPOST /api/feeds HTTP/1.1[0m" 500 -
+2024-12-19 13:25:41,342 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:25:41] "GET / HTTP/1.1" 200 -
+2024-12-19 13:25:41,591 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:25:41] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-12-19 13:25:41,697 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:25:41] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2024-12-19 13:25:41,952 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:25:41] "[35m[1mGET /api/feeds HTTP/1.1[0m" 500 -
+2024-12-19 13:25:42,114 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:25:42] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-12-19 13:25:44,235 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:25:44] "GET / HTTP/1.1" 200 -
+2024-12-19 13:25:44,416 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:25:44] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2024-12-19 13:25:44,417 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:25:44] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-12-19 13:25:44,619 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:25:44] "[35m[1mGET /api/feeds HTTP/1.1[0m" 500 -
+2024-12-19 13:25:49,519 - root - ERROR - Error adding feed: (sqlite3.OperationalError) table rss_feed has no column named num_articles
+[SQL: INSERT INTO rss_feed (url, title, last_updated, status, error_count, last_error, num_articles, last_article_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('https://www.deutsche-startups.de/feed/', None, '2024-12-19 13:25:49.519199', 'active', 0, None, 0, None)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2024-12-19 13:25:49,519 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:25:49] "[35m[1mPOST /api/feeds HTTP/1.1[0m" 500 -
+2024-12-19 13:25:52,616 - root - ERROR - Error adding feed: (sqlite3.OperationalError) table rss_feed has no column named num_articles
+[SQL: INSERT INTO rss_feed (url, title, last_updated, status, error_count, last_error, num_articles, last_article_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('https://www.deutsche-startups.de/feed/', None, '2024-12-19 13:25:52.616090', 'active', 0, None, 0, None)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2024-12-19 13:25:52,617 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:25:52] "[35m[1mPOST /api/feeds HTTP/1.1[0m" 500 -
+2024-12-19 13:26:33,549 - tzlocal - DEBUG - No explicit setting existed. Use localtime
+2024-12-19 13:26:33,550 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-19 13:26:33,551 - apscheduler.scheduler - INFO - Added job "Refresh RSS Feeds" to job store "default"
+2024-12-19 13:26:33,551 - apscheduler.scheduler - INFO - Scheduler started
+2024-12-19 13:26:33,551 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 13:26:33,551 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 14:26:33.550286+00:00 (in 3599.998540 seconds)
+2024-12-19 13:26:33,551 - root - INFO - Scheduler started successfully
+2024-12-19 13:26:33,562 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.196.129:5000
+2024-12-19 13:26:33,562 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-19 13:26:33,563 - werkzeug - INFO -  * Restarting with stat
+2024-12-19 13:26:34,311 - tzlocal - DEBUG - No explicit setting existed. Use localtime
+2024-12-19 13:26:34,312 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-19 13:26:34,313 - apscheduler.scheduler - INFO - Added job "Refresh RSS Feeds" to job store "default"
+2024-12-19 13:26:34,313 - apscheduler.scheduler - INFO - Scheduler started
+2024-12-19 13:26:34,313 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 13:26:34,314 - root - INFO - Scheduler started successfully
+2024-12-19 13:26:34,314 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 14:26:34.312629+00:00 (in 3599.998163 seconds)
+2024-12-19 13:26:34,324 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.196.129:5000
+2024-12-19 13:26:34,324 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-19 13:26:34,325 - werkzeug - INFO -  * Restarting with stat
+2024-12-19 13:26:34,729 - tzlocal - DEBUG - No explicit setting existed. Use localtime
+2024-12-19 13:26:34,730 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-19 13:26:34,730 - apscheduler.scheduler - INFO - Added job "Refresh RSS Feeds" to job store "default"
+2024-12-19 13:26:34,731 - apscheduler.scheduler - INFO - Scheduler started
+2024-12-19 13:26:34,731 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 13:26:34,731 - root - INFO - Scheduler started successfully
+2024-12-19 13:26:34,731 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 14:26:34.730274+00:00 (in 3599.998601 seconds)
+2024-12-19 13:26:34,739 - werkzeug - WARNING -  * Debugger is active!
+2024-12-19 13:26:34,741 - werkzeug - INFO -  * Debugger PIN: 650-033-362
+2024-12-19 13:26:34,955 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:26:34] "[32mGET / HTTP/1.1[0m" 302 -
+2024-12-19 13:26:34,967 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:26:34] "GET /login?next=/ HTTP/1.1" 200 -
+2024-12-19 13:26:34,981 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:26:34] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-12-19 13:26:35,049 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:26:35] "GET / HTTP/1.1" 200 -
+2024-12-19 13:26:35,499 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:26:35] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2024-12-19 13:26:35,585 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:26:35] "GET / HTTP/1.1" 200 -
+2024-12-19 13:26:35,640 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:26:35] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2024-12-19 13:26:35,866 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:26:35] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-12-19 13:26:35,958 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:26:35] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2024-12-19 13:26:36,842 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:26:36] "[35m[1mGET /api/feeds HTTP/1.1[0m" 500 -
+2024-12-19 13:26:37,382 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:26:37] "[35m[1mGET /api/feeds HTTP/1.1[0m" 500 -

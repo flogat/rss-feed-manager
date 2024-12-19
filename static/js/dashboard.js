@@ -104,6 +104,8 @@ function getStatusBadge(status) {
 }
 
 function showError(message) {
-    //Implementation for showing error in a toast notification would go here.  This is a placeholder.
-    console.error("Toast notification: " + message); //Replace with actual toast implementation.
+    const toast = document.getElementById('errorToast');
+    toast.querySelector('.toast-body').textContent = message;
+    const bsToast = new bootstrap.Toast(toast);
+    bsToast.show();
 }
