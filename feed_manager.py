@@ -27,8 +27,8 @@ def view_articles(feed_id=None):
     sort = request.args.get('sort', 'published_date')
     order = request.args.get('order', 'desc')
     
-    # Base query
-    query = Article.query
+    # Base query with eager loading of feed relationship
+    query = Article.query.join(Article.feed)
     
     # Add feed filter if feed_id is provided
     feed = None
