@@ -37,6 +37,9 @@ $(document).ready(function() {
     $('#startDate').val(sevenDaysAgo.toISOString().split('T')[0]);
     $('#endDate').val(today.toISOString().split('T')[0]);
 
+    // Variable to track polling interval
+    let statusPollingInterval = null;
+
     // Refresh feeds
     $('#refreshFeeds').click(function() {
         // Update all feed statuses to reloading
@@ -44,14 +47,33 @@ $(document).ready(function() {
             $(this).find('td:nth-child(8)').html(getStatusBadge('reloading'));
         });
         
+        // Start polling for updates
+        if (statusPollingInterval) {
+            clearInterval(statusPollingInterval);
+        }
+        
+        // Poll every 2 seconds during reload
+        statusPollingInterval = setInterval(loadFeeds, 2000);
+        
         $.post('/api/feeds/refresh')
             .done(function() {
-                setTimeout(loadFeeds, 1000); // Slight delay to ensure backend has updated
+                // Continue polling for a few more seconds to ensure we get final status
+                setTimeout(function() {
+                    if (statusPollingInterval) {
+                        clearInterval(statusPollingInterval);
+                        statusPollingInterval = null;
+                    }
+                    loadFeeds(); // Final update
+                }, 5000);
             })
             .fail(function(xhr) {
+                if (statusPollingInterval) {
+                    clearInterval(statusPollingInterval);
+                    statusPollingInterval = null;
+                }
                 const error = xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error occurred';
                 showError('Error reloading feeds: ' + error);
-                loadFeeds(); // Reload to show current status
+                loadFeeds(); // Show current status
             });
     });
 
@@ -102,6 +124,12 @@ function loadFeeds(sort = { column: 'title', direction: 'asc' }) {
     $.get('/api/feeds')
         .done(function(response) {
             const feeds = response.feeds;
+            // Update document title to show scanning status
+            if (response.scan_progress && response.scan_progress.is_scanning) {
+                document.title = `Scanning... (${response.scan_progress.current_index}/${response.scan_progress.total_feeds}) - RSS Downloader`;
+            } else {
+                document.title = 'RSS Downloader';
+            }
             // Sort feeds based on current sort settings
             feeds.sort((a, b) => {
                 let aVal = a[sort.column];
