@@ -203,10 +203,10 @@ function deleteFeed(feedId) {
 function formatRelativeTime(dateStr) {
     if (!dateStr) return 'Never';
     
-    const date = new Date(dateStr);
+    // Parse the UTC date string and convert to local time
+    const date = new Date(dateStr + 'Z'); // Append 'Z' to ensure UTC parsing
     const now = new Date();
-    // Convert both to UTC milliseconds for comparison
-    const diffMs = now.getTime() - date.getTime();
+    const diffMs = now - date;
     const diffSecs = Math.floor(diffMs / 1000);
     const diffMins = Math.floor(diffSecs / 60);
     const diffHours = Math.floor(diffMins / 60);
@@ -249,12 +249,12 @@ function refreshSingleFeed(feedId) {
     
     $.post(`/api/feeds/${feedId}/refresh`)
         .done(function(response) {
-            loadFeeds();
+            loadFeeds(currentSort);
         })
         .fail(function(xhr) {
             const error = xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error occurred';
             showError('Error refreshing feed: ' + error);
-            loadFeeds();
+            loadFeeds(currentSort);
         });
 }
 
