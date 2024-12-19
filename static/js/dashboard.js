@@ -87,8 +87,7 @@ function loadFeeds(sort = currentSort) {
             
             $('#feedSummary').html(`
                 Total Feeds: ${feeds.length} (${activeFeeds} active)<br>
-                Total Articles: ${totalArticles} (${recentArticles} in last 7 days)<br>
-                Next automatic scan: <span class="next-scan-time">calculating...</span>
+                Total Articles: ${totalArticles} (${recentArticles} in last 7 days)
             `);
             
             // Update next scan time without resetting the timer if it's already running
