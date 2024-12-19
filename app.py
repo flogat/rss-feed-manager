@@ -47,4 +47,28 @@ def create_app():
 # Create the application instance
 app = create_app()
 
+@app.template_filter('relative_time')
+def relative_time(date):
+    if not date:
+        return ''
+    
+    now = datetime.utcnow()
+    diff = now - date
+    
+    seconds = diff.total_seconds()
+    minutes = seconds // 60
+    hours = minutes // 60
+    days = diff.days
+    
+    if seconds < 60:
+        return 'just now'
+    elif minutes < 60:
+        return f'{int(minutes)} minute{"s" if minutes != 1 else ""} ago'
+    elif hours < 24:
+        return f'{int(hours)} hour{"s" if hours != 1 else ""} ago'
+    elif days < 30:
+        return f'{days} day{"s" if days != 1 else ""} ago'
+    else:
+        return date.strftime('%Y-%m-%d')
+
 # Database will be initialized through Flask-Migrate commands
