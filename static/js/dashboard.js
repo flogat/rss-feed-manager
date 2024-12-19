@@ -236,17 +236,3 @@ function showError(message) {
     const bsToast = new bootstrap.Toast(toast);
     bsToast.show();
 }
-<table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th class="sortable" data-sort="title">Title <i class="bi bi-sort-alpha-down"></i></th>
-                                <th class="sortable" data-sort="url">URL <i class="bi bi-sort-alpha-down"></i></th>
-                                <th class="sortable" data-sort="num_articles">Total Articles <i class="bi bi-sort-numeric-down"></i></th>
-                                <th class="sortable" data-sort="recent_articles">Articles (7d) <i class="bi bi-sort-numeric-down"></i></th>
-                                <th class="sortable" data-sort="last_article_date">Last Article <i class="bi bi-sort-down"></i></th>
-                                <th class="sortable" data-sort="status">Status <i class="bi bi-sort-alpha-down"></i></th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="feedsList"></tbody>
-                    </table>
