@@ -46,6 +46,41 @@ def add_feed():
         logging.error(f"Error adding feed: {str(e)}")
         return jsonify({'error': str(e)}), 500
 
+@feed_bp.route('/api/feeds/bulk', methods=['POST'])
+@login_required
+def add_feeds_bulk():
+    try:
+        urls = request.json.get('urls', [])
+        if not urls:
+            return jsonify({'error': 'No URLs provided'}), 400
+        
+        errors = []
+        success_count = 0
+        
+        for url in urls:
+            try:
+                # Check if feed already exists
+                if RSSFeed.query.filter_by(url=url).first():
+                    errors.append(f"Feed already exists: {url}")
+                    continue
+                
+                feed = RSSFeed(url=url)
+                db.session.add(feed)
+                success_count += 1
+            except Exception as e:
+                errors.append(f"Error adding {url}: {str(e)}")
+        
+        db.session.commit()
+        
+        response = {
+            'message': f'Successfully added {success_count} feeds',
+            'errors': errors if errors else None
+        }
+        return jsonify(response), 200 if success_count > 0 else 400
+    except Exception as e:
+        logging.error(f"Error in bulk feed addition: {str(e)}")
+        return jsonify({'error': str(e)}), 500
+
 @feed_bp.route('/api/feeds/<int:feed_id>', methods=['DELETE'])
 @login_required
 def delete_feed(feed_id):

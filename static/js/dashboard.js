@@ -22,25 +22,36 @@ $(document).ready(function() {
             });
     });
 
-    // Add feed
+    // Add feeds
     $('#addFeedForm').submit(function(e) {
         e.preventDefault();
+        const urls = $('#feedUrls').val().split('\n').filter(url => url.trim());
+        
+        if (urls.length === 0) {
+            showError('Please enter at least one URL');
+            return;
+        }
+        
         $.ajax({
-            url: '/api/feeds',
+            url: '/api/feeds/bulk',
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({
-                url: $('#feedUrl').val()
+                urls: urls
             })
         })
-        .done(function() {
+        .done(function(response) {
             $('#addFeedModal').modal('hide');
-            $('#feedUrl').val('');
+            $('#feedUrls').val('');
             loadFeeds();
+            
+            if (response.errors && response.errors.length > 0) {
+                showError('Some feeds could not be added: ' + response.errors.join(', '));
+            }
         })
         .fail(function(xhr) {
             const error = xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error occurred';
-            showError('Error adding feed: ' + error);
+            showError('Error adding feeds: ' + error);
         });
     });
 
