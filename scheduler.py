@@ -8,7 +8,7 @@ def init_scheduler():
     scheduler.add_job(
         func=lambda: update_all_feeds(trigger='automatic'),
         trigger="interval",
-        minutes=30,
+        minutes=3,
         id='refresh_feeds',
         name='Refresh RSS Feeds'
     )

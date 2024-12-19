@@ -1,335 +1,283 @@
-// Initialize sort state globally
-var currentSort = {
-    column: 'title',
-    direction: 'asc'
-};
-
-$(document).ready(function() {
-
-    // Add click handlers for sortable columns
-    $('.sortable').click(function() {
-        const column = $(this).data('sort');
-        if (currentSort.column === column) {
-            currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
-        } else {
-            currentSort.column = column;
-            currentSort.direction = 'asc';
-        }
-        
-        // Update sort indicators
-        $('.sortable').removeClass('active');
-        $(this).addClass('active');
-        $('.sortable i').attr('class', 'bi bi-sort-alpha-down');
-        const iconClass = currentSort.direction === 'asc' ? 'down' : 'up';
-        $(this).find('i').attr('class', `bi bi-sort-${column === 'num_articles' || column === 'recent_articles' ? 'numeric' : 'alpha'}-${iconClass}`);
-        
-        loadFeeds(currentSort);
-    });
-    
-    // Load feeds on page load
-    loadFeeds(currentSort);
-    
-    // Set default dates for download form
-    const today = new Date();
-    const sevenDaysAgo = new Date(today);
-    sevenDaysAgo.setDate(today.getDate() - 7);
-    
-    $('#startDate').val(sevenDaysAgo.toISOString().split('T')[0]);
-    $('#endDate').val(today.toISOString().split('T')[0]);
-
-    // Variable to track polling interval
-    let statusPollingInterval = null;
-
-    // Refresh feeds
-    $('#refreshFeeds').click(function() {
-        // Update all feed statuses to reloading
-        $('#feedsList tr').each(function() {
-            $(this).find('td:nth-child(8)').html(getStatusBadge('reloading'));
-        });
-        
-        // Start polling for updates
-        if (statusPollingInterval) {
-            clearInterval(statusPollingInterval);
-        }
-        
-        // Poll every 2 seconds during reload
-        statusPollingInterval = setInterval(loadFeeds, 2000);
-        
-        $.post('/api/feeds/refresh')
-            .done(function() {
-                // Continue polling for a few more seconds to ensure we get final status
-                setTimeout(function() {
-                    if (statusPollingInterval) {
-                        clearInterval(statusPollingInterval);
-                        statusPollingInterval = null;
-                    }
-                    loadFeeds(); // Final update
-                }, 5000);
-            })
-            .fail(function(xhr) {
-                if (statusPollingInterval) {
-                    clearInterval(statusPollingInterval);
-                    statusPollingInterval = null;
-                }
-                const error = xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error occurred';
-                showError('Error reloading feeds: ' + error);
-                loadFeeds(); // Show current status
-            });
-    });
-
-    // Add feeds
-    $('#addFeedForm').submit(function(e) {
-        e.preventDefault();
-        const urls = $('#feedUrls').val().split('\n').filter(url => url.trim());
-        
-        if (urls.length === 0) {
-            showError('Please enter at least one URL');
-            return;
-        }
-        
-        $.ajax({
-            url: '/api/feeds/bulk',
-            method: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify({
-                urls: urls
-            })
-        })
-        .done(function(response) {
-            $('#addFeedModal').modal('hide');
-            $('#feedUrls').val('');
-            loadFeeds();
-            
-            if (response.errors && response.errors.length > 0) {
-                showError('Some feeds could not be added: ' + response.errors.join(', '));
-            }
-        })
-        .fail(function(xhr) {
-            const error = xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error occurred';
-            showError('Error adding feeds: ' + error);
-        });
-    });
-
-    // Download articles
-    $('#downloadForm').submit(function(e) {
-        e.preventDefault();
-        const startDate = $('#startDate').val();
-        const endDate = $('#endDate').val();
-        
-        window.location.href = `/api/articles/download?start_date=${startDate}&end_date=${endDate}`;
-    });
-});
-
-function loadFeeds(sort = { column: 'title', direction: 'asc' }) {
-    $.get('/api/feeds')
-        .done(function(response) {
-            const feeds = response.feeds;
-            // Update document title to show scanning status
-            if (response.scan_progress && response.scan_progress.is_scanning) {
-                document.title = `Scanning... (${response.scan_progress.current_index}/${response.scan_progress.total_feeds}) - RSS Downloader`;
-            } else {
-                document.title = 'RSS Downloader';
-            }
-            // Sort feeds based on current sort settings
-            feeds.sort((a, b) => {
-                let aVal = a[sort.column];
-                let bVal = b[sort.column];
-                
-                // Handle special cases
-                if (sort.column === 'last_article_date') {
-                    aVal = aVal ? new Date(aVal).getTime() : 0;
-                    bVal = bVal ? new Date(bVal).getTime() : 0;
-                } else if (sort.column === 'num_articles' || sort.column === 'recent_articles') {
-                    aVal = aVal || 0;
-                    bVal = bVal || 0;
-                } else {
-                    aVal = (aVal || '').toString().toLowerCase();
-                    bVal = (bVal || '').toString().toLowerCase();
-                }
-                
-                if (aVal < bVal) return sort.direction === 'asc' ? -1 : 1;
-                if (aVal > bVal) return sort.direction === 'asc' ? 1 : -1;
-                return 0;
-            });
-            
-            const tbody = $('#feedsList');
-            tbody.empty();
-            
-            let totalArticles = 0;
-            let totalRecentArticles = 0;
-            let mostRecentFeed = null;
-            let mostRecentDate = null;
-            
-            feeds.forEach(function(feed) {
-                totalArticles += feed.num_articles;
-                totalRecentArticles += feed.recent_articles || 0;
-                
-                // Track most recent article
-                if (feed.last_article_date) {
-                    const articleDate = new Date(feed.last_article_date);
-                    if (!mostRecentDate || articleDate > mostRecentDate) {
-                        mostRecentDate = articleDate;
-                        mostRecentFeed = feed;
-                    }
-                }
-                
-                const row = $('<tr>').attr('id', `feed-${feed.id}`);
-                row.append($('<td>').text(feed.title || 'Untitled'));
-                row.append($('<td>').text(feed.url));
-                row.append($('<td>').text(feed.num_articles));
-                row.append($('<td>').text(feed.recent_articles || 0));
-                row.append($('<td>').text(feed.last_article_date ? formatRelativeTime(feed.last_article_date) : 'No articles'));
-                row.append($('<td>').text(feed.last_scan_time ? formatRelativeTime(feed.last_scan_time) : 'Never'));
-                row.append($('<td>').text(feed.last_scan_trigger || 'N/A'));
-                row.append($('<td>').html(getStatusBadge(feed.status)));
-                
-                const actions = $('<td>');
-                // Add reload button for single feed
-                const refreshBtn = $('<button>')
-                    .addClass('btn btn-sm btn-secondary me-2')
-                    .attr('title', 'Reload feed')
-                    .html('<i class="bi bi-arrow-clockwise"></i>')
-                    .click(function() {
-                        refreshSingleFeed(feed.id);
-                    });
-                // Add delete button
-                const deleteBtn = $('<button>')
-                    .addClass('btn btn-sm btn-danger')
-                    .html('<i class="bi bi-trash"></i>')
-                    .click(function() {
-                        deleteFeed(feed.id);
-                    });
-                actions.append(refreshBtn, deleteBtn);
-                
-                row.append(actions);
-                tbody.append(row);
-            });
-            
-            // Update summary with most recent article info
-            let summaryHtml = `<strong>Feed Statistics:</strong> ${feeds.length} feeds tracked, ` +
-                `${totalArticles} total articles, ` +
-                `${totalRecentArticles} articles in the last 7 days`;
-            
-            if (mostRecentFeed && mostRecentDate) {
-                summaryHtml += `<br><strong>Latest Article:</strong> ${formatRelativeTime(mostRecentDate)} from "${mostRecentFeed.title || 'Untitled'}"`;
-            }
-            
-            // Show current scan progress if a scan is running
-            if (response.scan_progress && response.scan_progress.is_scanning) {
-                summaryHtml += `<br><strong>Current Scan Progress:</strong> Processing ${response.scan_progress.current_feed} (${response.scan_progress.current_index} of ${response.scan_progress.total_feeds} feeds)`;
-            }
-            
-            // Add next automatic scan information with precise timing
-            if (response.next_scan) {
-                const nextScan = new Date(response.next_scan);
-                const now = new Date();
-                const diffMs = nextScan - now;
-                const diffMins = Math.floor(diffMs / 60000);
-                const diffSecs = Math.floor((diffMs % 60000) / 1000);
-                
-                let timeStr = '';
-                if (diffMins > 0) {
-                    timeStr += `${diffMins} minute${diffMins === 1 ? '' : 's'}`;
-                    if (diffSecs > 0) {
-                        timeStr += ` ${diffSecs} second${diffSecs === 1 ? '' : 's'}`;
-                    }
-                } else {
-                    timeStr = `${diffSecs} second${diffSecs === 1 ? '' : 's'}`;
-                }
-                
-                summaryHtml += `<br><strong>Next Automatic Scan:</strong> in ${timeStr}`;
-            }
-            
-            $('#feedSummary').html(summaryHtml);
-        })
-        .fail(function(xhr) {
-            const error = xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error occurred';
-            showError('Error loading feeds: ' + error);
-        });
+// Function to format timestamps
+function formatTimestamp(isoString) {
+    if (!isoString) return 'Never';
+    const date = new Date(isoString);
+    return date.toLocaleString();
 }
 
-function deleteFeed(feedId) {
-    if (confirm('Are you sure you want to delete this feed?')) {
-        $.ajax({
-            url: `/api/feeds/${feedId}`,
-            method: 'DELETE'
-        })
-        .done(function() {
-            loadFeeds();
-        })
-        .fail(function(xhr) {
-            const error = xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error occurred';
-            showError('Error deleting feed: ' + error);
-        });
-    }
-}
-
-function formatRelativeTime(dateStr) {
-    if (!dateStr) return 'Never';
-    
-    // Parse the UTC date string and convert to local time
-    const date = new Date(dateStr + 'Z'); // Append 'Z' to ensure UTC parsing
-    const now = new Date();
-    const diffMs = now - date;
-    const diffSecs = Math.floor(diffMs / 1000);
-    const diffMins = Math.floor(diffSecs / 60);
-    const diffHours = Math.floor(diffMins / 60);
-    const diffDays = Math.floor(diffHours / 24);
-    const diffMonths = Math.floor(diffDays / 30);
-    
-    if (diffSecs < 60) return `${diffSecs} second${diffSecs === 1 ? '' : 's'} ago`;
-    if (diffMins < 60) return `${diffMins} minute${diffMins === 1 ? '' : 's'} ago`;
-    if (diffHours < 10) {
-        const remainingMins = diffMins % 60;
-        return remainingMins ? 
-            `${diffHours} hour${diffHours === 1 ? '' : 's'} ${remainingMins} minute${remainingMins === 1 ? '' : 's'} ago` :
-            `${diffHours} hour${diffHours === 1 ? '' : 's'} ago`;
-    }
-    if (diffHours < 24) return `${diffHours} hour${diffHours === 1 ? '' : 's'} ago`;
-    if (diffDays < 30) return `${diffDays} day${diffDays === 1 ? '' : 's'} ago`;
-    if (diffMonths < 12) {
-        const remainingDays = diffDays % 30;
-        return remainingDays ? 
-            `${diffMonths} month${diffMonths === 1 ? '' : 's'}, ${remainingDays} day${remainingDays === 1 ? '' : 's'} ago` :
-            `${diffMonths} month${diffMonths === 1 ? '' : 's'} ago`;
-    }
-    return date.toLocaleDateString();
-}
-
-function getStatusBadge(status) {
-    // Normalize status to ensure consistency
-    if (status === 'refreshing') status = 'reloading';
-    
-    const classes = {
-        'active': 'bg-success',
-        'error': 'bg-danger',
-        'reloading': 'bg-warning'
-    };
-    
-    const spinnerIcon = status === 'reloading' ? '<i class="bi bi-arrow-repeat spin me-1"></i>' : '';
-    return `<span class="badge ${classes[status] || 'bg-secondary'}">${spinnerIcon}${status}</span>`;
-}
-
-function refreshSingleFeed(feedId) {
-    // Find the feed's status cell and update it
-    const row = $(`#feed-${feedId}`);
-    const statusCell = row.find('td').eq(6); // Status is the 7th column
-    statusCell.html(getStatusBadge('reloading'));
-    
-    $.post(`/api/feeds/${feedId}/refresh`)
-        .done(function(response) {
-            loadFeeds(currentSort);
-        })
-        .fail(function(xhr) {
-            const error = xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error occurred';
-            showError('Error refreshing feed: ' + error);
-            loadFeeds(currentSort);
-        });
-}
-
+// Function to show error messages
 function showError(message) {
     const toast = document.getElementById('errorToast');
     toast.querySelector('.toast-body').textContent = message;
     const bsToast = new bootstrap.Toast(toast);
     bsToast.show();
 }
+
+// Function to start countdown timer
+function startCountdownTimer(nextScanTime) {
+    // Clear existing interval if any
+    if (window.countdownInterval) {
+        clearInterval(window.countdownInterval);
+    }
+    
+    function updateCountdown() {
+        const now = new Date();
+        const diffMs = nextScanTime - now;
+        
+        if (diffMs <= 0) {
+            clearInterval(window.countdownInterval);
+            window.countdownInterval = null;
+            return;
+        }
+        
+        const diffMins = Math.floor(diffMs / 60000);
+        const diffSecs = Math.floor((diffMs % 60000) / 1000);
+        
+        let timeStr = '';
+        if (diffMins > 0) {
+            timeStr += `${diffMins} minute${diffMins === 1 ? '' : 's'}`;
+            if (diffSecs > 0) {
+                timeStr += ` ${diffSecs} second${diffSecs === 1 ? '' : 's'}`;
+            }
+        } else {
+            timeStr = `${diffSecs} second${diffSecs === 1 ? '' : 's'}`;
+        }
+        
+        // Update all instances of next scan time display
+        $('.next-scan-time').text(`in ${timeStr}`);
+    }
+    
+    // Update immediately and then every second
+    updateCountdown();
+    window.countdownInterval = setInterval(updateCountdown, 1000);
+}
+
+let currentSort = {
+    column: 'title',
+    direction: 'asc'
+};
+
+function loadFeeds(sort = currentSort) {
+    $.get('/api/feeds')
+        .done(function(response) {
+            const feeds = response.feeds;
+            // Update document title and progress bar
+            const scanProgress = response.scan_progress;
+            if (scanProgress && scanProgress.is_scanning && !scanProgress.completed) {
+                // Update title
+                document.title = `Scanning... (${scanProgress.current_index}/${scanProgress.total_feeds}) - RSS Downloader`;
+                
+                // Show and update progress bar
+                const progressPercent = (scanProgress.current_index / scanProgress.total_feeds) * 100;
+                $('#scanProgress').show();
+                $('#scanProgress .progress-bar')
+                    .css('width', `${progressPercent}%`)
+                    .attr('aria-valuenow', progressPercent);
+            } else {
+                document.title = 'RSS Downloader';
+                $('#scanProgress').hide();
+            }
+
+            // Update summary
+            let activeFeeds = feeds.filter(f => f.status === 'active').length;
+            let totalArticles = feeds.reduce((sum, feed) => sum + feed.num_articles, 0);
+            let recentArticles = feeds.reduce((sum, feed) => sum + feed.recent_articles, 0);
+            
+            $('#feedSummary').html(`
+                Total Feeds: ${feeds.length} (${activeFeeds} active)<br>
+                Total Articles: ${totalArticles} (${recentArticles} in last 7 days)<br>
+                Next automatic scan: <span class="next-scan-time">calculating...</span>
+            `);
+            
+            // Start countdown timer if not already running
+            if (response.next_scan && !window.countdownInterval) {
+                startCountdownTimer(new Date(response.next_scan));
+            }
+
+            // Sort feeds based on current sort settings
+            feeds.sort((a, b) => {
+                let aVal = a[sort.column];
+                let bVal = b[sort.column];
+                
+                // Handle null values
+                if (aVal === null && bVal === null) return 0;
+                if (aVal === null) return 1;
+                if (bVal === null) return -1;
+                
+                // Compare based on type
+                if (typeof aVal === 'string') {
+                    return sort.direction === 'asc' ? 
+                        aVal.localeCompare(bVal) : 
+                        bVal.localeCompare(aVal);
+                }
+                return sort.direction === 'asc' ? aVal - bVal : bVal - aVal;
+            });
+
+            // Render feeds
+            const tbody = $('#feedsList');
+            tbody.empty();
+            feeds.forEach(feed => {
+                tbody.append(`
+                    <tr>
+                        <td>${feed.title || feed.url}</td>
+                        <td>${feed.url}</td>
+                        <td>${feed.num_articles}</td>
+                        <td>${feed.recent_articles}</td>
+                        <td>${formatTimestamp(feed.last_article_date)}</td>
+                        <td>${formatTimestamp(feed.last_scan_time)}</td>
+                        <td>${feed.last_scan_trigger}</td>
+                        <td>${feed.status}</td>
+                        <td>
+                            <button class="btn btn-sm btn-primary refresh-feed" data-feed-id="${feed.id}">
+                                <i class="bi bi-arrow-clockwise"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger delete-feed" data-feed-id="${feed.id}">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `);
+            });
+        })
+        .fail(function(xhr) {
+            const error = xhr.responseJSON ? xhr.responseJSON.error : 'Failed to load feeds';
+            showError(error);
+        });
+}
+
+$(document).ready(function() {
+    // Initial load
+    loadFeeds();
+    
+    // Refresh feeds periodically
+    setInterval(loadFeeds, 5000);
+    
+    // Handle sorting
+    $('.sortable').click(function() {
+        const column = $(this).data('sort');
+        if (currentSort.column === column) {
+            currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+        } else {
+            currentSort = {
+                column: column,
+                direction: 'asc'
+            };
+        }
+        
+        // Update sort indicators
+        $('.sortable').removeClass('active');
+        $(this).addClass('active');
+        
+        // Update icon
+        const icon = $(this).find('i');
+        if (currentSort.direction === 'asc') {
+            icon.removeClass('bi-sort-down').addClass('bi-sort-up');
+        } else {
+            icon.removeClass('bi-sort-up').addClass('bi-sort-down');
+        }
+        
+        loadFeeds(currentSort);
+    });
+    
+    // Handle individual feed refresh
+    $('#feedsList').on('click', '.refresh-feed', function() {
+        const feedId = $(this).data('feed-id');
+        const button = $(this);
+        button.prop('disabled', true);
+        
+        $.post(`/api/feeds/${feedId}/refresh`)
+            .done(function(response) {
+                loadFeeds(currentSort);
+            })
+            .fail(function(xhr) {
+                const error = xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error occurred';
+                showError('Error refreshing feed: ' + error);
+            })
+            .always(function() {
+                button.prop('disabled', false);
+            });
+    });
+    
+    // Handle feed deletion
+    $('#feedsList').on('click', '.delete-feed', function() {
+        if (!confirm('Are you sure you want to delete this feed?')) return;
+        
+        const feedId = $(this).data('feed-id');
+        $.ajax({
+            url: `/api/feeds/${feedId}`,
+            method: 'DELETE'
+        })
+            .done(function(response) {
+                loadFeeds(currentSort);
+            })
+            .fail(function(xhr) {
+                const error = xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error occurred';
+                showError('Error deleting feed: ' + error);
+            });
+    });
+    
+    // Handle refresh all feeds
+    $('#refreshFeeds').click(function() {
+        $(this).prop('disabled', true);
+        
+        $.post('/api/feeds/refresh')
+            .done(function(response) {
+                loadFeeds(currentSort);
+            })
+            .fail(function(xhr) {
+                const error = xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error occurred';
+                showError('Error refreshing feeds: ' + error);
+            })
+            .always(function() {
+                $(this).prop('disabled', false);
+            });
+    });
+    
+    // Handle add feed form submission
+    $('#addFeedForm').submit(function(e) {
+        e.preventDefault();
+        const urls = $('#feedUrls').val().split('\n').map(url => url.trim()).filter(url => url);
+        
+        if (urls.length === 0) {
+            showError('Please enter at least one URL');
+            return;
+        }
+        
+        $.post('/api/feeds/bulk', {
+            urls: urls
+        })
+            .done(function(response) {
+                if (response.errors && response.errors.length > 0) {
+                    showError('Some feeds could not be added:\n' + response.errors.join('\n'));
+                }
+                $('#addFeedModal').modal('hide');
+                $('#feedUrls').val('');
+                loadFeeds(currentSort);
+            })
+            .fail(function(xhr) {
+                const error = xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error occurred';
+                showError('Error adding feeds: ' + error);
+            });
+    });
+    
+    // Handle article download form submission
+    $('#downloadForm').submit(function(e) {
+        e.preventDefault();
+        const startDate = $('#startDate').val();
+        const endDate = $('#endDate').val();
+        
+        if (!startDate || !endDate) {
+            showError('Please select both start and end dates');
+            return;
+        }
+        
+        window.location.href = `/api/articles/download?start_date=${startDate}&end_date=${endDate}`;
+        $('#downloadModal').modal('hide');
+    });
+});
+
+// Initialize sort state globally
+//var currentSort = {
+//    column: 'title',
+//    direction: 'asc'
+//};

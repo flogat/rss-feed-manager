@@ -17,30 +17,15 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "RSS Feed Manager"
-
-[[workflows.workflow.tasks]]
-task = "workflow.run"
 args = "Flask DB Init"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
 args = "Flask Server"
 
-[[workflows.workflow]]
-name = "RSS Feed Manager"
-author = "agent"
-
-[workflows.workflow.metadata]
-agentRequireRestartOnSave = false
-
 [[workflows.workflow.tasks]]
-task = "packager.installForAll"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "python main.py"
-waitForPort = 5000
+task = "workflow.run"
+args = "RSS Feed Manager"
 
 [[workflows.workflow]]
 name = "Flask DB Init"
@@ -58,6 +43,21 @@ args = "flask db init && flask db migrate -m 'Initial migration' && flask db upg
 
 [[workflows.workflow]]
 name = "Flask Server"
+author = "agent"
+
+[workflows.workflow.metadata]
+agentRequireRestartOnSave = false
+
+[[workflows.workflow.tasks]]
+task = "packager.installForAll"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python main.py"
+waitForPort = 5000
+
+[[workflows.workflow]]
+name = "RSS Feed Manager"
 author = "agent"
 
 [workflows.workflow.metadata]
