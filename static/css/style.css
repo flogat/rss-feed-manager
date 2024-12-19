@@ -1,37 +1,4 @@
-.card {
-    margin-bottom: 1.5rem;
-}
-
-.navbar {
-    margin-bottom: 2rem;
-}
-
-.table td, .table th {
-    vertical-align: middle;
-}
-
-.badge {
-    font-size: 0.8rem;
-    padding: 0.35em 0.65em;
-}
-
-.btn-sm {
-    padding: 0.25rem 0.5rem;
-    font-size: 0.875rem;
-}
-
-.table-responsive {
-    margin-bottom: 1rem;
-}
-
-.modal-content {
-    border-radius: 0.5rem;
-}
-
-.form-control:focus {
-    box-shadow: none;
-}
-
+/* Table sorting */
 .sortable {
     cursor: pointer;
     user-select: none;
@@ -47,7 +14,7 @@
 }
 
 .sortable:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 /* Container width override */
@@ -59,8 +26,6 @@
 
 /* Custom styling */
 body {
-    background: url('/static/img/background.png') no-repeat center center fixed;
-    background-size: cover;
     min-height: 100vh;
 }
 
@@ -69,13 +34,21 @@ body {
     padding: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+img.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 155%;
+    z-index: -1;
 }
 
 .jumbotron {
     padding: 1rem 0rem;
     margin-bottom: 0px;
-    background-color: rgba(8, 88, 88, 0);
+    background-color: transparent;
 }
 
 .progress {
@@ -99,6 +72,8 @@ body {
 .table td {
     border-top: 1px solid #dee2e6;
     vertical-align: middle;
+    background-color: #ffffff;
+    color: #333;
 }
 
 .table-hover tbody tr:hover {
@@ -106,24 +81,50 @@ body {
     cursor: pointer;
 }
 
-/* Animation */
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-.spin {
-    animation: spin 1s linear infinite;
-    display: inline-block;
-}
-
 /* Card customization */
 .card {
+    margin-bottom: 1.5rem;
+    background-color: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.125);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .card-header {
-    background-color: rgba(0, 0, 0, 0.03);
+    background-color: #ffffff;
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    color: #333;
+}
+
+.navbar {
+    margin-bottom: 2rem;
+    background-color: #ffffff;
+}
+
+.badge {
+    font-size: 0.8rem;
+    padding: 0.35em 0.65em;
+}
+
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+.table-responsive {
+    margin-bottom: 1rem;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+}
+
+.form-control {
+    background-color: #ffffff;
+    color: #333;
+}
+
+.form-control:focus {
+    background-color: #ffffff;
+    color: #333;
+    box-shadow: none;
 }
