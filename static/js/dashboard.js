@@ -6,13 +6,29 @@ function formatTimestamp(isoString, useRelative = false) {
     if (useRelative) {
         const now = new Date();
         const diffMs = now - date;
-        const diffMins = Math.floor(diffMs / 60000);
+        const diffSeconds = Math.floor(diffMs / 1000);
+        const diffMins = Math.floor(diffSeconds / 60);
         const diffHours = Math.floor(diffMins / 60);
         const diffDays = Math.floor(diffHours / 24);
         
         if (diffMins < 1) return 'just now';
+        if (diffMins < 10) {
+            // Show minutes and seconds when less than 10 minutes
+            const secs = Math.floor(diffSeconds % 60);
+            return `${diffMins} minute${diffMins === 1 ? '' : 's'} ${secs} second${secs === 1 ? '' : 's'} ago`;
+        }
         if (diffMins < 60) return `${diffMins} minute${diffMins === 1 ? '' : 's'} ago`;
+        if (diffHours < 10) {
+            // Show hours and minutes when less than 10 hours
+            const mins = Math.floor(diffMins % 60);
+            return `${diffHours} hour${diffHours === 1 ? '' : 's'} ${mins} minute${mins === 1 ? '' : 's'} ago`;
+        }
         if (diffHours < 24) return `${diffHours} hour${diffHours === 1 ? '' : 's'} ago`;
+        if (diffDays < 10) {
+            // Show days and hours when less than 10 days
+            const hrs = Math.floor(diffHours % 24);
+            return `${diffDays} day${diffDays === 1 ? '' : 's'} ${hrs} hour${hrs === 1 ? '' : 's'} ago`;
+        }
         if (diffDays < 30) return `${diffDays} day${diffDays === 1 ? '' : 's'} ago`;
         return date.toLocaleDateString();
     }
