@@ -15,20 +15,30 @@ feed_bp = Blueprint('feed', __name__)
 def dashboard():
     return render_template('dashboard.html')
 
-@feed_bp.route('/api/feeds', methods=['GET'])
+@feed_bp.route('/api/feeds')
 @login_required
 def get_feeds():
     feeds = RSSFeed.query.all()
-    return jsonify([{
-        'id': feed.id,
-        'url': feed.url,
-        'title': feed.title,
-        'last_updated': feed.last_updated.isoformat(),
-        'status': feed.status,
-        'error_count': feed.error_count,
-        'num_articles': feed.num_articles,
-        'last_article_date': feed.last_article_date.isoformat() if feed.last_article_date else None
-    } for feed in feeds])
+    seven_days_ago = datetime.utcnow() - timedelta(days=7)
+    
+    feed_data = []
+    for feed in feeds:
+        recent_articles = Article.query.filter(
+            Article.feed_id == feed.id,
+            Article.collected_date >= seven_days_ago
+        ).count()
+        
+        feed_data.append({
+            'id': feed.id,
+            'url': feed.url,
+            'title': feed.title,
+            'status': feed.status,
+            'num_articles': feed.num_articles,
+            'recent_articles': recent_articles,
+            'last_article_date': feed.last_article_date.isoformat() if feed.last_article_date else None
+        })
+    
+    return jsonify(feed_data)
 
 @feed_bp.route('/api/feeds', methods=['POST'])
 @login_required
