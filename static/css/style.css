@@ -20,7 +20,7 @@
 /* Container width override */
 @media (min-width: 1200px) {
     .container {
-        max-width: 1200px;
+        max-width: 1400px;
     }
 }
 
