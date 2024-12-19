@@ -14,7 +14,9 @@ function showError(message) {
 }
 
 // Function to start countdown timer
-function startCountdownTimer(nextScanTime) {
+function startCountdownTimer(initialNextScanTime) {
+    window.nextScanTime = initialNextScanTime;
+    
     // Clear existing interval if any
     if (window.countdownInterval) {
         clearInterval(window.countdownInterval);
@@ -22,7 +24,7 @@ function startCountdownTimer(nextScanTime) {
     
     function updateCountdown() {
         const now = new Date();
-        const diffMs = nextScanTime - now;
+        const diffMs = window.nextScanTime - now;
         
         if (diffMs <= 0) {
             clearInterval(window.countdownInterval);
@@ -89,9 +91,14 @@ function loadFeeds(sort = currentSort) {
                 Next automatic scan: <span class="next-scan-time">calculating...</span>
             `);
             
-            // Start countdown timer if not already running
-            if (response.next_scan && !window.countdownInterval) {
-                startCountdownTimer(new Date(response.next_scan));
+            // Update next scan time without resetting the timer if it's already running
+            if (response.next_scan) {
+                const nextScanTime = new Date(response.next_scan);
+                if (!window.countdownInterval) {
+                    startCountdownTimer(nextScanTime);
+                } else {
+                    window.nextScanTime = nextScanTime; // Update the time without restarting timer
+                }
             }
 
             // Sort feeds based on current sort settings
