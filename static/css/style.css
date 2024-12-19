@@ -50,6 +50,46 @@
     background-color: rgba(255, 255, 255, 0.1);
 }
 
+/* Container width override */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1200px;
+    }
+}
+
+/* Custom styling */
+body {
+    background-color: #f8f9fa;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.97);
+}
+
+.jumbotron {
+    padding: 1rem 0rem;
+    margin-bottom: 0px;
+    background-color: rgba(8, 88, 88, 0);
+}
+
+.progress {
+    height: 10px;
+}
+
+/* Table styling */
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.075);
+}
+
+/* Animation */
 @keyframes spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
@@ -58,4 +98,15 @@
 .spin {
     animation: spin 1s linear infinite;
     display: inline-block;
+}
+
+/* Card customization */
+.card {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
