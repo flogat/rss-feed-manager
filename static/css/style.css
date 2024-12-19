@@ -84,9 +84,8 @@ img.background {
 .table td:nth-child(1), /* Title column */
 .table td:nth-child(2) { /* URL column */
     max-width: 250px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    word-wrap: break-word;
+    white-space: normal;
 }
 
 .table th:nth-child(1),

@@ -8,7 +8,9 @@ function formatTimestamp(isoString, useRelative = false) {
     
     if (useRelative) {
         const now = new Date();
-        const diffMs = now - utcDate;  // Compare with UTC time for relative diff
+        // Convert now to UTC for comparison
+        const nowUTC = new Date(now.getTime() + now.getTimezoneOffset() * 60000);
+        const diffMs = nowUTC - utcDate;
         const diffSeconds = Math.floor(diffMs / 1000);
         const diffMins = Math.floor(diffSeconds / 60);
         const diffHours = Math.floor(diffMins / 60);
