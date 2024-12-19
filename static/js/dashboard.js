@@ -1,6 +1,14 @@
 $(document).ready(function() {
     // Load feeds on page load
     loadFeeds();
+    
+    // Set default dates for download form
+    const today = new Date();
+    const sevenDaysAgo = new Date(today);
+    sevenDaysAgo.setDate(today.getDate() - 7);
+    
+    $('#startDate').val(sevenDaysAgo.toISOString().split('T')[0]);
+    $('#endDate').val(today.toISOString().split('T')[0]);
 
     // Refresh feeds
     $('#refreshFeeds').click(function() {
