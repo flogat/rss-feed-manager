@@ -62,10 +62,22 @@ def relative_time(date):
     
     if seconds < 60:
         return 'just now'
+    elif minutes < 10:
+        # Show minutes and seconds when less than 10 minutes
+        secs = int(seconds % 60)
+        return f'{int(minutes)} minute{"s" if minutes != 1 else ""} {secs} second{"s" if secs != 1 else ""} ago'
     elif minutes < 60:
         return f'{int(minutes)} minute{"s" if minutes != 1 else ""} ago'
+    elif hours < 10:
+        # Show hours and minutes when less than 10 hours
+        mins = int(minutes % 60)
+        return f'{int(hours)} hour{"s" if hours != 1 else ""} {mins} minute{"s" if mins != 1 else ""} ago'
     elif hours < 24:
         return f'{int(hours)} hour{"s" if hours != 1 else ""} ago'
+    elif days < 10:
+        # Show days and hours when less than 10 days
+        hrs = int(hours % 24)
+        return f'{days} day{"s" if days != 1 else ""} {hrs} hour{"s" if hrs != 1 else ""} ago'
     elif days < 30:
         return f'{days} day{"s" if days != 1 else ""} ago'
     else:
