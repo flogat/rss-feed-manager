@@ -33,10 +33,10 @@ function formatTimestamp(isoString, useRelative = false) {
             return `${diffDays} day${diffDays === 1 ? '' : 's'} ${hrs} hour${hrs === 1 ? '' : 's'} ago`;
         }
         if (diffDays < 30) return `${diffDays} day${diffDays === 1 ? '' : 's'} ago`;
-        return date.toLocaleDateString();
+        return localDate.toLocaleDateString();
     }
     
-    return date.toLocaleString();
+    return localDate.toLocaleString();
 }
 
 // Function to show error messages

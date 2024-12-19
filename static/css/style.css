@@ -74,6 +74,24 @@ img.background {
     vertical-align: middle;
     background-color: #ffffff;
     color: #333;
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Specific column widths */
+.table td:nth-child(1), /* Title column */
+.table td:nth-child(2) { /* URL column */
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.table th:nth-child(1),
+.table th:nth-child(2) {
+    min-width: 200px;
 }
 
 .table-hover tbody tr:hover {
