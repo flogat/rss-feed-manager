@@ -282,16 +282,21 @@ def download_articles():
         
         si = StringIO()
         cw = csv.writer(si)
-        # Headers are always included
-        cw.writerow(['Title', 'Link', 'Description', 'Published Date', 'Collected Date'])
+        # Headers according to new structure
+        cw.writerow(['Title', 'Link', 'Publication Date', 'Source', 'Category', 'Summary'])
         
         for article in query.all():
+            # Get the feed information for each article
+            feed = RSSFeed.query.get(article.feed_id)
+            source_name = feed.title if feed else 'Unknown Source'
+            
             cw.writerow([
                 article.title,
                 article.link,
-                article.description,
                 article.published_date.isoformat() if article.published_date else '',
-                article.collected_date.isoformat() if article.collected_date else ''
+                source_name,
+                'Startups',  # Default category for now
+                article.description or ''
             ])
         
         output = si.getvalue()
@@ -314,17 +319,19 @@ def download_feed_articles(feed_id):
         
         si = StringIO()
         cw = csv.writer(si)
-        # Write headers
-        cw.writerow(['Title', 'Link', 'Description', 'Published Date', 'Collected Date'])
+        # Write headers according to new structure
+        cw.writerow(['Title', 'Link', 'Publication Date', 'Source', 'Category', 'Summary'])
         
         # Write article data
+        source_name = feed.title or 'Unknown Source'
         for article in articles:
             cw.writerow([
                 article.title,
                 article.link,
-                article.description,
                 article.published_date.isoformat() if article.published_date else '',
-                article.collected_date.isoformat() if article.collected_date else ''
+                source_name,
+                'Startups',  # Default category for now
+                article.description or ''
             ])
         
         output = si.getvalue()
