@@ -109,6 +109,56 @@ def refresh_feeds():
         logging.error(f"Error refreshing feeds: {str(e)}")
         return jsonify({'error': str(e)}), 500
 
+@feed_bp.route('/api/feeds/<int:feed_id>/refresh', methods=['POST'])
+@login_required
+def refresh_single_feed(feed_id):
+    try:
+        feed = RSSFeed.query.get_or_404(feed_id)
+        update_single_feed(feed)
+        return jsonify({'message': 'Feed refreshed successfully'})
+    except Exception as e:
+        logging.error(f"Error refreshing feed {feed_id}: {str(e)}")
+        return jsonify({'error': str(e)}), 500
+
+def update_single_feed(feed):
+    try:
+        parsed = feedparser.parse(feed.url)
+        feed.title = parsed.feed.title
+        feed.last_updated = datetime.utcnow()
+        feed.status = 'active'
+        feed.error_count = 0
+        
+        current_count = Article.query.filter_by(feed_id=feed.id).count()
+        new_articles = 0
+        latest_date = feed.last_article_date
+        
+        for entry in parsed.entries:
+            if not Article.query.filter_by(link=entry.link).first():
+                published_date = datetime(*entry.published_parsed[:6]) if 'published_parsed' in entry else None
+                article = Article(
+                    feed_id=feed.id,
+                    title=entry.title,
+                    link=entry.link,
+                    description=entry.get('description', ''),
+                    published_date=published_date
+                )
+                db.session.add(article)
+                new_articles += 1
+                if published_date and (not latest_date or published_date > latest_date):
+                    latest_date = published_date
+        
+        feed.num_articles = current_count + new_articles
+        if latest_date:
+            feed.last_article_date = latest_date
+            
+        db.session.commit()
+    except Exception as e:
+        feed.status = 'error'
+        feed.error_count += 1
+        feed.last_error = str(e)
+        db.session.commit()
+        raise
+
 def update_all_feeds():
     feeds = RSSFeed.query.all()
     for feed in feeds:

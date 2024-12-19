@@ -143,16 +143,25 @@ function loadFeeds(sort = { column: 'title', direction: 'asc' }) {
                 row.append($('<td>').text(feed.num_articles));
                 row.append($('<td>').text(feed.recent_articles || 0));
                 row.append($('<td>').text(feed.last_article_date ? formatRelativeTime(feed.last_article_date) : 'No articles'));
+                row.append($('<td>').text(feed.last_updated ? formatRelativeTime(feed.last_updated) : 'Never'));
                 row.append($('<td>').html(getStatusBadge(feed.status)));
                 
                 const actions = $('<td>');
+                // Add refresh button
+                const refreshBtn = $('<button>')
+                    .addClass('btn btn-sm btn-secondary me-2')
+                    .html('<i class="bi bi-arrow-clockwise"></i>')
+                    .click(function() {
+                        refreshSingleFeed(feed.id);
+                    });
+                // Add delete button
                 const deleteBtn = $('<button>')
                     .addClass('btn btn-sm btn-danger')
                     .html('<i class="bi bi-trash"></i>')
                     .click(function() {
                         deleteFeed(feed.id);
                     });
-                actions.append(deleteBtn);
+                actions.append(refreshBtn, deleteBtn);
                 
                 row.append(actions);
                 tbody.append(row);
@@ -225,9 +234,27 @@ function formatRelativeTime(dateStr) {
 function getStatusBadge(status) {
     const classes = {
         'active': 'bg-success',
-        'error': 'bg-danger'
+        'error': 'bg-danger',
+        'refreshing': 'bg-warning'
     };
     return `<span class="badge ${classes[status] || 'bg-secondary'}">${status}</span>`;
+}
+
+function refreshSingleFeed(feedId) {
+    // Find the feed's status cell and update it
+    const row = $(`#feed-${feedId}`);
+    const statusCell = row.find('td').eq(6); // Status is the 7th column
+    statusCell.html(getStatusBadge('refreshing'));
+    
+    $.post(`/api/feeds/${feedId}/refresh`)
+        .done(function(response) {
+            loadFeeds();
+        })
+        .fail(function(xhr) {
+            const error = xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error occurred';
+            showError('Error refreshing feed: ' + error);
+            loadFeeds();
+        });
 }
 
 function showError(message) {
