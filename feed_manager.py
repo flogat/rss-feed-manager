@@ -375,9 +375,9 @@ def update_all_feeds(trigger='manual'):
             })
             
             try:
-                # Add 5-second pause between feeds
+                # Add 1-second pause between feeds
                 if index > 1:  # Don't pause before the first feed
-                    time.sleep(5)
+                    time.sleep(1)
                 
                 parsed = feedparser.parse(feed.url)
                 feed.title = parsed.feed.title
