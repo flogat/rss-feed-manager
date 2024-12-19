@@ -4517,3 +4517,157 @@ with app.app_context(). See the documentation for more information.
 2024-12-19 16:10:29,885 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:10:29] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
 2024-12-19 16:10:30,651 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:10:30] "GET /api/feeds HTTP/1.1" 200 -
 2024-12-19 16:10:34,072 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:10:34] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:10:35,641 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:10:35] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:10:39,088 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:10:39] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:10:40,649 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:10:40] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:10:44,059 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:10:44] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:10:45,639 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:10:45] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:10:49,056 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:10:49] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:10:49,632 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:10:49] "GET /feeds/23/articles HTTP/1.1" 200 -
+2024-12-19 16:10:50,055 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:10:50] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2024-12-19 16:10:52,029 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:10:52] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-12-19 16:10:54,389 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:10:54] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:10:55,475 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:10:55] "GET /feeds/23/articles?sort=source&order=asc HTTP/1.1" 200 -
+2024-12-19 16:10:55,912 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:10:55] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-12-19 16:10:59,377 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:10:59] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:10:59,707 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:10:59] "GET /feeds/23/articles?sort=title&order=desc HTTP/1.1" 200 -
+2024-12-19 16:11:00,163 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:11:00] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2024-12-19 16:11:03,912 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:11:03] "GET /feeds/23/articles?page=4&sort=title&order=desc HTTP/1.1" 200 -
+2024-12-19 16:11:04,386 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:11:04] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:11:04,497 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:11:04] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2024-12-19 16:11:09,071 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:11:09] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:11:10,131 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:11:10] "GET /feeds/23/articles?sort=published_date&order=asc HTTP/1.1" 200 -
+2024-12-19 16:11:10,576 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:11:10] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2024-12-19 16:11:11,394 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:11:11] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-12-19 16:11:14,069 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:11:14] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:11:16,342 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:11:16] "GET /feeds/23/articles?page=4&sort=published_date&order=asc HTTP/1.1" 200 -
+2024-12-19 16:11:17,092 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:11:17] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-12-19 16:11:19,057 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:11:19] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:11:24,064 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:11:24] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:11:29,053 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:11:29] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:11:34,061 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:11:34] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:11:38,367 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:11:38] "GET /api/articles/854 HTTP/1.1" 200 -
+2024-12-19 16:11:39,065 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:11:39] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:11:44,057 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:11:44] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:11:46,808 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:11:46] "GET /dashboard HTTP/1.1" 200 -
+2024-12-19 16:11:47,271 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:11:47] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-12-19 16:11:47,414 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:11:47] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-12-19 16:11:48,191 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:11:48] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:11:49,078 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:11:49] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:11:53,201 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:11:53] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:11:54,062 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:11:54] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:11:58,200 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:11:58] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:11:59,055 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:11:59] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:12:03,204 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:03] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:12:04,062 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:04] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:12:08,197 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:08] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:12:09,064 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:09] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:12:13,202 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:13] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:12:14,069 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:14] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:12:17,535 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:17] "GET /feeds/23/articles HTTP/1.1" 200 -
+2024-12-19 16:12:17,974 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:17] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-12-19 16:12:19,062 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:19] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:12:20,079 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:20] "GET /api/articles/851 HTTP/1.1" 200 -
+2024-12-19 16:12:24,056 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:24] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:12:24,597 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:24] "GET /dashboard HTTP/1.1" 200 -
+2024-12-19 16:12:24,804 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:24] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-12-19 16:12:25,199 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:25] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-12-19 16:12:25,910 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:25] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:12:29,052 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:29] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:12:30,908 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:30] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:12:34,058 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:34] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:12:35,922 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:35] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:12:39,069 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:39] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:12:40,935 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:40] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:12:44,072 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:44] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:12:45,910 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:45] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:12:49,065 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:49] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:12:50,913 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:50] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:12:54,054 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:54] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:12:55,910 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:55] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:12:59,054 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:12:59] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:13:00,918 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:13:00] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:13:04,125 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:13:04] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:13:05,910 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:13:05] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:13:09,069 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:13:09] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:13:10,910 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:13:10] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:13:14,079 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:13:14] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:13:15,911 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:13:15] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:13:19,057 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:13:19] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:13:20,910 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:13:20] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:13:24,056 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:13:24] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:13:26,794 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 16:13:26,795 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 16:13:26 UTC)" (scheduled at 2024-12-19 16:13:26.793379+00:00)
+2024-12-19 16:13:26,796 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 16:16:26.793379+00:00 (in 179.997409 seconds)
+2024-12-19 16:13:26,803 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 16:16:26 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 345, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 16:13:27,569 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 16:13:27,570 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 16:13:27 UTC)" (scheduled at 2024-12-19 16:13:27.568574+00:00)
+2024-12-19 16:13:27,570 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 16:16:27.568574+00:00 (in 179.998300 seconds)
+2024-12-19 16:13:27,572 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 16:16:27 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 345, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 16:13:29,063 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:13:29] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:13:34,058 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:13:34] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:13:39,063 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:13:39] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:13:44,064 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:13:44] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:13:49,066 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:13:49] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:13:52,698 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:13:52] "[32mGET / HTTP/1.1[0m" 302 -
+2024-12-19 16:13:52,706 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:13:52] "GET /login?next=/ HTTP/1.1" 200 -
+2024-12-19 16:13:52,718 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:13:52] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-12-19 16:13:54,059 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:13:54] "GET /api/feeds HTTP/1.1" 200 -
