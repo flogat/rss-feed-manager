@@ -1,11 +1,14 @@
 // Function to format timestamps
 function formatTimestamp(isoString, useRelative = false) {
     if (!isoString) return 'Never';
-    const date = new Date(isoString);
+    
+    // Parse the UTC ISO string and convert to local time
+    const utcDate = new Date(isoString);
+    const localDate = new Date(utcDate.getTime() - utcDate.getTimezoneOffset() * 60000);
     
     if (useRelative) {
         const now = new Date();
-        const diffMs = now - date;
+        const diffMs = now - utcDate;  // Compare with UTC time for relative diff
         const diffSeconds = Math.floor(diffMs / 1000);
         const diffMins = Math.floor(diffSeconds / 60);
         const diffHours = Math.floor(diffMins / 60);
