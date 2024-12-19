@@ -100,7 +100,8 @@ $(document).ready(function() {
 
 function loadFeeds(sort = { column: 'title', direction: 'asc' }) {
     $.get('/api/feeds')
-        .done(function(feeds) {
+        .done(function(response) {
+            const feeds = response.feeds;
             // Sort feeds based on current sort settings
             feeds.sort((a, b) => {
                 let aVal = a[sort.column];
@@ -185,9 +186,30 @@ function loadFeeds(sort = { column: 'title', direction: 'asc' }) {
                 summaryHtml += `<br><strong>Latest Article:</strong> ${formatRelativeTime(mostRecentDate)} from "${mostRecentFeed.title || 'Untitled'}"`;
             }
             
-            // Add next automatic scan information
-            if (feeds.length > 0 && feeds[0].next_automatic_scan) {
-                summaryHtml += `<br><strong>Next Automatic Scan:</strong> ${formatRelativeTime(feeds[0].next_automatic_scan)}`;
+            // Show current scan progress if a scan is running
+            if (response.scan_progress && response.scan_progress.is_scanning) {
+                summaryHtml += `<br><strong>Current Scan Progress:</strong> Processing ${response.scan_progress.current_feed} (${response.scan_progress.current_index} of ${response.scan_progress.total_feeds} feeds)`;
+            }
+            
+            // Add next automatic scan information with precise timing
+            if (response.next_scan) {
+                const nextScan = new Date(response.next_scan);
+                const now = new Date();
+                const diffMs = nextScan - now;
+                const diffMins = Math.floor(diffMs / 60000);
+                const diffSecs = Math.floor((diffMs % 60000) / 1000);
+                
+                let timeStr = '';
+                if (diffMins > 0) {
+                    timeStr += `${diffMins} minute${diffMins === 1 ? '' : 's'}`;
+                    if (diffSecs > 0) {
+                        timeStr += ` ${diffSecs} second${diffSecs === 1 ? '' : 's'}`;
+                    }
+                } else {
+                    timeStr = `${diffSecs} second${diffSecs === 1 ? '' : 's'}`;
+                }
+                
+                summaryHtml += `<br><strong>Next Automatic Scan:</strong> in ${timeStr}`;
             }
             
             $('#feedSummary').html(summaryHtml);

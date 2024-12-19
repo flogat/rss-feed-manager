@@ -45,7 +45,14 @@ def get_feeds():
             'next_automatic_scan': next_scan.isoformat() if next_scan else None
         })
     
-    return jsonify(feed_data)
+    # Include scan progress in response
+    response_data = {
+        'feeds': feed_data,
+        'scan_progress': current_scan_progress,
+        'next_scan': next_scan.isoformat() if next_scan else None
+    }
+    
+    return jsonify(response_data)
 
 @feed_bp.route('/api/feeds', methods=['POST'])
 @login_required
@@ -166,11 +173,35 @@ def update_single_feed(feed):
         db.session.commit()
         raise
 
+# Global variables to track scan progress
+current_scan_progress = {
+    'is_scanning': False,
+    'current_feed': None,
+    'current_index': 0,
+    'total_feeds': 0
+}
+
 def update_all_feeds(trigger='manual'):
+    global current_scan_progress
     feeds = RSSFeed.query.all()
     current_time = datetime.utcnow()
-    for feed in feeds:
+    
+    # Initialize scan progress
+    current_scan_progress = {
+        'is_scanning': True,
+        'current_feed': None,
+        'current_index': 0,
+        'total_feeds': len(feeds)
+    }
+    
+    for index, feed in enumerate(feeds, 1):
         try:
+            # Update scan progress
+            current_scan_progress.update({
+                'current_feed': feed.title or feed.url,
+                'current_index': index
+            })
+            
             parsed = feedparser.parse(feed.url)
             feed.title = parsed.feed.title
             feed.last_updated = current_time
