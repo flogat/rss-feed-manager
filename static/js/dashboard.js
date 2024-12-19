@@ -237,8 +237,20 @@ $(document).ready(function() {
         
         $.post(`/api/feeds/${feedId}/refresh`)
             .done(function(response) {
-                // Immediate feedback before full reload
+                // Update status immediately
                 statusCell.text('scan complete');
+                
+                // Update last scan time
+                const lastScanCell = row.find('td:nth-child(6)');
+                lastScanCell.text(formatTimestamp(new Date().toISOString(), true));
+                
+                // If response contains updated feed data, update last article date
+                if (response.feed && response.feed.last_article_date) {
+                    const lastArticleCell = row.find('td:nth-child(5)');
+                    lastArticleCell.text(formatTimestamp(response.feed.last_article_date, true));
+                }
+                
+                // Full reload after a delay to get all updated stats
                 setTimeout(() => loadFeeds(currentSort), 500);
             })
             .fail(function(xhr) {
