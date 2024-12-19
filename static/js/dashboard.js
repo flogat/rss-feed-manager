@@ -1,6 +1,32 @@
 $(document).ready(function() {
+    // Initialize sort state
+    let currentSort = {
+        column: 'title',
+        direction: 'asc'
+    };
+
+    // Add click handlers for sortable columns
+    $('.sortable').click(function() {
+        const column = $(this).data('sort');
+        if (currentSort.column === column) {
+            currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+        } else {
+            currentSort.column = column;
+            currentSort.direction = 'asc';
+        }
+        
+        // Update sort indicators
+        $('.sortable').removeClass('active');
+        $(this).addClass('active');
+        $('.sortable i').attr('class', 'bi bi-sort-alpha-down');
+        const iconClass = currentSort.direction === 'asc' ? 'down' : 'up';
+        $(this).find('i').attr('class', `bi bi-sort-${column === 'num_articles' || column === 'recent_articles' ? 'numeric' : 'alpha'}-${iconClass}`);
+        
+        loadFeeds(currentSort);
+    });
+    
     // Load feeds on page load
-    loadFeeds();
+    loadFeeds(currentSort);
     
     // Set default dates for download form
     const today = new Date();
@@ -65,9 +91,31 @@ $(document).ready(function() {
     });
 });
 
-function loadFeeds() {
+function loadFeeds(sort = { column: 'title', direction: 'asc' }) {
     $.get('/api/feeds')
         .done(function(feeds) {
+            // Sort feeds based on current sort settings
+            feeds.sort((a, b) => {
+                let aVal = a[sort.column];
+                let bVal = b[sort.column];
+                
+                // Handle special cases
+                if (sort.column === 'last_article_date') {
+                    aVal = aVal ? new Date(aVal).getTime() : 0;
+                    bVal = bVal ? new Date(bVal).getTime() : 0;
+                } else if (sort.column === 'num_articles' || sort.column === 'recent_articles') {
+                    aVal = aVal || 0;
+                    bVal = bVal || 0;
+                } else {
+                    aVal = (aVal || '').toString().toLowerCase();
+                    bVal = (bVal || '').toString().toLowerCase();
+                }
+                
+                if (aVal < bVal) return sort.direction === 'asc' ? -1 : 1;
+                if (aVal > bVal) return sort.direction === 'asc' ? 1 : -1;
+                return 0;
+            });
+            
             const tbody = $('#feedsList');
             tbody.empty();
             
@@ -188,3 +236,17 @@ function showError(message) {
     const bsToast = new bootstrap.Toast(toast);
     bsToast.show();
 }
+<table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="sortable" data-sort="title">Title <i class="bi bi-sort-alpha-down"></i></th>
+                                <th class="sortable" data-sort="url">URL <i class="bi bi-sort-alpha-down"></i></th>
+                                <th class="sortable" data-sort="num_articles">Total Articles <i class="bi bi-sort-numeric-down"></i></th>
+                                <th class="sortable" data-sort="recent_articles">Articles (7d) <i class="bi bi-sort-numeric-down"></i></th>
+                                <th class="sortable" data-sort="last_article_date">Last Article <i class="bi bi-sort-down"></i></th>
+                                <th class="sortable" data-sort="status">Status <i class="bi bi-sort-alpha-down"></i></th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="feedsList"></tbody>
+                    </table>
