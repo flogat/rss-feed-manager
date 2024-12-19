@@ -189,3 +189,66 @@
 2024-12-19 13:18:45,879 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:18:45] "GET /static/js/dashboard.js HTTP/1.1" 200 -
 2024-12-19 13:18:46,538 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:18:46] "[35m[1mGET /api/feeds HTTP/1.1[0m" 500 -
 2024-12-19 13:18:46,769 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:18:46] "[35m[1mGET /api/feeds HTTP/1.1[0m" 500 -
+2024-12-19 13:19:13,086 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:19:13] "GET / HTTP/1.1" 200 -
+2024-12-19 13:19:13,320 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:19:13] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-12-19 13:19:13,321 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:19:13] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-12-19 13:19:14,728 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:19:14] "[35m[1mGET /api/feeds HTTP/1.1[0m" 500 -
+2024-12-19 13:19:16,946 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:19:16] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-12-19 13:19:17,120 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:19:17] "GET /login HTTP/1.1" 200 -
+2024-12-19 13:19:17,317 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:19:17] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2024-12-19 13:19:22,220 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:19:22] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-12-19 13:19:22,397 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:19:22] "GET /dashboard HTTP/1.1" 200 -
+2024-12-19 13:19:22,612 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:19:22] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2024-12-19 13:19:22,620 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:19:22] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2024-12-19 13:19:23,777 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:19:23] "[35m[1mGET /api/feeds HTTP/1.1[0m" 500 -
+2024-12-19 13:19:32,212 - root - ERROR - Error adding feed: (sqlite3.OperationalError) table rss_feed has no column named num_articles
+[SQL: INSERT INTO rss_feed (url, title, last_updated, status, error_count, last_error, num_articles, last_article_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('https://www.deutsche-startups.de/feed/', None, '2024-12-19 13:19:32.211689', 'active', 0, None, 0, None)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2024-12-19 13:19:32,212 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:19:32] "[35m[1mPOST /api/feeds HTTP/1.1[0m" 500 -
+2024-12-19 13:21:10,748 - tzlocal - DEBUG - No explicit setting existed. Use localtime
+2024-12-19 13:21:10,748 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-19 13:21:10,749 - apscheduler.scheduler - INFO - Added job "Refresh RSS Feeds" to job store "default"
+2024-12-19 13:21:10,749 - apscheduler.scheduler - INFO - Scheduler started
+2024-12-19 13:21:10,750 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 13:21:10,751 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 14:21:10.748745+00:00 (in 3599.997301 seconds)
+2024-12-19 13:21:10,751 - root - INFO - Scheduler started successfully
+2024-12-19 13:21:10,774 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.196.129:5000
+2024-12-19 13:21:10,774 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-19 13:21:10,775 - werkzeug - INFO -  * Restarting with stat
+2024-12-19 13:21:11,608 - tzlocal - DEBUG - No explicit setting existed. Use localtime
+2024-12-19 13:21:11,609 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-19 13:21:11,610 - apscheduler.scheduler - INFO - Added job "Refresh RSS Feeds" to job store "default"
+2024-12-19 13:21:11,610 - apscheduler.scheduler - INFO - Scheduler started
+2024-12-19 13:21:11,610 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 13:21:11,610 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 14:21:11.609277+00:00 (in 3599.998409 seconds)
+2024-12-19 13:21:11,611 - root - INFO - Scheduler started successfully
+2024-12-19 13:21:11,625 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.196.129:5000
+2024-12-19 13:21:11,625 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-19 13:21:11,626 - werkzeug - INFO -  * Restarting with stat
+2024-12-19 13:21:12,281 - tzlocal - DEBUG - No explicit setting existed. Use localtime
+2024-12-19 13:21:12,282 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-19 13:21:12,282 - apscheduler.scheduler - INFO - Added job "Refresh RSS Feeds" to job store "default"
+2024-12-19 13:21:12,283 - apscheduler.scheduler - INFO - Scheduler started
+2024-12-19 13:21:12,294 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 13:21:12,294 - root - INFO - Scheduler started successfully
+2024-12-19 13:21:12,295 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 14:21:12.282073+00:00 (in 3599.986928 seconds)
+2024-12-19 13:21:12,306 - werkzeug - WARNING -  * Debugger is active!
+2024-12-19 13:21:12,308 - werkzeug - INFO -  * Debugger PIN: 753-127-802
+2024-12-19 13:21:12,421 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:21:12] "[32mGET / HTTP/1.1[0m" 302 -
+2024-12-19 13:21:12,444 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:21:12] "GET /login?next=/ HTTP/1.1" 200 -
+2024-12-19 13:21:12,471 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:21:12] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-12-19 13:21:13,405 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:21:13] "GET / HTTP/1.1" 200 -
+2024-12-19 13:21:13,597 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:21:13] "GET / HTTP/1.1" 200 -
+2024-12-19 13:21:13,794 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:21:13] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-12-19 13:21:14,338 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:21:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2024-12-19 13:21:14,438 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:21:14] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2024-12-19 13:21:14,625 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:21:14] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-12-19 13:21:15,095 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:21:15] "[35m[1mGET /api/feeds HTTP/1.1[0m" 500 -
+2024-12-19 13:21:16,149 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 13:21:16] "[35m[1mGET /api/feeds HTTP/1.1[0m" 500 -

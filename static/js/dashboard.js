@@ -9,7 +9,8 @@ $(document).ready(function() {
                 loadFeeds();
             })
             .fail(function(xhr) {
-                alert('Error refreshing feeds: ' + xhr.responseJSON.error);
+                const error = xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error occurred';
+                showError('Error refreshing feeds: ' + error);
             });
     });
 
@@ -30,7 +31,8 @@ $(document).ready(function() {
             loadFeeds();
         })
         .fail(function(xhr) {
-            alert('Error adding feed: ' + xhr.responseJSON.error);
+            const error = xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error occurred';
+            showError('Error adding feed: ' + error);
         });
     });
 
@@ -72,7 +74,8 @@ function loadFeeds() {
             });
         })
         .fail(function(xhr) {
-            alert('Error loading feeds: ' + xhr.responseJSON.error);
+            const error = xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error occurred';
+            showError('Error loading feeds: ' + error);
         });
 }
 
@@ -86,7 +89,8 @@ function deleteFeed(feedId) {
             loadFeeds();
         })
         .fail(function(xhr) {
-            alert('Error deleting feed: ' + xhr.responseJSON.error);
+            const error = xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error occurred';
+            showError('Error deleting feed: ' + error);
         });
     }
 }
@@ -97,4 +101,9 @@ function getStatusBadge(status) {
         'error': 'bg-danger'
     };
     return `<span class="badge ${classes[status] || 'bg-secondary'}">${status}</span>`;
+}
+
+function showError(message) {
+    //Implementation for showing error in a toast notification would go here.  This is a placeholder.
+    console.error("Toast notification: " + message); //Replace with actual toast implementation.
 }
