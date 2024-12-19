@@ -5,9 +5,9 @@ import logging
 def init_scheduler():
     scheduler = BackgroundScheduler()
     scheduler.add_job(
-        func=update_all_feeds,
+        func=lambda: update_all_feeds(trigger='automatic'),
         trigger="interval",
-        hours=1,
+        minutes=30,
         id='refresh_feeds',
         name='Refresh RSS Feeds'
     )
@@ -15,5 +15,8 @@ def init_scheduler():
     try:
         scheduler.start()
         logging.info("Scheduler started successfully")
+        # Calculate and log next run time
+        next_run = scheduler.get_job('refresh_feeds').next_run_time
+        logging.info(f"Next automatic scan scheduled for: {next_run}")
     except Exception as e:
         logging.error(f"Error starting scheduler: {str(e)}")

@@ -18,6 +18,10 @@ def dashboard():
 @feed_bp.route('/api/feeds')
 @login_required
 def get_feeds():
+    from scheduler import BackgroundScheduler
+    scheduler = BackgroundScheduler()
+    next_scan = scheduler.get_job('refresh_feeds').next_run_time
+    
     feeds = RSSFeed.query.all()
     seven_days_ago = datetime.utcnow() - timedelta(days=7)
     
@@ -36,7 +40,10 @@ def get_feeds():
             'num_articles': feed.num_articles,
             'recent_articles': recent_articles,
             'last_article_date': feed.last_article_date.isoformat() if feed.last_article_date else None,
-            'last_updated': feed.last_updated.isoformat() if feed.last_updated else None
+            'last_updated': feed.last_updated.isoformat() if feed.last_updated else None,
+            'last_scan_time': feed.last_scan_time.isoformat() if feed.last_scan_time else None,
+            'last_scan_trigger': feed.last_scan_trigger,
+            'next_automatic_scan': next_scan.isoformat() if next_scan else None
         })
     
     return jsonify(feed_data)
@@ -160,13 +167,16 @@ def update_single_feed(feed):
         db.session.commit()
         raise
 
-def update_all_feeds():
+def update_all_feeds(trigger='manual'):
     feeds = RSSFeed.query.all()
+    current_time = datetime.utcnow()
     for feed in feeds:
         try:
             parsed = feedparser.parse(feed.url)
             feed.title = parsed.feed.title
-            feed.last_updated = datetime.utcnow()
+            feed.last_updated = current_time
+            feed.last_scan_time = current_time
+            feed.last_scan_trigger = trigger
             feed.status = 'active'
             feed.error_count = 0
             

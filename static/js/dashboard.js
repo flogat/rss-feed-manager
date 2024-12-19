@@ -144,7 +144,8 @@ function loadFeeds(sort = { column: 'title', direction: 'asc' }) {
                 row.append($('<td>').text(feed.num_articles));
                 row.append($('<td>').text(feed.recent_articles || 0));
                 row.append($('<td>').text(feed.last_article_date ? formatRelativeTime(feed.last_article_date) : 'No articles'));
-                row.append($('<td>').text(feed.last_updated ? formatRelativeTime(feed.last_updated) : 'Never'));
+                row.append($('<td>').text(feed.last_scan_time ? formatRelativeTime(feed.last_scan_time) : 'Never'));
+                row.append($('<td>').text(feed.last_scan_trigger || 'N/A'));
                 row.append($('<td>').html(getStatusBadge(feed.status)));
                 
                 const actions = $('<td>');
@@ -176,6 +177,11 @@ function loadFeeds(sort = { column: 'title', direction: 'asc' }) {
             
             if (mostRecentFeed && mostRecentDate) {
                 summaryHtml += `<br><strong>Latest Article:</strong> ${formatRelativeTime(mostRecentDate)} from "${mostRecentFeed.title || 'Untitled'}"`;
+            }
+            
+            // Add next automatic scan information
+            if (feeds.length > 0 && feeds[0].next_automatic_scan) {
+                summaryHtml += `<br><strong>Next Automatic Scan:</strong> ${formatRelativeTime(feeds[0].next_automatic_scan)}`;
             }
             
             $('#feedSummary').html(summaryHtml);

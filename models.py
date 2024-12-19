@@ -24,6 +24,8 @@ class RSSFeed(db.Model):
     last_error = db.Column(db.String(500))
     num_articles = db.Column(db.Integer, default=0)
     last_article_date = db.Column(db.DateTime)
+    last_scan_trigger = db.Column(db.String(50), default='manual')  # 'manual' or 'automatic'
+    last_scan_time = db.Column(db.DateTime)
 
 class Article(db.Model):
     id = db.Column(db.Integer, primary_key=True)
