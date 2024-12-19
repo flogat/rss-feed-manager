@@ -137,7 +137,7 @@ function loadFeeds(sort = { column: 'title', direction: 'asc' }) {
                     }
                 }
                 
-                const row = $('<tr>');
+                const row = $('<tr>').attr('id', `feed-${feed.id}`);
                 row.append($('<td>').text(feed.title || 'Untitled'));
                 row.append($('<td>').text(feed.url));
                 row.append($('<td>').text(feed.num_articles));

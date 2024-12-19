@@ -35,7 +35,8 @@ def get_feeds():
             'status': feed.status,
             'num_articles': feed.num_articles,
             'recent_articles': recent_articles,
-            'last_article_date': feed.last_article_date.isoformat() if feed.last_article_date else None
+            'last_article_date': feed.last_article_date.isoformat() if feed.last_article_date else None,
+            'last_updated': feed.last_updated.isoformat() if feed.last_updated else None
         })
     
     return jsonify(feed_data)
