@@ -286,17 +286,19 @@ def refresh_feeds():
 def refresh_single_feed(feed_id):
     try:
         feed = RSSFeed.query.get_or_404(feed_id)
-        update_single_feed(feed)
-        return jsonify({'message': 'Feed refreshed successfully'})
+        result = update_single_feed(feed)
+        return jsonify(result)
     except Exception as e:
         logging.error(f"Error refreshing feed {feed_id}: {str(e)}")
         return jsonify({'error': str(e)}), 500
 
 def update_single_feed(feed):
     try:
+        current_time = datetime.utcnow()
         parsed = feedparser.parse(feed.url)
         feed.title = parsed.feed.title
-        feed.last_updated = datetime.utcnow()
+        feed.last_updated = current_time
+        feed.last_scan_time = current_time  # Update the scan time
         feed.status = 'active'
         feed.error_count = 0
         
@@ -324,6 +326,15 @@ def update_single_feed(feed):
             feed.last_article_date = latest_date
             
         db.session.commit()
+        
+        # Return updated feed data for frontend
+        return {
+            'message': 'Feed refreshed successfully',
+            'feed': {
+                'last_scan_time': feed.last_scan_time.isoformat() if feed.last_scan_time else None,
+                'last_article_date': feed.last_article_date.isoformat() if feed.last_article_date else None
+            }
+        }
     except Exception as e:
         feed.status = 'error'
         feed.error_count += 1
