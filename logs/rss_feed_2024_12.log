@@ -5024,3 +5024,76 @@ with app.app_context(). See the documentation for more information.
 2024-12-19 16:21:30,452 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:21:30] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
 2024-12-19 16:21:30,842 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:21:30] "GET /api/feeds HTTP/1.1" 200 -
 2024-12-19 16:21:34,389 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:21:34] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:21:35,846 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:21:35] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:21:39,392 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:21:39] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:21:40,893 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:21:40] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:21:44,385 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:21:44] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:21:45,850 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:21:45] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:21:49,384 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:21:49] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:21:50,852 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:21:50] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:21:54,389 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:21:54] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:21:55,844 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:21:55] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:21:59,380 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:21:59] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:22:00,842 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:00] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:22:04,389 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:04] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:22:05,845 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:05] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:22:09,389 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:09] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:22:10,879 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:10] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:22:13,449 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:13] "GET / HTTP/1.1" 200 -
+2024-12-19 16:22:13,681 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:13] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-12-19 16:22:13,684 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:13] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2024-12-19 16:22:14,771 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:14] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:22:15,851 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:15] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:22:19,771 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:19] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:22:20,843 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:20] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:22:24,771 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:24] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:22:25,868 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:25] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:22:29,049 - root - INFO - Admin user initialized successfully
+2024-12-19 16:22:29,049 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-19 16:22:29,050 - apscheduler.scheduler - INFO - Added job "Refresh RSS Feeds" to job store "default"
+2024-12-19 16:22:29,050 - apscheduler.scheduler - INFO - Scheduler started
+2024-12-19 16:22:29,051 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 16:22:29,051 - root - INFO - Scheduler started successfully
+2024-12-19 16:22:29,051 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 16:25:29.049866+00:00 (in 179.998429 seconds)
+2024-12-19 16:22:29,051 - root - INFO - Next automatic scan scheduled for: 2024-12-19 16:25:29.049866+00:00
+2024-12-19 16:22:29,051 - root - INFO - Scheduler started successfully
+2024-12-19 16:22:29,062 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.196.129:5000
+2024-12-19 16:22:29,062 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-19 16:22:29,063 - werkzeug - INFO -  * Restarting with stat
+2024-12-19 16:22:29,686 - root - INFO - Admin user initialized successfully
+2024-12-19 16:22:29,687 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-19 16:22:29,688 - apscheduler.scheduler - INFO - Added job "Refresh RSS Feeds" to job store "default"
+2024-12-19 16:22:29,688 - apscheduler.scheduler - INFO - Scheduler started
+2024-12-19 16:22:29,689 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 16:22:29,689 - root - INFO - Scheduler started successfully
+2024-12-19 16:22:29,689 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 16:25:29.687669+00:00 (in 179.998231 seconds)
+2024-12-19 16:22:29,689 - root - INFO - Next automatic scan scheduled for: 2024-12-19 16:25:29.687669+00:00
+2024-12-19 16:22:29,689 - root - INFO - Scheduler started successfully
+2024-12-19 16:22:29,700 - werkzeug - WARNING -  * Debugger is active!
+2024-12-19 16:22:29,702 - werkzeug - INFO -  * Debugger PIN: 863-179-732
+2024-12-19 16:22:29,764 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:29] "GET / HTTP/1.1" 200 -
+2024-12-19 16:22:29,954 - root - INFO - Admin user initialized successfully
+2024-12-19 16:22:29,956 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-19 16:22:29,957 - apscheduler.scheduler - INFO - Added job "Refresh RSS Feeds" to job store "default"
+2024-12-19 16:22:29,957 - apscheduler.scheduler - INFO - Scheduler started
+2024-12-19 16:22:29,958 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 16:22:29,958 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 16:25:29.955902+00:00 (in 179.997571 seconds)
+2024-12-19 16:22:29,958 - root - INFO - Scheduler started successfully
+2024-12-19 16:22:29,959 - root - INFO - Next automatic scan scheduled for: 2024-12-19 16:25:29.955902+00:00
+2024-12-19 16:22:29,959 - root - INFO - Scheduler started successfully
+2024-12-19 16:22:30,020 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:30] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2024-12-19 16:22:30,022 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:30] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-12-19 16:22:30,907 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:30] "[32mGET / HTTP/1.1[0m" 302 -
+2024-12-19 16:22:30,915 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:30] "GET /login?next=/ HTTP/1.1" 200 -
+2024-12-19 16:22:30,936 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:30] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-12-19 16:22:31,046 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:31] "[33mGET /static/img/background.png HTTP/1.1[0m" 404 -
+2024-12-19 16:22:31,051 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:31] "[33mGET /static/img/background.png HTTP/1.1[0m" 404 -
+2024-12-19 16:22:31,132 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:31] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:22:31,993 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:31] "GET / HTTP/1.1" 200 -
+2024-12-19 16:22:32,212 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2024-12-19 16:22:32,224 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:32] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-12-19 16:22:33,489 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:33] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:22:36,125 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:22:36] "GET /api/feeds HTTP/1.1" 200 -
