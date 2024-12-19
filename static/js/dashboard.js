@@ -1,9 +1,10 @@
+// Initialize sort state globally
+var currentSort = {
+    column: 'title',
+    direction: 'asc'
+};
+
 $(document).ready(function() {
-    // Initialize sort state
-    let currentSort = {
-        column: 'title',
-        direction: 'asc'
-    };
 
     // Add click handlers for sortable columns
     $('.sortable').click(function() {
@@ -147,9 +148,10 @@ function loadFeeds(sort = { column: 'title', direction: 'asc' }) {
                 row.append($('<td>').html(getStatusBadge(feed.status)));
                 
                 const actions = $('<td>');
-                // Add refresh button
+                // Add reload button for single feed
                 const refreshBtn = $('<button>')
                     .addClass('btn btn-sm btn-secondary me-2')
+                    .attr('title', 'Reload feed')
                     .html('<i class="bi bi-arrow-clockwise"></i>')
                     .click(function() {
                         refreshSingleFeed(feed.id);
@@ -236,7 +238,8 @@ function getStatusBadge(status) {
     const classes = {
         'active': 'bg-success',
         'error': 'bg-danger',
-        'refreshing': 'bg-warning'
+        'reloading': 'bg-warning',
+        'refreshing': 'bg-warning' // Added to handle 'refreshing' status
     };
     return `<span class="badge ${classes[status] || 'bg-secondary'}">${status}</span>`;
 }
@@ -245,7 +248,7 @@ function refreshSingleFeed(feedId) {
     // Find the feed's status cell and update it
     const row = $(`#feed-${feedId}`);
     const statusCell = row.find('td').eq(6); // Status is the 7th column
-    statusCell.html(getStatusBadge('refreshing'));
+    statusCell.html(getStatusBadge('reloading'));
     
     $.post(`/api/feeds/${feedId}/refresh`)
         .done(function(response) {
