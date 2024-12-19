@@ -1,0 +1,79 @@
+Overview
+
+The Venture Weekly RSS Downloader is a comprehensive tool designed to manage and monitor RSS feeds, collect news articles, and provide a user-friendly interface for managing RSS feed lists and viewing their statuses. The system includes functionalities for automatic RSS feed refresh, error handling, and integration with AWS SNS for notifications.
+
+Functional Requirements
+
+1. RSS Feed Management
+
+Add RSS Feed: Users should be able to add new RSS feed URLs to the system.
+Remove RSS Feed: Users should be able to remove existing RSS feed URLs from the system.
+View RSS Feed List: Users should be able to view the current list of RSS feeds being monitored.
+Upload RSS Feed List: Users should be able to upload a list of RSS feed URLs from a file.
+Download RSS Feed List: Users should be able to download the current list of RSS feed URLs as a text file.
+2. RSS Feed Status Monitoring
+
+View RSS Feed Status: Users should be able to view the status of each RSS feed, including the number of items collected, the number of items collected in the last 24 hours, and the newest item.
+Automatic Refresh: The system should automatically refresh the RSS feed statuses at a configurable interval (default is 1 hour).
+Manual Refresh: Users should be able to manually trigger a refresh of the RSS feed statuses.
+3. News Collection
+
+Collect News: The system should collect news articles from the RSS feeds and store them in a database.
+Download Collected News: Users should be able to download collected news articles as a CSV file for a specified date range.
+4. Error Handling and Notifications
+
+Error Logging: The system should log errors and provide a mechanism for viewing error logs.
+5. User Interface
+
+Dashboard: Provide a dashboard for users to view and manage RSS feeds, view feed statuses, and download collected news.
+Progress Bar: Display a progress bar during the refresh of RSS feed statuses.
+Date Picker: Provide a date picker for users to specify date ranges for downloading collected news.
+Non-Functional Requirements
+
+1. Performance
+
+The system should be able to handle up to 500 RSS feeds.
+The system should refresh RSS feed statuses within a reasonable time frame (e.g., within a few minutes).
+2. Security
+
+The system should require authentication for accessing the RSS feed management and status monitoring functionalities.
+The system should securely store and handle user credentials.
+1 single admin user with static user/password is enough. No role based access is required.
+3. Usability
+
+The user interface should be intuitive and easy to use.
+The system should provide clear and informative error messages.
+4. Reliability
+
+The system should be reliable and handle errors gracefully.
+The system should provide mechanisms for recovering from errors.
+Technical Requirements
+
+1. Environment
+
+The system should be deployed on a CentOS system.
+Lightweight setup, e.g. with sqlite and python
+3. Logging
+
+The system should log all significant events, including errors, to log files.
+Log files should be split into monthly logs.
+Implementation Details
+
+1. Backend
+
+Implement the backend.
+Use SQLite for storing collected news articles.
+2. Frontend
+
+Implement the frontend using HTML, CSS, and JavaScript.
+Use Bootstrap for styling and layout.
+Use jQuery for AJAX requests and DOM manipulation.
+3. Scripts
+
+Provide shell scripts for starting the application, tracking logs, and showing error logs.
+Provide a systemd service file for running the application on startup.
+Conclusion
+
+The Venture Weekly RSS Downloader should provide a comprehensive solution for managing and monitoring RSS feeds, collecting news articles, and providing a user-friendly interface for managing RSS feed lists and viewing their statuses. The system should be reliable, secure, and easy to use, with clear error handling and notifications.
+
+ 
