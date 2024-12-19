@@ -54,7 +54,8 @@ function loadFeeds() {
                 const row = $('<tr>');
                 row.append($('<td>').text(feed.title || 'Untitled'));
                 row.append($('<td>').text(feed.url));
-                row.append($('<td>').text(new Date(feed.last_updated).toLocaleString()));
+                row.append($('<td>').text(feed.num_articles));
+                row.append($('<td>').text(feed.last_article_date ? new Date(feed.last_article_date).toLocaleString() : 'No articles'));
                 row.append($('<td>').html(getStatusBadge(feed.status)));
                 
                 const actions = $('<td>');

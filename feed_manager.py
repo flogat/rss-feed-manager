@@ -25,7 +25,9 @@ def get_feeds():
         'title': feed.title,
         'last_updated': feed.last_updated.isoformat(),
         'status': feed.status,
-        'error_count': feed.error_count
+        'error_count': feed.error_count,
+        'num_articles': feed.num_articles,
+        'last_article_date': feed.last_article_date.isoformat() if feed.last_article_date else None
     } for feed in feeds])
 
 @feed_bp.route('/api/feeds', methods=['POST'])
@@ -72,16 +74,29 @@ def update_all_feeds():
             feed.status = 'active'
             feed.error_count = 0
             
+            # Get current number of articles
+            current_count = Article.query.filter_by(feed_id=feed.id).count()
+            new_articles = 0
+            latest_date = feed.last_article_date
+            
             for entry in parsed.entries:
                 if not Article.query.filter_by(link=entry.link).first():
+                    published_date = datetime(*entry.published_parsed[:6]) if 'published_parsed' in entry else None
                     article = Article(
                         feed_id=feed.id,
                         title=entry.title,
                         link=entry.link,
                         description=entry.get('description', ''),
-                        published_date=datetime(*entry.published_parsed[:6]) if 'published_parsed' in entry else None
+                        published_date=published_date
                     )
                     db.session.add(article)
+                    new_articles += 1
+                    if published_date and (not latest_date or published_date > latest_date):
+                        latest_date = published_date
+            
+            feed.num_articles = current_count + new_articles
+            if latest_date:
+                feed.last_article_date = latest_date
         except Exception as e:
             feed.status = 'error'
             feed.error_count += 1
