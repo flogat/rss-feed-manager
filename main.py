@@ -6,7 +6,7 @@ from auth import init_admin
 from scheduler import init_scheduler
 
 if __name__ == "__main__":
-    # Create logs directory if it doesn't exist
+    # Create necessary directories if they don't exist
     os.makedirs('logs', exist_ok=True)
     
     # Initialize logging configuration first
@@ -19,12 +19,18 @@ if __name__ == "__main__":
         ]
     )
     
-    # Initialize admin user
-    with app.app_context():
-        init_admin()
-    
-    # Start the scheduler
-    init_scheduler()
-    
-    # Run the application
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    try:
+        # Initialize admin user
+        with app.app_context():
+            init_admin()
+            logging.info("Admin user initialized successfully")
+        
+        # Start the scheduler
+        init_scheduler()
+        logging.info("Scheduler started successfully")
+        
+        # Run the application
+        app.run(host="0.0.0.0", port=5000, debug=True)
+    except Exception as e:
+        logging.error(f"Application startup failed: {str(e)}")
+        raise

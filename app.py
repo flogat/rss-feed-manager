@@ -4,6 +4,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from sqlalchemy.orm import DeclarativeBase
+import logging
 
 class Base(DeclarativeBase):
     pass
@@ -11,24 +12,43 @@ class Base(DeclarativeBase):
 db = SQLAlchemy(model_class=Base)
 login_manager = LoginManager()
 
-# Create app
-app = Flask(__name__)
-app.secret_key = os.environ.get("FLASK_SECRET_KEY") or "venture_weekly_secret"
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///rss_feeds.db"
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+def create_app():
+    # Create app
+    app = Flask(__name__)
+    
+    # Ensure instance directory exists
+    os.makedirs(app.instance_path, exist_ok=True)
+    
+    app.secret_key = os.environ.get("FLASK_SECRET_KEY") or "venture_weekly_secret"
+    # Configure SQLite database in instance folder
+    app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{os.path.join(app.instance_path, 'rss_feeds.db')}"
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {
+        "pool_pre_ping": True,
+    }
 
-# Initialize extensions
-db.init_app(app)
-login_manager.init_app(app)
-login_manager.login_view = 'auth.login'
+    # Initialize extensions
+    db.init_app(app)
+    login_manager.init_app(app)
+    login_manager.login_view = 'auth.login'
 
-# Import routes after app initialization to avoid circular imports
-from auth import auth_bp
-from feed_manager import feed_bp
+    # Import routes after app initialization to avoid circular imports
+    from auth import auth_bp
+    from feed_manager import feed_bp
 
-app.register_blueprint(auth_bp)
-app.register_blueprint(feed_bp)
+    app.register_blueprint(auth_bp)
+    app.register_blueprint(feed_bp)
 
+    return app
+
+# Create the application instance
+app = create_app()
+
+# Initialize database
 with app.app_context():
-    db.drop_all()  # Temporarily drop all tables to recreate with new schema
-    db.create_all()
+    try:
+        db.create_all()
+        logging.info("Database tables created successfully")
+    except Exception as e:
+        logging.error(f"Error creating database tables: {str(e)}")
+        raise
