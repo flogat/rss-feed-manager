@@ -109,15 +109,15 @@ def download_feed_articles(feed_id):
         cw.writerow(['Title', 'Link', 'Publication Date', 'Source', 'Category', 'Summary'])
         
         # Write article data
-        source_name = feed.title or 'Unknown Source'
+        source_name = feed.title or feed.url
         for article in articles:
             cw.writerow([
-                article.title,
-                article.link,
-                article.published_date.isoformat() if article.published_date else '',
-                source_name,
-                'Startups',  # Default category for now
-                article.description or ''
+                article.title,                    # Title
+                article.link,                     # Link
+                article.published_date.isoformat() if article.published_date else '',  # Publication Date
+                source_name,                      # Source
+                'Startups',                       # Category (default to Startups for now)
+                article.description or ''         # Summary
             ])
         
         output = si.getvalue()
