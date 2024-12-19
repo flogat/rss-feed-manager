@@ -13,6 +13,9 @@
                     <button class="btn btn-secondary" id="refreshFeeds">
                         <i class="bi bi-arrow-clockwise"></i> Refresh
                     </button>
+                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#downloadModal">
+                        <i class="bi bi-download"></i> Download Articles
+                    </button>
                     <a href="/api/feeds/download" class="btn btn-info">
                         <i class="bi bi-download"></i> Download Feed List
                     </a>
@@ -41,34 +44,30 @@
             </div>
         </div>
 
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">Download Articles</h5>
+        </div>
+</div>
+
+<!-- Download Articles Modal -->
+<div class="modal fade" id="downloadModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Download Articles</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
-            <div class="card-body">
+            <div class="modal-body">
                 <form id="downloadForm">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <label class="form-label">Start Date</label>
-                                <input type="date" class="form-control" id="startDate">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <label class="form-label">End Date</label>
-                                <input type="date" class="form-control" id="endDate">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <label class="form-label">&nbsp;</label>
-                                <button type="submit" class="btn btn-primary d-block w-100">
-                                    <i class="bi bi-download"></i> Download CSV
-                                </button>
-                            </div>
-                        </div>
+                    <div class="mb-3">
+                        <label class="form-label">Start Date</label>
+                        <input type="date" class="form-control" id="startDate">
                     </div>
+                    <div class="mb-3">
+                        <label class="form-label">End Date</label>
+                        <input type="date" class="form-control" id="endDate">
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-download"></i> Download CSV
+                    </button>
                 </form>
             </div>
         </div>
