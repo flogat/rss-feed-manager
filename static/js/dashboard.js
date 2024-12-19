@@ -73,10 +73,21 @@ function loadFeeds() {
             
             let totalArticles = 0;
             let totalRecentArticles = 0;
+            let mostRecentFeed = null;
+            let mostRecentDate = null;
             
             feeds.forEach(function(feed) {
                 totalArticles += feed.num_articles;
                 totalRecentArticles += feed.recent_articles || 0;
+                
+                // Track most recent article
+                if (feed.last_article_date) {
+                    const articleDate = new Date(feed.last_article_date);
+                    if (!mostRecentDate || articleDate > mostRecentDate) {
+                        mostRecentDate = articleDate;
+                        mostRecentFeed = feed;
+                    }
+                }
                 
                 const row = $('<tr>');
                 row.append($('<td>').text(feed.title || 'Untitled'));
@@ -99,12 +110,16 @@ function loadFeeds() {
                 tbody.append(row);
             });
             
-            // Update summary
-            $('#feedSummary').html(
-                `<strong>Feed Statistics:</strong> ${feeds.length} feeds tracked, ` +
+            // Update summary with most recent article info
+            let summaryHtml = `<strong>Feed Statistics:</strong> ${feeds.length} feeds tracked, ` +
                 `${totalArticles} total articles, ` +
-                `${totalRecentArticles} articles in the last 7 days`
-            );
+                `${totalRecentArticles} articles in the last 7 days`;
+            
+            if (mostRecentFeed && mostRecentDate) {
+                summaryHtml += `<br><strong>Latest Article:</strong> ${formatRelativeTime(mostRecentDate)} from "${mostRecentFeed.title || 'Untitled'}"`;
+            }
+            
+            $('#feedSummary').html(summaryHtml);
         })
         .fail(function(xhr) {
             const error = xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error occurred';
@@ -142,6 +157,12 @@ function formatRelativeTime(dateStr) {
     
     if (diffSecs < 60) return `${diffSecs} second${diffSecs === 1 ? '' : 's'} ago`;
     if (diffMins < 60) return `${diffMins} minute${diffMins === 1 ? '' : 's'} ago`;
+    if (diffHours < 10) {
+        const remainingMins = diffMins % 60;
+        return remainingMins ? 
+            `${diffHours} hour${diffHours === 1 ? '' : 's'} ${remainingMins} minute${remainingMins === 1 ? '' : 's'} ago` :
+            `${diffHours} hour${diffHours === 1 ? '' : 's'} ago`;
+    }
     if (diffHours < 24) return `${diffHours} hour${diffHours === 1 ? '' : 's'} ago`;
     if (diffDays < 30) return `${diffDays} day${diffDays === 1 ? '' : 's'} ago`;
     if (diffMonths < 12) {
