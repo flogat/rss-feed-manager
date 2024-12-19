@@ -380,12 +380,14 @@ def update_all_feeds(trigger='manual'):
                     time.sleep(1)
                 
                 parsed = feedparser.parse(feed.url)
-                feed.title = parsed.feed.title
+                feed.title = parsed.feed.title if hasattr(parsed.feed, 'title') else feed.url
                 feed.last_updated = current_time
-                feed.last_scan_time = current_time
+                feed.last_scan_time = current_time  # Ensure this is set before any potential error
                 feed.last_scan_trigger = trigger
                 feed.status = 'active'
                 feed.error_count = 0
+                # Commit the scan time update immediately to ensure it's saved
+                db.session.commit()
                 
                 current_count = Article.query.filter_by(feed_id=feed.id).count()
                 new_articles = 0
@@ -413,6 +415,9 @@ def update_all_feeds(trigger='manual'):
                 feed.status = 'error'
                 feed.error_count += 1
                 feed.last_error = str(e)
+                feed.last_scan_time = current_time  # Still record the scan attempt time
+                feed.last_scan_trigger = trigger
+                db.session.commit()  # Commit the error status and scan time
                 logging.error(f"Error updating feed {feed.url}: {str(e)}")
                 continue
         
