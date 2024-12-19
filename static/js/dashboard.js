@@ -137,6 +137,9 @@ function loadFeeds(sort = currentSort) {
                             <button class="btn btn-sm btn-primary refresh-feed" data-feed-id="${feed.id}">
                                 <i class="bi bi-arrow-clockwise"></i>
                             </button>
+                            <button class="btn btn-sm btn-info download-feed" data-feed-id="${feed.id}">
+                                <i class="bi bi-download"></i>
+                            </button>
                             <button class="btn btn-sm btn-danger delete-feed" data-feed-id="${feed.id}">
                                 <i class="bi bi-trash"></i>
                             </button>
@@ -204,6 +207,12 @@ $(document).ready(function() {
             });
     });
     
+    // Handle feed article download
+    $('#feedsList').on('click', '.download-feed', function() {
+        const feedId = $(this).data('feed-id');
+        window.location.href = `/api/feeds/${feedId}/articles/download`;
+    });
+
     // Handle feed deletion
     $('#feedsList').on('click', '.delete-feed', function() {
         if (!confirm('Are you sure you want to delete this feed?')) return;

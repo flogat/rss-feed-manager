@@ -305,6 +305,42 @@ def download_articles():
         logging.error(f"Error downloading articles: {str(e)}")
         return jsonify({'error': 'Failed to download articles'}), 500
 
+@feed_bp.route('/api/feeds/<int:feed_id>/articles/download', methods=['GET'])
+@login_required
+def download_feed_articles(feed_id):
+    try:
+        feed = RSSFeed.query.get_or_404(feed_id)
+        articles = Article.query.filter_by(feed_id=feed_id).order_by(Article.published_date.desc()).all()
+        
+        si = StringIO()
+        cw = csv.writer(si)
+        # Write headers
+        cw.writerow(['Title', 'Link', 'Description', 'Published Date', 'Collected Date'])
+        
+        # Write article data
+        for article in articles:
+            cw.writerow([
+                article.title,
+                article.link,
+                article.description,
+                article.published_date.isoformat() if article.published_date else '',
+                article.collected_date.isoformat() if article.collected_date else ''
+            ])
+        
+        output = si.getvalue()
+        si.close()
+        
+        feed_name = feed.title or f"feed_{feed_id}"
+        filename = f"{feed_name}_articles.csv".replace(' ', '_').lower()
+        
+        return output, 200, {
+            'Content-Type': 'text/csv',
+            'Content-Disposition': f'attachment; filename={filename}'
+        }
+    except Exception as e:
+        logging.error(f"Error downloading feed articles: {str(e)}")
+        return jsonify({'error': 'Failed to download feed articles'}), 500
+
 @feed_bp.route('/api/feeds/download', methods=['GET'])
 @login_required
 def download_feeds():
