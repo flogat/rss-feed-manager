@@ -1,7 +1,22 @@
 // Function to format timestamps
-function formatTimestamp(isoString) {
+function formatTimestamp(isoString, useRelative = false) {
     if (!isoString) return 'Never';
     const date = new Date(isoString);
+    
+    if (useRelative) {
+        const now = new Date();
+        const diffMs = now - date;
+        const diffMins = Math.floor(diffMs / 60000);
+        const diffHours = Math.floor(diffMins / 60);
+        const diffDays = Math.floor(diffHours / 24);
+        
+        if (diffMins < 1) return 'just now';
+        if (diffMins < 60) return `${diffMins} minute${diffMins === 1 ? '' : 's'} ago`;
+        if (diffHours < 24) return `${diffHours} hour${diffHours === 1 ? '' : 's'} ago`;
+        if (diffDays < 30) return `${diffDays} day${diffDays === 1 ? '' : 's'} ago`;
+        return date.toLocaleDateString();
+    }
+    
     return date.toLocaleString();
 }
 
@@ -65,7 +80,8 @@ function loadFeeds(sort = currentSort) {
             const feeds = response.feeds;
             // Update document title and progress bar
             const scanProgress = response.scan_progress;
-            if (scanProgress && scanProgress.is_scanning && !scanProgress.completed) {
+            // Show progress bar for both manual and automatic scans
+            if (scanProgress && scanProgress.is_scanning) {
                 // Update title
                 document.title = `Scanning... (${scanProgress.current_index}/${scanProgress.total_feeds}) - RSS Downloader`;
                 
@@ -130,7 +146,7 @@ function loadFeeds(sort = currentSort) {
                         <td>${feed.num_articles}</td>
                         <td>${feed.recent_articles}</td>
                         <td>${formatTimestamp(feed.last_article_date)}</td>
-                        <td>${formatTimestamp(feed.last_scan_time)}</td>
+                        <td>${formatTimestamp(feed.last_scan_time, true)}</td>
                         <td>${feed.last_scan_trigger}</td>
                         <td>${feed.status}</td>
                         <td>
