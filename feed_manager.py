@@ -108,64 +108,74 @@ def update_all_feeds():
 @feed_bp.route('/api/articles/download', methods=['GET'])
 @login_required
 def download_articles():
-    start_date = request.args.get('start_date')
-    end_date = request.args.get('end_date')
-    
-    # If dates not provided, use default (7 days ago to today)
-    if not start_date:
-        start_date = (datetime.utcnow() - timedelta(days=7)).date().isoformat()
-    if not end_date:
-        end_date = datetime.utcnow().date().isoformat()
-    
-    query = Article.query
-    if start_date:
-        query = query.filter(Article.collected_date >= datetime.fromisoformat(start_date))
-    if end_date:
-        query = query.filter(Article.collected_date <= datetime.fromisoformat(end_date))
-    
-    si = StringIO()
-    cw = csv.writer(si)
-    # Headers are always included
-    cw.writerow(['Title', 'Link', 'Description', 'Published Date', 'Collected Date'])
-    
-    for article in query.all():
-        cw.writerow([
-            article.title,
-            article.link,
-            article.description,
-            article.published_date,
-            article.collected_date
-        ])
-    
+    try:
+        start_date = request.args.get('start_date')
+        end_date = request.args.get('end_date')
+        
+        # If dates not provided, use default (7 days ago to today)
+        if not start_date:
+            start_date = (datetime.utcnow() - timedelta(days=7)).date().isoformat()
+        if not end_date:
+            end_date = datetime.utcnow().date().isoformat()
+        
+        query = Article.query
+        if start_date:
+            query = query.filter(Article.collected_date >= datetime.fromisoformat(start_date))
+        if end_date:
+            query = query.filter(Article.collected_date <= datetime.fromisoformat(end_date))
+        
+        si = StringIO()
+        cw = csv.writer(si)
+        # Headers are always included
+        cw.writerow(['Title', 'Link', 'Description', 'Published Date', 'Collected Date'])
+        
+        for article in query.all():
+            cw.writerow([
+                article.title,
+                article.link,
+                article.description,
+                article.published_date.isoformat() if article.published_date else '',
+                article.collected_date.isoformat() if article.collected_date else ''
+            ])
+        
+        output = si.getvalue()
+        si.close()
+        
+        return output, 200, {
+            'Content-Type': 'text/csv',
+            'Content-Disposition': 'attachment; filename=collected_news.csv'
+        }
+    except Exception as e:
+        logging.error(f"Error downloading articles: {str(e)}")
+        return jsonify({'error': 'Failed to download articles'}), 500
+
 @feed_bp.route('/api/feeds/download', methods=['GET'])
 @login_required
 def download_feeds():
-    feeds = RSSFeed.query.all()
-    
-    si = StringIO()
-    cw = csv.writer(si)
-    # Headers are always included
-    cw.writerow(['Title', 'URL', 'Status', 'Last Updated', 'Number of Articles', 'Last Article Date'])
-    
-    for feed in feeds:
-        cw.writerow([
-            feed.title,
-            feed.url,
-            feed.status,
-            feed.last_updated.isoformat() if feed.last_updated else '',
-            feed.num_articles,
-            feed.last_article_date.isoformat() if feed.last_article_date else ''
-        ])
-    
-    output = si.getvalue()
-    si.close()
-    return output, 200, {
-        'Content-Type': 'text/csv',
-        'Content-Disposition': 'attachment; filename=rss_feed_list.csv'
-    }
-    output = si.getvalue()
-    si.close()
-    return output, 200, {
-        'Content-Type': 'text/csv',
-        'Content-Disposition': 'attachment; filename=collected_news.csv'
-    }
+    try:
+        feeds = RSSFeed.query.all()
+        
+        si = StringIO()
+        cw = csv.writer(si)
+        # Headers are always included
+        cw.writerow(['Title', 'URL', 'Status', 'Last Updated', 'Number of Articles', 'Last Article Date'])
+        
+        for feed in feeds:
+            cw.writerow([
+                feed.title,
+                feed.url,
+                feed.status,
+                feed.last_updated.isoformat() if feed.last_updated else '',
+                feed.num_articles,
+                feed.last_article_date.isoformat() if feed.last_article_date else ''
+            ])
+        
+        output = si.getvalue()
+        si.close()
+        return output, 200, {
+            'Content-Type': 'text/csv',
+            'Content-Disposition': 'attachment; filename=rss_feed_list.csv'
+        }
+    except Exception as e:
+        logging.error(f"Error downloading feeds: {str(e)}")
+        return jsonify({'error': 'Failed to download feeds'}), 500
