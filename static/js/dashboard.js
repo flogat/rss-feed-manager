@@ -227,14 +227,23 @@ $(document).ready(function() {
     $('#feedsList').on('click', '.refresh-feed', function() {
         const feedId = $(this).data('feed-id');
         const button = $(this);
+        const row = button.closest('tr');
         button.prop('disabled', true);
+        
+        // Update status immediately to show scanning
+        const statusCell = row.find('td:nth-child(8)');
+        const originalStatus = statusCell.text();
+        statusCell.text('scanning...');
         
         $.post(`/api/feeds/${feedId}/refresh`)
             .done(function(response) {
-                loadFeeds(currentSort);
+                // Immediate feedback before full reload
+                statusCell.text('scan complete');
+                setTimeout(() => loadFeeds(currentSort), 500);
             })
             .fail(function(xhr) {
                 const error = xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error occurred';
+                statusCell.text(originalStatus);
                 showError('Error refreshing feed: ' + error);
             })
             .always(function() {
