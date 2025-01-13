@@ -3,8 +3,6 @@ from datetime import datetime
 import logging
 from models import RSSFeed, Article, db
 import socket
-from sqlalchemy import create_engine
-from sqlalchemy.orm import scoped_session, sessionmaker
 
 # Global variables to track scan progress
 current_scan_progress = {
@@ -22,7 +20,7 @@ def update_single_feed(feed):
     try:
         current_time = datetime.utcnow()
         # Set timeout for feedparser
-        parsed = feedparser.parse(feed.url, timeout=10)
+        parsed = feedparser.parse(feed.url)
 
         feed.title = parsed.feed.title if hasattr(parsed.feed, 'title') else feed.url
         feed.last_updated = current_time
@@ -59,7 +57,6 @@ def update_single_feed(feed):
             feed.last_article_date = latest_date
 
         db.session.commit()
-        db.session.expunge_all()  # Clear the session
 
         # Return updated feed data for frontend
         return {
@@ -75,13 +72,13 @@ def update_single_feed(feed):
         feed.error_count += 1
         feed.last_error = str(e)
         db.session.commit()
-        db.session.expunge_all()  # Clear the session
         raise
 
 def update_all_feeds(trigger='manual'):
     global current_scan_progress
 
     try:
+        # Get all feeds within this session
         feeds = RSSFeed.query.all()
         current_time = datetime.utcnow()
         batch_size = 10  # Process feeds in batches of 10
@@ -98,7 +95,11 @@ def update_all_feeds(trigger='manual'):
         # Process feeds in batches
         for i in range(0, len(feeds), batch_size):
             batch = feeds[i:i + batch_size]
+
             for index, feed in enumerate(batch, i + 1):
+                # Refresh the feed object for this iteration
+                feed = db.session.merge(feed)
+
                 # Update scan progress
                 current_scan_progress.update({
                     'current_feed': feed.title or feed.url,
@@ -107,8 +108,7 @@ def update_all_feeds(trigger='manual'):
                 })
 
                 try:
-                    # Set timeout for feedparser
-                    parsed = feedparser.parse(feed.url, timeout=10)
+                    parsed = feedparser.parse(feed.url)
 
                     feed.title = parsed.feed.title if hasattr(parsed.feed, 'title') else feed.url
                     feed.last_updated = current_time
@@ -145,22 +145,19 @@ def update_all_feeds(trigger='manual'):
                     if latest_date:
                         feed.last_article_date = latest_date
 
+                    # Commit changes for this feed
+                    db.session.commit()
+
                 except Exception as e:
+                    db.session.rollback()
                     feed.status = 'error'
                     feed.error_count += 1
                     feed.last_error = str(e)
                     feed.last_scan_time = current_time
                     feed.last_scan_trigger = trigger
+                    db.session.commit()
                     logging.error(f"Error updating feed {feed.url}: {str(e)}")
                     continue
-
-            # Commit after each batch
-            try:
-                db.session.commit()
-                db.session.expunge_all()  # Clear session after each batch
-            except Exception as e:
-                db.session.rollback()
-                logging.error(f"Error committing batch: {str(e)}")
 
     except Exception as e:
         logging.error(f"Error in update_all_feeds: {str(e)}")
@@ -170,4 +167,3 @@ def update_all_feeds(trigger='manual'):
             'is_scanning': False,
             'completed': True
         })
-        db.session.close()  # Ensure session is closed
