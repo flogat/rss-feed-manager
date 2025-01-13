@@ -10,11 +10,21 @@ current_scan_progress = {
     'current_feed': None,
     'current_index': 0,
     'total_feeds': 0,
-    'completed': False
+    'completed': True  # Initialize as completed
 }
 
 # Set socket timeout for feedparser
 socket.setdefaulttimeout(10)  # 10 seconds timeout
+
+def reset_scan_progress():
+    global current_scan_progress
+    current_scan_progress = {
+        'is_scanning': False,
+        'current_feed': None,
+        'current_index': 0,
+        'total_feeds': 0,
+        'completed': True
+    }
 
 def update_single_feed(feed):
     try:
@@ -78,19 +88,22 @@ def update_all_feeds(trigger='manual'):
     global current_scan_progress
 
     try:
+        # Reset scan progress at the start
+        reset_scan_progress()
+
         # Get all feeds within this session
         feeds = RSSFeed.query.all()
         current_time = datetime.utcnow()
         batch_size = 10  # Process feeds in batches of 10
 
         # Initialize scan progress
-        current_scan_progress = {
+        current_scan_progress.update({
             'is_scanning': True,
             'current_feed': None,
             'current_index': 0,
             'total_feeds': len(feeds),
             'completed': False
-        }
+        })
 
         # Process feeds in batches
         for i in range(0, len(feeds), batch_size):
@@ -163,7 +176,5 @@ def update_all_feeds(trigger='manual'):
         logging.error(f"Error in update_all_feeds: {str(e)}")
         raise
     finally:
-        current_scan_progress.update({
-            'is_scanning': False,
-            'completed': True
-        })
+        # Reset scan progress when done
+        reset_scan_progress()
