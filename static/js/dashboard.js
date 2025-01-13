@@ -82,10 +82,10 @@ let currentSort = {
     direction: 'asc'
 };
 
-function loadFeeds(sort = currentSort) {
+function loadFeeds() {
     $.get('/api/feeds')
         .done(function(response) {
-            updateFeedsDisplay(response);
+            updateFeedsDisplay(response, currentSort);
         })
         .fail(function(xhr) {
             const error = xhr.responseJSON ? xhr.responseJSON.error : 'Failed to load feeds';
@@ -93,7 +93,7 @@ function loadFeeds(sort = currentSort) {
         });
 }
 
-function updateFeedsDisplay(response) {
+function updateFeedsDisplay(response, sort = currentSort) {
     const feeds = response.feeds;
     const scanProgress = response.scan_progress;
     const nextScan = response.next_scan;
@@ -209,7 +209,7 @@ $(document).ready(function() {
         $.get('/api/feeds')
             .done(function(response) {
                 updatePollInterval(response.scan_progress);
-                updateFeedsDisplay(response);
+                updateFeedsDisplay(response, currentSort);
             })
             .fail(function(xhr) {
                 const error = xhr.responseJSON ? xhr.responseJSON.error : 'Failed to load feeds';
@@ -248,7 +248,7 @@ $(document).ready(function() {
             icon.removeClass('bi-sort-up').addClass('bi-sort-down');
         }
 
-        loadFeeds(currentSort);
+        loadFeeds();
     });
 
     // Handle individual feed refresh
