@@ -7,6 +7,9 @@ from flask_migrate import Migrate
 from sqlalchemy.orm import DeclarativeBase
 import logging
 
+# Set up logging
+logging.basicConfig(level=logging.DEBUG)
+
 class Base(DeclarativeBase):
     pass
 
@@ -30,6 +33,9 @@ def create_app():
         "pool_size": 10,
         "max_overflow": 20,
         "pool_recycle": 3600,
+        "pool_timeout": 30,
+        "max_overflow": 5,
+        "echo": True,  # Log SQL queries for debugging
     }
 
     # Initialize extensions

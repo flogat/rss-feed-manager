@@ -3,6 +3,7 @@ from datetime import datetime
 import logging
 from models import RSSFeed, Article, ScanProgress, db
 import socket
+from sqlalchemy.exc import SQLAlchemyError
 
 # Set socket timeout for feedparser
 socket.setdefaulttimeout(10)  # 10 seconds timeout
@@ -63,13 +64,24 @@ def update_single_feed(feed):
 
         # Batch add articles
         if articles_to_add:
-            db.session.bulk_save_objects(articles_to_add)
+            try:
+                db.session.bulk_save_objects(articles_to_add)
+                db.session.commit()
+            except SQLAlchemyError as e:
+                db.session.rollback()
+                logging.error(f"Error saving articles: {str(e)}")
+                raise
 
         feed.num_articles = current_count + new_articles
         if latest_date:
             feed.last_article_date = latest_date
 
-        db.session.commit()
+        try:
+            db.session.commit()
+        except SQLAlchemyError as e:
+            db.session.rollback()
+            logging.error(f"Error updating feed: {str(e)}")
+            raise
 
         # Return updated feed data for frontend
         return {
@@ -84,7 +96,11 @@ def update_single_feed(feed):
         feed.status = 'error'
         feed.error_count += 1
         feed.last_error = str(e)
-        db.session.commit()
+        try:
+            db.session.commit()
+        except SQLAlchemyError as commit_error:
+            db.session.rollback()
+            logging.error(f"Error updating feed error status: {str(commit_error)}")
         raise
 
 def update_all_feeds(trigger='manual'):
@@ -117,18 +133,18 @@ def update_all_feeds(trigger='manual'):
             batch = feeds[i:i + batch_size]
 
             for feed in batch:
-                # Refresh the feed object for this iteration
-                feed = db.session.merge(feed)
-                processed_count += 1
-
-                # Update scan progress for each feed
-                update_scan_progress(
-                    current_feed=feed.title or feed.url,
-                    current_index=processed_count,
-                    completed=False
-                )
-
                 try:
+                    # Refresh the feed object for this iteration
+                    feed = db.session.merge(feed)
+                    processed_count += 1
+
+                    # Update scan progress for each feed
+                    update_scan_progress(
+                        current_feed=feed.title or feed.url,
+                        current_index=processed_count,
+                        completed=False
+                    )
+
                     parsed = feedparser.parse(feed.url)
 
                     feed.title = parsed.feed.title if hasattr(parsed.feed, 'title') else feed.url
@@ -144,48 +160,66 @@ def update_all_feeds(trigger='manual'):
                     articles_to_add = []
 
                     for entry_index, entry in enumerate(parsed.entries):
-                        if not Article.query.filter_by(link=entry.link).first():
-                            published_date = datetime(*entry.published_parsed[:6]) if 'published_parsed' in entry else None
-                            article = Article(
-                                feed_id=feed.id,
-                                title=entry.title,
-                                link=entry.link,
-                                description=entry.get('description', ''),
-                                published_date=published_date
-                            )
-                            articles_to_add.append(article)
-                            new_articles += 1
-                            if published_date and (not latest_date or published_date > latest_date):
-                                latest_date = published_date
+                        try:
+                            if not Article.query.filter_by(link=entry.link).first():
+                                published_date = datetime(*entry.published_parsed[:6]) if 'published_parsed' in entry else None
+                                article = Article(
+                                    feed_id=feed.id,
+                                    title=entry.title,
+                                    link=entry.link,
+                                    description=entry.get('description', ''),
+                                    published_date=published_date
+                                )
+                                articles_to_add.append(article)
+                                new_articles += 1
+                                if published_date and (not latest_date or published_date > latest_date):
+                                    latest_date = published_date
 
-                        # Update progress for every article
-                        if entry_index % 5 == 0:  # Update every 5 articles
-                            update_scan_progress(
-                                current_feed=f"{feed.title or feed.url} (processing article {entry_index + 1})",
-                                current_index=processed_count - 1 + ((entry_index + 1) / len(parsed.entries)),
-                                completed=False
-                            )
+                            # Update progress for every few articles
+                            if entry_index % 5 == 0:  # Update every 5 articles
+                                update_scan_progress(
+                                    current_feed=f"{feed.title or feed.url} (processing article {entry_index + 1})",
+                                    current_index=processed_count - 1 + ((entry_index + 1) / len(parsed.entries)),
+                                    completed=False
+                                )
+                        except Exception as article_error:
+                            logging.error(f"Error processing article {entry_index} for feed {feed.url}: {str(article_error)}")
+                            continue
 
-                    # Batch add articles
+                    # Batch add articles with error handling
                     if articles_to_add:
-                        db.session.bulk_save_objects(articles_to_add)
+                        try:
+                            db.session.bulk_save_objects(articles_to_add)
+                            db.session.commit()
+                        except SQLAlchemyError as e:
+                            db.session.rollback()
+                            logging.error(f"Error saving articles batch: {str(e)}")
+                            continue
 
                     feed.num_articles = current_count + new_articles
                     if latest_date:
                         feed.last_article_date = latest_date
 
-                    # Commit changes for this feed
-                    db.session.commit()
+                    try:
+                        db.session.commit()
+                    except SQLAlchemyError as e:
+                        db.session.rollback()
+                        logging.error(f"Error updating feed status: {str(e)}")
+                        continue
 
-                except Exception as e:
+                except Exception as feed_error:
                     db.session.rollback()
                     feed.status = 'error'
                     feed.error_count += 1
-                    feed.last_error = str(e)
+                    feed.last_error = str(feed_error)
                     feed.last_scan_time = current_time
                     feed.last_scan_trigger = trigger
-                    db.session.commit()
-                    logging.error(f"Error updating feed {feed.url}: {str(e)}")
+                    try:
+                        db.session.commit()
+                    except SQLAlchemyError as commit_error:
+                        db.session.rollback()
+                        logging.error(f"Error updating feed error status: {str(commit_error)}")
+                    logging.error(f"Error updating feed {feed.url}: {str(feed_error)}")
                     continue
 
     except Exception as e:
