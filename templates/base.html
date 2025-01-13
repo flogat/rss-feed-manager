@@ -19,7 +19,6 @@
             {% endif %}
         </div>
     </nav>
-    <img alt src="{{ url_for('static', filename='img/background.png') }}" class="background"/>
 
     <div class="container mt-4">
         {% with messages = get_flashed_messages() %}
@@ -29,7 +28,7 @@
         {% endfor %}
         {% endif %}
         {% endwith %}
-        
+
         {% block content %}{% endblock %}
     </div>
 
