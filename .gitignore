@@ -46,3 +46,12 @@ instance/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Logs
+*.log
+logs/
+log/
+
+# Instance folder
+instance/*
+!instance/.gitkeep
