@@ -33,9 +33,9 @@ flask db upgrade
 
 4. Run the application:
 
-For development:
+For development (not recommended for production):
 ```bash
-python main.py
+flask run --host=0.0.0.0 --port=5000
 ```
 
 For production (recommended):
@@ -56,46 +56,30 @@ The application will be available at `http://localhost:5000`
 
 ## Setting up as a System Service
 
-### Create Service User (Optional but recommended)
+The project includes an automated installation script that sets up the RSS Feed Manager as a system service. This script will:
+- Create a dedicated service user
+- Configure the necessary permissions
+- Create and enable a systemd service
+- Start the service automatically
+
+### Installing the Service
+
+1. Make sure you are in the project directory and have your virtual environment activated.
+
+2. Run the installation script:
 ```bash
-sudo useradd -r -s /bin/false rss_manager
-sudo chown -R rss_manager:rss_manager /path/to/rss-feed-manager
+./install_service.sh
 ```
 
-### Create Systemd Service File
-Create a new service file at `/etc/systemd/system/rss-feed-manager.service`:
-
-```ini
-[Unit]
-Description=RSS Feed Manager Service
-After=network.target
-
-[Service]
-Type=simple
-User=rss_manager
-WorkingDirectory=/path/to/rss-feed-manager
-Environment="PATH=/path/to/rss-feed-manager/venv/bin"
-ExecStart=/path/to/rss-feed-manager/venv/bin/gunicorn --config gunicorn.conf.py wsgi:app
-Restart=always
-RestartSec=10
-
-[Install]
-WantedBy=multi-user.target
-```
-
-### Install and Enable Service
-```bash
-# Reload systemd to recognize the new service
-sudo systemctl daemon-reload
-
-# Enable service to start on boot
-sudo systemctl enable rss-feed-manager
-
-# Start the service
-sudo systemctl start rss-feed-manager
-```
+The script will automatically:
+- Detect your virtual environment
+- Set up the service using the current directory
+- Configure systemd
+- Start the service
 
 ### Service Management Commands
+
+After installation, you can manage the service using these commands:
 ```bash
 # Check service status
 sudo systemctl status rss-feed-manager
