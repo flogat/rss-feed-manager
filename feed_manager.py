@@ -61,12 +61,13 @@ def get_article(article_id):
 def sanitize_text(text):
     if not text:
         return ''
-    # Replace newlines, carriage returns and tabs with spaces
-    text = text.replace('\n', ' ').replace('\r', ' ').replace('\t', ' ')
+    # Replace all types of newlines and whitespace with single spaces
+    text = text.replace('\n', ' ').replace('\r', ' ').replace('\t', ' ').replace('\v', ' ').replace('\f', ' ')
     # Replace multiple spaces with a single space
     text = ' '.join(text.split())
     # Remove any remaining special characters that might cause CSV issues
     text = ''.join(char for char in text if char.isprintable())
+    # Strip leading/trailing whitespace
     return text.strip()
 
 @feed_bp.route('/api/feeds/download')
