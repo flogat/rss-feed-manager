@@ -316,6 +316,9 @@ $(document).ready(function() {
         if (!confirm('Are you sure you want to delete this feed?')) return;
 
         const feedId = $(this).data('feed-id');
+        const button = $(this);
+        button.prop('disabled', true);
+
         $.ajax({
             url: `/api/feeds/${feedId}`,
             method: 'DELETE'
@@ -327,8 +330,11 @@ $(document).ready(function() {
                     });
             })
             .fail(function(xhr) {
-                const error = xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error occurred';
-                showError('Error deleting feed: ' + error);
+                const error = xhr.responseJSON && xhr.responseJSON.error ? xhr.responseJSON.error : 'Failed to delete feed';
+                showError(error);
+            })
+            .always(function() {
+                button.prop('disabled', false);
             });
     });
 
@@ -363,10 +369,12 @@ $(document).ready(function() {
             return;
         }
 
-        $.post('/api/feeds/bulk', {
-            urls: urls
-        })
-            .done(function(response) {
+        $.ajax({
+            url: '/api/feeds/bulk',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ urls: urls }),
+            success: function(response) {
                 if (response.errors && response.errors.length > 0) {
                     showError('Some feeds could not be added:\n' + response.errors.join('\n'));
                 }
@@ -376,11 +384,12 @@ $(document).ready(function() {
                     .done(function(response) {
                         updateFeedsDisplay(response, currentSort);
                     });
-            })
-            .fail(function(xhr) {
+            },
+            error: function(xhr) {
                 const error = xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error occurred';
                 showError('Error adding feeds: ' + error);
-            });
+            }
+        });
     });
 
     // Handle article download form submission

@@ -186,10 +186,20 @@ def download_all_articles():
 @feed_bp.route('/api/feeds/<int:feed_id>', methods=['DELETE'])
 @login_required
 def delete_feed(feed_id):
-    feed = RSSFeed.query.get_or_404(feed_id)
-    db.session.delete(feed)
-    db.session.commit()
-    return jsonify({'message': 'Feed deleted successfully'})
+    try:
+        feed = RSSFeed.query.get_or_404(feed_id)
+
+        # Delete associated articles first
+        Article.query.filter_by(feed_id=feed_id).delete()
+
+        # Then delete the feed
+        db.session.delete(feed)
+        db.session.commit()
+        return jsonify({'message': 'Feed deleted successfully'})
+    except Exception as e:
+        logging.error(f"Error deleting feed {feed_id}: {str(e)}")
+        db.session.rollback()
+        return jsonify({'error': f'Failed to delete feed: {str(e)}'}), 500
 
 @feed_bp.route('/api/feeds/refresh', methods=['POST'])
 @login_required
