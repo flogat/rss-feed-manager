@@ -85,104 +85,7 @@ let currentSort = {
 function loadFeeds(sort = currentSort) {
     $.get('/api/feeds')
         .done(function(response) {
-            const feeds = response.feeds;
-            const scanProgress = response.scan_progress;
-            const nextScan = response.next_scan;
-
-            // Start/update countdown timer
-            startCountdownTimer(nextScan);
-
-            // Show progress bar for both manual and automatic scans
-            if (scanProgress && scanProgress.is_scanning) {
-                // Update title
-                document.title = `Scanning... (${scanProgress.current_index}/${scanProgress.total_feeds}) - RSS Feed Manager`;
-
-                // Show and update progress bar
-                $('#scanProgress').show();
-                const progressPercent = (scanProgress.current_index / scanProgress.total_feeds) * 100;
-                $('#scanProgress .progress-bar')
-                    .css('width', `${progressPercent}%`)
-                    .attr('aria-valuenow', progressPercent);
-
-                // Update summary with scanning information
-                let summaryHtml = `Currently scanning: ${scanProgress.current_feed || 'Unknown feed'}<br>
-                    Progress: ${scanProgress.current_index} of ${scanProgress.total_feeds} feeds<br><br>`;
-
-                // Add regular feed summary after scanning info
-                const activeFeeds = feeds.filter(f => f.status === 'active').length;
-                const totalArticles = feeds.reduce((sum, feed) => sum + feed.num_articles, 0);
-                const recentArticles = feeds.reduce((sum, feed) => sum + feed.recent_articles, 0);
-
-                summaryHtml += `Total Feeds: ${feeds.length} (${activeFeeds} active)<br>
-                    Total Articles: ${totalArticles} (${recentArticles} in last 7 days)`;
-
-                $('#feedSummary').html(summaryHtml);
-            } else {
-                // Reset UI when not scanning
-                document.title = 'RSS Feed Manager';
-                $('#scanProgress').hide();
-
-                // Show regular summary
-                const activeFeeds = feeds.filter(f => f.status === 'active').length;
-                const totalArticles = feeds.reduce((sum, feed) => sum + feed.num_articles, 0);
-                const recentArticles = feeds.reduce((sum, feed) => sum + feed.recent_articles, 0);
-
-                const summaryHtml = `Total Feeds: ${feeds.length} (${activeFeeds} active)<br>
-                    Total Articles: ${totalArticles} (${recentArticles} in last 7 days)`;
-
-                $('#feedSummary').html(summaryHtml);
-            }
-
-            // Sort feeds based on current sort settings
-            feeds.sort((a, b) => {
-                let aVal = a[sort.column];
-                let bVal = b[sort.column];
-
-                // Handle null values
-                if (aVal === null && bVal === null) return 0;
-                if (aVal === null) return 1;
-                if (bVal === null) return -1;
-
-                // Compare based on type
-                if (typeof aVal === 'string') {
-                    return sort.direction === 'asc' ? 
-                        aVal.localeCompare(bVal) : 
-                        bVal.localeCompare(aVal);
-                }
-                return sort.direction === 'asc' ? aVal - bVal : bVal - aVal;
-            });
-
-            // Render feeds
-            const tbody = $('#feedsList');
-            tbody.empty();
-            feeds.forEach(feed => {
-                tbody.append(`
-                    <tr>
-                        <td>${feed.title || feed.url}</td>
-                        <td>${feed.url}</td>
-                        <td>${feed.num_articles}</td>
-                        <td>${feed.recent_articles}</td>
-                        <td>${formatTimestamp(feed.last_article_date, true)}</td>
-                        <td>${formatTimestamp(feed.last_scan_time, true)}</td>
-                        <td>${feed.last_scan_trigger}</td>
-                        <td>${feed.status}</td>
-                        <td>
-                            <a href="/feeds/${feed.id}/articles" class="btn btn-sm btn-primary">
-                                <i class="bi bi-list-ul"></i>
-                            </a>
-                            <button class="btn btn-sm btn-secondary refresh-feed" data-feed-id="${feed.id}">
-                                <i class="bi bi-arrow-clockwise"></i>
-                            </button>
-                            <button class="btn btn-sm btn-info download-feed" data-feed-id="${feed.id}">
-                                <i class="bi bi-download"></i>
-                            </button>
-                            <button class="btn btn-sm btn-danger delete-feed" data-feed-id="${feed.id}">
-                                <i class="bi bi-trash"></i>
-                            </button>
-                        </td>
-                    </tr>
-                `);
-            });
+            updateFeedsDisplay(response);
         })
         .fail(function(xhr) {
             const error = xhr.responseJSON ? xhr.responseJSON.error : 'Failed to load feeds';
@@ -190,12 +93,136 @@ function loadFeeds(sort = currentSort) {
         });
 }
 
+function updateFeedsDisplay(response) {
+    const feeds = response.feeds;
+    const scanProgress = response.scan_progress;
+    const nextScan = response.next_scan;
+
+    // Start/update countdown timer
+    startCountdownTimer(nextScan);
+
+    // Show progress bar for both manual and automatic scans
+    if (scanProgress && scanProgress.is_scanning) {
+        // Update title
+        document.title = `Scanning... (${scanProgress.current_index}/${scanProgress.total_feeds}) - RSS Feed Manager`;
+
+        // Show and update progress bar
+        $('#scanProgress').show();
+        const progressPercent = (scanProgress.current_index / scanProgress.total_feeds) * 100;
+        $('#scanProgress .progress-bar')
+            .css('width', `${progressPercent}%`)
+            .attr('aria-valuenow', progressPercent);
+
+        // Update summary with scanning information
+        let summaryHtml = `Currently scanning: ${scanProgress.current_feed || 'Unknown feed'}<br>
+            Progress: ${scanProgress.current_index} of ${scanProgress.total_feeds} feeds<br><br>`;
+
+        // Add regular feed summary after scanning info
+        const activeFeeds = feeds.filter(f => f.status === 'active').length;
+        const totalArticles = feeds.reduce((sum, feed) => sum + feed.num_articles, 0);
+        const recentArticles = feeds.reduce((sum, feed) => sum + feed.recent_articles, 0);
+
+        summaryHtml += `Total Feeds: ${feeds.length} (${activeFeeds} active)<br>
+            Total Articles: ${totalArticles} (${recentArticles} in last 7 days)`;
+
+        $('#feedSummary').html(summaryHtml);
+    } else {
+        // Reset UI when not scanning
+        document.title = 'RSS Feed Manager';
+        $('#scanProgress').hide();
+
+        // Show regular summary
+        const activeFeeds = feeds.filter(f => f.status === 'active').length;
+        const totalArticles = feeds.reduce((sum, feed) => sum + feed.num_articles, 0);
+        const recentArticles = feeds.reduce((sum, feed) => sum + feed.recent_articles, 0);
+
+        const summaryHtml = `Total Feeds: ${feeds.length} (${activeFeeds} active)<br>
+            Total Articles: ${totalArticles} (${recentArticles} in last 7 days)`;
+
+        $('#feedSummary').html(summaryHtml);
+    }
+
+    // Sort feeds based on current sort settings
+    feeds.sort((a, b) => {
+        let aVal = a[sort.column];
+        let bVal = b[sort.column];
+
+        // Handle null values
+        if (aVal === null && bVal === null) return 0;
+        if (aVal === null) return 1;
+        if (bVal === null) return -1;
+
+        // Compare based on type
+        if (typeof aVal === 'string') {
+            return sort.direction === 'asc' ?
+                aVal.localeCompare(bVal) :
+                bVal.localeCompare(aVal);
+        }
+        return sort.direction === 'asc' ? aVal - bVal : bVal - aVal;
+    });
+
+    // Render feeds
+    const tbody = $('#feedsList');
+    tbody.empty();
+    feeds.forEach(feed => {
+        tbody.append(`
+            <tr>
+                <td>${feed.title || feed.url}</td>
+                <td>${feed.url}</td>
+                <td>${feed.num_articles}</td>
+                <td>${feed.recent_articles}</td>
+                <td>${formatTimestamp(feed.last_article_date, true)}</td>
+                <td>${formatTimestamp(feed.last_scan_time, true)}</td>
+                <td>${feed.last_scan_trigger}</td>
+                <td>${feed.status}</td>
+                <td>
+                    <a href="/feeds/${feed.id}/articles" class="btn btn-sm btn-primary">
+                        <i class="bi bi-list-ul"></i>
+                    </a>
+                    <button class="btn btn-sm btn-secondary refresh-feed" data-feed-id="${feed.id}">
+                        <i class="bi bi-arrow-clockwise"></i>
+                    </button>
+                    <button class="btn btn-sm btn-info download-feed" data-feed-id="${feed.id}">
+                        <i class="bi bi-download"></i>
+                    </button>
+                    <button class="btn btn-sm btn-danger delete-feed" data-feed-id="${feed.id}">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        `);
+    });
+}
+
 $(document).ready(function() {
     // Initial load
     loadFeeds();
 
-    // Refresh feeds periodically
-    setInterval(loadFeeds, 5000);
+    // Refresh feeds more frequently during scanning
+    let pollInterval = 5000;  // Default 5 second interval
+    function updatePollInterval(scanProgress) {
+        // If scanning, poll every 500ms, otherwise every 5 seconds
+        pollInterval = scanProgress && scanProgress.is_scanning ? 500 : 5000;
+    }
+
+    function pollFeeds() {
+        $.get('/api/feeds')
+            .done(function(response) {
+                updatePollInterval(response.scan_progress);
+                updateFeedsDisplay(response);
+            })
+            .fail(function(xhr) {
+                const error = xhr.responseJSON ? xhr.responseJSON.error : 'Failed to load feeds';
+                showError(error);
+            })
+            .always(function() {
+                // Schedule next poll based on current interval
+                setTimeout(pollFeeds, pollInterval);
+            });
+    }
+
+    // Start polling
+    pollFeeds();
 
     // Handle sorting
     $('.sortable').click(function() {

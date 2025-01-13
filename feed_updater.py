@@ -109,21 +109,19 @@ def update_all_feeds(trigger='manual'):
         )
 
         current_time = datetime.utcnow()
-        batch_size = 3  # Process feeds in smaller batches
+        batch_size = 1  # Process one feed at a time for more granular updates
         processed_count = 0
 
         # Process feeds in batches
         for i in range(0, total_feeds, batch_size):
             batch = feeds[i:i + batch_size]
-            batch_progress = 0
 
             for feed in batch:
                 # Refresh the feed object for this iteration
                 feed = db.session.merge(feed)
                 processed_count += 1
-                batch_progress += 1
 
-                # Update scan progress more frequently
+                # Update scan progress for each feed
                 update_scan_progress(
                     current_feed=feed.title or feed.url,
                     current_index=processed_count,
@@ -160,12 +158,11 @@ def update_all_feeds(trigger='manual'):
                             if published_date and (not latest_date or published_date > latest_date):
                                 latest_date = published_date
 
-                        # Update progress within article processing
-                        if entry_index % 10 == 0:  # Update every 10 articles
-                            current_progress = processed_count - 1 + (batch_progress / batch_size)
+                        # Update progress for every article
+                        if entry_index % 5 == 0:  # Update every 5 articles
                             update_scan_progress(
-                                current_feed=f"{feed.title or feed.url} (processing articles...)",
-                                current_index=current_progress,
+                                current_feed=f"{feed.title or feed.url} (processing article {entry_index + 1})",
+                                current_index=processed_count - 1 + ((entry_index + 1) / len(parsed.entries)),
                                 completed=False
                             )
 
