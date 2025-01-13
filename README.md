@@ -48,12 +48,70 @@ Note: Always use gunicorn for production deployment as it properly initializes t
 The application will be available at `http://localhost:5000`
 
 ## Usage
-
 1. Log in to the admin interface
 2. Add RSS feeds through the web interface
 3. Monitor feed statuses and article collection
 4. Export collected articles as CSV
 5. View individual articles and their content
+
+## Setting up as a System Service
+
+### Create Service User (Optional but recommended)
+```bash
+sudo useradd -r -s /bin/false rss_manager
+sudo chown -R rss_manager:rss_manager /path/to/rss-feed-manager
+```
+
+### Create Systemd Service File
+Create a new service file at `/etc/systemd/system/rss-feed-manager.service`:
+
+```ini
+[Unit]
+Description=RSS Feed Manager Service
+After=network.target
+
+[Service]
+Type=simple
+User=rss_manager
+WorkingDirectory=/path/to/rss-feed-manager
+Environment="PATH=/path/to/rss-feed-manager/venv/bin"
+ExecStart=/path/to/rss-feed-manager/venv/bin/gunicorn --config gunicorn.conf.py wsgi:app
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+```
+
+### Install and Enable Service
+```bash
+# Reload systemd to recognize the new service
+sudo systemctl daemon-reload
+
+# Enable service to start on boot
+sudo systemctl enable rss-feed-manager
+
+# Start the service
+sudo systemctl start rss-feed-manager
+```
+
+### Service Management Commands
+```bash
+# Check service status
+sudo systemctl status rss-feed-manager
+
+# Start service
+sudo systemctl start rss-feed-manager
+
+# Stop service
+sudo systemctl stop rss-feed-manager
+
+# Restart service
+sudo systemctl restart rss-feed-manager
+
+# View logs
+sudo journalctl -u rss-feed-manager
+```
 
 ## Export Features
 
