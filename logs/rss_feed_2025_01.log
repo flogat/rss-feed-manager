@@ -1090,3 +1090,323 @@ with app.app_context(). See the documentation for more information.
 2025-01-13 14:36:13,556 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:36:13] "[33mGET /static/img/background.png HTTP/1.1[0m" 404 -
 2025-01-13 14:36:13,779 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:36:13] "GET /api/feeds HTTP/1.1" 200 -
 2025-01-13 14:36:18,778 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:36:18] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:36:23,789 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:36:23] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:36:28,783 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:36:28] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:36:30,873 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:36:30] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:36:31,395 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:36:31] "GET / HTTP/1.1" 200 -
+2025-01-13 14:36:31,597 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:36:31] "[33mGET /static/img/background.png HTTP/1.1[0m" 404 -
+2025-01-13 14:36:31,598 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:36:31] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-01-13 14:36:31,762 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:36:31] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-01-13 14:36:31,981 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:36:31] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:36:33,782 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:36:33] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:36:37,270 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:36:37] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:36:38,790 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:36:38] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:36:42,275 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:36:42] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:36:43,782 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:36:43] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:36:47,258 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:36:47] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:36:48,789 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:36:48] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:36:49,716 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2025-01-13 14:36:49,717 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2025-01-13 14:36:49 UTC)" (scheduled at 2025-01-13 14:36:49.715791+00:00)
+2025-01-13 14:36:49,718 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2025-01-13 14:39:49.715791+00:00 (in 179.997570 seconds)
+2025-01-13 14:36:50,390 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2025-01-13 14:36:50,391 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2025-01-13 14:36:50 UTC)" (scheduled at 2025-01-13 14:36:50.379062+00:00)
+2025-01-13 14:36:50,391 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2025-01-13 14:39:50.379062+00:00 (in 179.987788 seconds)
+2025-01-13 14:36:52,250 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:36:52] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:36:53,789 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:36:53] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:36:57,256 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:36:57] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:36:58,784 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:36:58] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:37:02,263 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:37:02] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:37:03,783 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:37:03] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:37:07,250 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:37:07] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:37:08,829 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:37:08] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:37:12,255 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:37:12] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:37:13,781 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:37:13] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:37:17,260 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:37:17] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:37:18,785 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:37:18] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:37:22,245 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:37:22] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:37:23,791 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:37:23] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:37:27,368 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:37:27] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:37:28,836 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:37:28] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:37:33,790 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:37:33] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:37:38,791 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:37:38] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:37:43,837 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:37:43] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:37:47,266 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:37:47] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:37:48,778 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:37:48] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:37:50,988 - apscheduler.executors.default - INFO - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2025-01-13 14:39:50 UTC)" executed successfully
+2025-01-13 14:37:53,792 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:37:53] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:37:55,315 - apscheduler.executors.default - INFO - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2025-01-13 14:39:49 UTC)" executed successfully
+2025-01-13 14:37:58,782 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:37:58] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:38:03,784 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:38:03] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:38:08,791 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:38:08] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:38:13,781 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:38:13] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:38:18,781 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:38:18] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:38:24,114 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:38:24] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:38:26,093 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:38:26] "GET / HTTP/1.1" 200 -
+2025-01-13 14:38:27,035 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:38:27] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-01-13 14:38:27,061 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:38:27] "[33mGET /static/img/background.png HTTP/1.1[0m" 404 -
+2025-01-13 14:38:27,086 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:38:27] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-01-13 14:38:27,469 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:38:27] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:38:29,107 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:38:29] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:38:32,475 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:38:32] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:38:34,104 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:38:34] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:38:37,492 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:38:37] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:38:39,103 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:38:39] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:38:42,477 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:38:42] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:38:44,106 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:38:44] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:38:47,270 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:38:47] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:38:47,482 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:38:47] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:38:49,112 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:38:49] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:38:52,476 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:38:52] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:38:54,110 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:38:54] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:38:57,474 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:38:57] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:38:59,108 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:38:59] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:39:02,482 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:39:02] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:39:04,103 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:39:04] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:39:07,482 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:39:07] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:39:09,105 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:39:09] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:39:12,474 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:39:12] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:39:14,117 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:39:14] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:39:17,482 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:39:17] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:39:19,105 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:39:19] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:39:22,476 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:39:22] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:39:27,488 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:39:27] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:39:32,479 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:39:32] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:39:37,475 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:39:37] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:39:42,483 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:39:42] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:39:43,111 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:39:43] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:39:47,269 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:39:47] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:39:47,482 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:39:47] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:39:49,717 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2025-01-13 14:39:49,718 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2025-01-13 14:42:49.715791+00:00 (in 179.997800 seconds)
+2025-01-13 14:39:49,718 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2025-01-13 14:42:49 UTC)" (scheduled at 2025-01-13 14:39:49.715791+00:00)
+2025-01-13 14:39:50,380 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2025-01-13 14:39:50,380 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2025-01-13 14:42:50.379062+00:00 (in 179.998475 seconds)
+2025-01-13 14:39:50,380 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2025-01-13 14:42:50 UTC)" (scheduled at 2025-01-13 14:39:50.379062+00:00)
+2025-01-13 14:39:52,475 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:39:52] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:39:57,672 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:39:57] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:40:02,503 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:40:02] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:40:07,475 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:40:07] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:40:12,486 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:40:12] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:40:17,482 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:40:17] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:40:25,257 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:40:25] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:40:27,525 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:40:27] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:40:32,500 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:40:32] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:40:37,805 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:40:37] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:40:42,494 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:40:42] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:40:43,107 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:40:43] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:40:47,261 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:40:47] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:40:47,483 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:40:47] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:40:52,474 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:40:52] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:40:52,755 - apscheduler.executors.default - INFO - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2025-01-13 14:42:49 UTC)" executed successfully
+2025-01-13 14:40:52,826 - apscheduler.executors.default - INFO - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2025-01-13 14:42:50 UTC)" executed successfully
+2025-01-13 14:40:57,487 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:40:57] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:41:02,473 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:41:02] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:41:07,476 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:41:07] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:41:12,482 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:41:12] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:41:17,541 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:41:17] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:41:22,475 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:41:22] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:41:27,484 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:41:27] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:41:32,475 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:41:32] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:41:37,479 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:41:37] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:41:42,487 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:41:42] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:41:43,106 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:41:43] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:41:47,276 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:41:47] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:41:47,478 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:41:47] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:41:52,474 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:41:52] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:41:57,483 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:41:57] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:42:02,474 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:42:02] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:42:07,485 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:42:07] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:42:12,483 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:42:12] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:42:17,476 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:42:17] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:42:22,479 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:42:22] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:42:27,514 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:42:27] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:42:32,496 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:42:32] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:42:37,474 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:42:37] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:42:42,500 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:42:42] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:42:43,118 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:42:43] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:42:47,271 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:42:47] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:42:47,476 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:42:47] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:42:49,716 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2025-01-13 14:42:49,717 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2025-01-13 14:45:49.715791+00:00 (in 179.998291 seconds)
+2025-01-13 14:42:49,717 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2025-01-13 14:45:49 UTC)" (scheduled at 2025-01-13 14:42:49.715791+00:00)
+2025-01-13 14:42:50,379 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2025-01-13 14:42:50,380 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2025-01-13 14:45:50.379062+00:00 (in 179.998973 seconds)
+2025-01-13 14:42:50,380 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2025-01-13 14:45:50 UTC)" (scheduled at 2025-01-13 14:42:50.379062+00:00)
+2025-01-13 14:42:52,473 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:42:52] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:42:57,497 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:42:57] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:43:02,486 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:43:02] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:43:07,473 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:43:07] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:43:12,485 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:43:12] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:43:17,491 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:43:17] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:43:22,877 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:43:22] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:43:27,552 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:43:27] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:43:32,475 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:43:32] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:43:37,481 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:43:37] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:43:42,486 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:43:42] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:43:43,112 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:43:43] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:43:47,266 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:43:47] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:43:47,491 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:43:47] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:43:50,927 - apscheduler.executors.default - INFO - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2025-01-13 14:45:50 UTC)" executed successfully
+2025-01-13 14:43:51,075 - apscheduler.executors.default - INFO - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2025-01-13 14:45:49 UTC)" executed successfully
+2025-01-13 14:43:52,478 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:43:52] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:43:57,489 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:43:57] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:44:02,479 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:44:02] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:44:07,478 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:44:07] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:44:12,484 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:44:12] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:44:17,479 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:44:17] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:44:22,477 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:44:22] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:44:27,483 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:44:27] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:44:32,485 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:44:32] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:44:37,477 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:44:37] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:44:42,500 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:44:42] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:44:43,120 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:44:43] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:44:47,286 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:44:47] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:44:47,499 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:44:47] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:44:52,494 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:44:52] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:44:57,491 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:44:57] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:45:02,487 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:45:02] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:45:07,486 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:45:07] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:45:12,488 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:45:12] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:45:17,488 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:45:17] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:45:22,482 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:45:22] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:45:27,498 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:45:27] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:45:28,626 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:45:28] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:45:32,494 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:45:32] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:45:32,686 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:45:32] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:45:37,218 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:45:37] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:45:37,482 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:45:37] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:45:40,211 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:45:40] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:45:41,180 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:45:41] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:45:42,006 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:45:42] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:45:42,494 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:45:42] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:45:43,022 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:45:43] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:45:43,119 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:45:43] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:45:47,038 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:45:47] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:45:47,490 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:45:47] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:45:49,716 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2025-01-13 14:45:49,716 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2025-01-13 14:48:49.715791+00:00 (in 179.998950 seconds)
+2025-01-13 14:45:49,717 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2025-01-13 14:48:49 UTC)" (scheduled at 2025-01-13 14:45:49.715791+00:00)
+2025-01-13 14:45:50,379 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2025-01-13 14:45:50,380 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2025-01-13 14:48:50.379062+00:00 (in 179.998214 seconds)
+2025-01-13 14:45:50,381 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2025-01-13 14:48:50 UTC)" (scheduled at 2025-01-13 14:45:50.379062+00:00)
+2025-01-13 14:45:52,028 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:45:52] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:45:52,502 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:45:52] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:45:57,274 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:45:57] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:45:57,845 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:45:57] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:46:02,012 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:46:02] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:46:02,496 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:46:02] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:46:07,491 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:46:07] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:46:12,496 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:46:12] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:46:17,573 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:46:17] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:46:22,588 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:46:22] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:46:27,512 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:46:27] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:46:32,490 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:46:32] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:46:34,115 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:46:34] "POST /api/feeds/refresh HTTP/1.1" 200 -
+2025-01-13 14:46:37,490 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:46:37] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:46:42,502 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:46:42] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:46:43,112 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:46:43] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:46:47,480 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:46:47] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:46:49,122 - apscheduler.executors.default - INFO - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2025-01-13 14:48:49 UTC)" executed successfully
+2025-01-13 14:46:49,125 - apscheduler.executors.default - INFO - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2025-01-13 14:48:50 UTC)" executed successfully
+2025-01-13 14:46:52,477 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:46:52] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:46:57,492 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:46:57] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:47:02,475 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:47:02] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:47:07,485 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:47:07] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:47:12,483 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:47:12] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:47:17,478 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:47:17] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:47:22,479 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:47:22] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:47:27,488 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:47:27] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:47:30,999 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:47:30] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:47:33,118 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:47:33] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:47:34,110 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:47:34] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:47:38,122 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:47:38] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:47:39,119 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:47:39] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:47:42,309 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:47:42] "GET / HTTP/1.1" 200 -
+2025-01-13 14:47:43,335 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:47:43] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-01-13 14:47:43,508 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:47:43] "[33mGET /static/img/background.png HTTP/1.1[0m" 404 -
+2025-01-13 14:47:43,517 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:47:43] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-01-13 14:47:43,938 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:47:43] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:47:44,156 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:47:44] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:47:48,932 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:47:48] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:47:49,333 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:47:49] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:47:53,926 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:47:53] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:47:54,325 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:47:54] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:47:59,010 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:47:59] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:47:59,412 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:47:59] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:48:03,924 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:48:03] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:48:04,315 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:48:04] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:48:08,946 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:48:08] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:48:09,339 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:48:09] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:48:13,938 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:48:13] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:48:14,319 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:48:14] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:48:18,924 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:48:18] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:48:19,304 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:48:19] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:48:23,933 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:48:23] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:48:24,333 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:48:24] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:48:28,928 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:48:28] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:48:29,318 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:48:29] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:48:33,933 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:48:33] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:48:38,936 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:48:38] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:48:41,144 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:48:41] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:48:44,110 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:48:44] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:48:44,500 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:48:44] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:48:48,077 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:48:48] "GET / HTTP/1.1" 200 -
+2025-01-13 14:48:48,309 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:48:48] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-01-13 14:48:48,476 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:48:48] "[33mGET /static/img/background.png HTTP/1.1[0m" 404 -
+2025-01-13 14:48:48,479 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:48:48] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-01-13 14:48:49,113 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:48:49] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:48:49,500 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:48:49] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:48:49,716 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2025-01-13 14:48:49,716 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2025-01-13 14:51:49.715791+00:00 (in 179.999291 seconds)
+2025-01-13 14:48:49,716 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2025-01-13 14:51:49 UTC)" (scheduled at 2025-01-13 14:48:49.715791+00:00)
+2025-01-13 14:48:49,769 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:48:49] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:48:50,380 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2025-01-13 14:48:50,382 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2025-01-13 14:51:50.379062+00:00 (in 179.996351 seconds)
+2025-01-13 14:48:50,382 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2025-01-13 14:51:50 UTC)" (scheduled at 2025-01-13 14:48:50.379062+00:00)
+2025-01-13 14:48:54,109 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:48:54] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:48:54,769 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:48:54] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:48:59,112 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:48:59] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:49:00,123 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:49:00] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:49:04,113 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:49:04] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:49:05,163 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:49:05] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:49:09,106 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:49:09] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:49:14,114 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:49:14] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:49:19,115 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:49:19] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:49:24,105 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:49:24] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:49:29,114 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:49:29] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:49:34,110 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:49:34] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:49:39,109 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:49:39] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:49:44,120 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:49:44] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:49:49,104 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:49:49] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:49:50,253 - apscheduler.executors.default - INFO - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2025-01-13 14:51:50 UTC)" executed successfully
+2025-01-13 14:49:54,133 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:49:54] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:49:54,231 - apscheduler.executors.default - INFO - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2025-01-13 14:51:49 UTC)" executed successfully
+2025-01-13 14:49:59,114 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:49:59] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:50:04,108 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:50:04] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:50:09,112 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:50:09] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:50:14,124 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:50:14] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:50:19,104 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:50:19] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:50:43,119 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:50:43] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:50:48,045 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:50:48] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:50:49,106 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:50:49] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:50:54,126 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:50:54] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:50:59,106 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:50:59] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:51:04,112 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:51:04] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:51:09,115 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:51:09] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:51:24,101 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:51:24] "GET / HTTP/1.1" 200 -
+2025-01-13 14:51:24,938 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:51:24] "[33mGET /static/img/background.png HTTP/1.1[0m" 404 -
+2025-01-13 14:51:25,133 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:51:25] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-01-13 14:51:25,362 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:51:25] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-01-13 14:51:25,817 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:51:25] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:51:30,813 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:51:30] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:51:35,824 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:51:35] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:51:40,824 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:51:40] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:51:45,812 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:51:45] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:51:49,716 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2025-01-13 14:51:49,716 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2025-01-13 14:54:49.715791+00:00 (in 179.999306 seconds)
+2025-01-13 14:51:49,716 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2025-01-13 14:54:49 UTC)" (scheduled at 2025-01-13 14:51:49.715791+00:00)
+2025-01-13 14:51:50,379 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2025-01-13 14:51:50,379 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2025-01-13 14:54:50.379062+00:00 (in 179.999227 seconds)
+2025-01-13 14:51:50,380 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2025-01-13 14:54:50 UTC)" (scheduled at 2025-01-13 14:51:50.379062+00:00)
+2025-01-13 14:51:50,817 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:51:50] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:51:55,811 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:51:55] "GET /api/feeds HTTP/1.1" 200 -
