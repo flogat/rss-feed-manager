@@ -52,3 +52,8 @@ sqlalchemy
 trafilatura
 werkzeug
 gunicorn
+openai
+flask-login
+flask-wtf
+twilio
+trafilatura

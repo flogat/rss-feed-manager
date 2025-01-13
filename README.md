@@ -32,9 +32,18 @@ flask db upgrade
 ```
 
 4. Run the application:
+
+For development:
 ```bash
 python main.py
 ```
+
+For production (recommended):
+```bash
+gunicorn --config gunicorn.conf.py wsgi:app
+```
+
+Note: Always use gunicorn for production deployment as it properly initializes the feed scheduler and handles multiple worker processes.
 
 The application will be available at `http://localhost:5000`
 
