@@ -105,12 +105,12 @@ function updateFeedsDisplay(response, sortConfig = { column: 'title', direction:
         $('#scanProgress').show();
         const progressPercent = (scanProgress.current_index / scanProgress.total_feeds) * 100;
         $('#scanProgress .progress-bar')
-            .css('width', `${progressPercent.toFixed(1)}%`)
+            .css('width', `${Math.round(progressPercent)}%`)
             .attr('aria-valuenow', progressPercent);
 
         // Update summary with scanning information
         let summaryHtml = `Currently scanning: ${scanProgress.current_feed || 'Unknown feed'}<br>
-            Progress: ${scanProgress.current_index.toFixed(2)} of ${scanProgress.total_feeds} feeds<br><br>`;
+            Progress: ${Math.round(scanProgress.current_index)} of ${scanProgress.total_feeds} feeds<br><br>`;
 
         // Add regular feed summary after scanning info
         const activeFeeds = feeds.filter(f => f.status === 'active').length;
