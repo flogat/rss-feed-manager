@@ -99,18 +99,18 @@ function updateFeedsDisplay(response, sortConfig = { column: 'title', direction:
     // Show progress bar for both manual and automatic scans
     if (scanProgress && scanProgress.is_scanning) {
         // Update title
-        document.title = `Scanning... (${scanProgress.current_index}/${scanProgress.total_feeds}) - RSS Feed Manager`;
+        document.title = `Scanning... (${Math.round(scanProgress.current_index)}/${scanProgress.total_feeds}) - RSS Feed Manager`;
 
         // Show and update progress bar
         $('#scanProgress').show();
         const progressPercent = (scanProgress.current_index / scanProgress.total_feeds) * 100;
         $('#scanProgress .progress-bar')
-            .css('width', `${progressPercent}%`)
+            .css('width', `${progressPercent.toFixed(1)}%`)
             .attr('aria-valuenow', progressPercent);
 
         // Update summary with scanning information
         let summaryHtml = `Currently scanning: ${scanProgress.current_feed || 'Unknown feed'}<br>
-            Progress: ${scanProgress.current_index} of ${scanProgress.total_feeds} feeds<br><br>`;
+            Progress: ${scanProgress.current_index.toFixed(2)} of ${scanProgress.total_feeds} feeds<br><br>`;
 
         // Add regular feed summary after scanning info
         const activeFeeds = feeds.filter(f => f.status === 'active').length;
