@@ -104,43 +104,42 @@ function loadFeeds(sort = currentSort) {
             // Show progress bar for both manual and automatic scans
             if (scanProgress && scanProgress.is_scanning) {
                 // Update title
-                document.title = `Scanning... (${scanProgress.current_index}/${scanProgress.total_feeds}) - RSS Downloader`;
-                
+                document.title = `Scanning... (${scanProgress.current_index}/${scanProgress.total_feeds}) - RSS Feed Manager`;
+
                 // Show and update progress bar
-                const progressPercent = (scanProgress.current_index / scanProgress.total_feeds) * 100;
                 $('#scanProgress').show();
+                const progressPercent = (scanProgress.current_index / scanProgress.total_feeds) * 100;
                 $('#scanProgress .progress-bar')
                     .css('width', `${progressPercent}%`)
                     .attr('aria-valuenow', progressPercent);
-            } else {
-                document.title = 'RSS Downloader';
-                $('#scanProgress').hide();
-            }
 
-            // Update summary
-            let activeFeeds = feeds.filter(f => f.status === 'active').length;
-            let totalArticles = feeds.reduce((sum, feed) => sum + feed.num_articles, 0);
-            let recentArticles = feeds.reduce((sum, feed) => sum + feed.recent_articles, 0);
-            
-            let summaryHtml = `Total Feeds: ${feeds.length} (${activeFeeds} active)<br>
-                Total Articles: ${totalArticles} (${recentArticles} in last 7 days)`;
-            
-            // Add scan progress information if scanning is active
-            if (scanProgress && scanProgress.is_scanning) {
-                summaryHtml += `<br><br>Currently scanning: ${scanProgress.current_feed || 'Unknown feed'}<br>
-                    Progress: ${scanProgress.current_index} of ${scanProgress.total_feeds} feeds`;
-            }
-            
-            $('#feedSummary').html(summaryHtml);
-            
-            // Update next scan time without resetting the timer if it's already running
-            if (response.next_scan) {
-                const nextScanTime = new Date(response.next_scan);
-                if (!window.countdownInterval) {
-                    startCountdownTimer(nextScanTime);
-                } else {
-                    window.nextScanTime = nextScanTime; // Update the time without restarting timer
-                }
+                // Update summary with scanning information
+                let summaryHtml = `Currently scanning: ${scanProgress.current_feed || 'Unknown feed'}<br>
+                    Progress: ${scanProgress.current_index} of ${scanProgress.total_feeds} feeds<br><br>`;
+
+                // Add regular feed summary after scanning info
+                const activeFeeds = feeds.filter(f => f.status === 'active').length;
+                const totalArticles = feeds.reduce((sum, feed) => sum + feed.num_articles, 0);
+                const recentArticles = feeds.reduce((sum, feed) => sum + feed.recent_articles, 0);
+
+                summaryHtml += `Total Feeds: ${feeds.length} (${activeFeeds} active)<br>
+                    Total Articles: ${totalArticles} (${recentArticles} in last 7 days)`;
+
+                $('#feedSummary').html(summaryHtml);
+            } else {
+                // Reset UI when not scanning
+                document.title = 'RSS Feed Manager';
+                $('#scanProgress').hide();
+
+                // Show regular summary
+                const activeFeeds = feeds.filter(f => f.status === 'active').length;
+                const totalArticles = feeds.reduce((sum, feed) => sum + feed.num_articles, 0);
+                const recentArticles = feeds.reduce((sum, feed) => sum + feed.recent_articles, 0);
+
+                const summaryHtml = `Total Feeds: ${feeds.length} (${activeFeeds} active)<br>
+                    Total Articles: ${totalArticles} (${recentArticles} in last 7 days)`;
+
+                $('#feedSummary').html(summaryHtml);
             }
 
             // Sort feeds based on current sort settings
@@ -370,7 +369,3 @@ $(document).ready(function() {
 });
 
 // Initialize sort state globally
-//var currentSort = {
-//    column: 'title',
-//    direction: 'asc'
-//};
