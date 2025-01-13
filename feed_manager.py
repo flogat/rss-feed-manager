@@ -3,11 +3,11 @@ from flask import Blueprint, render_template, jsonify, request
 from flask_login import login_required
 import csv
 from io import StringIO
-from models import RSSFeed, Article, db
+from models import RSSFeed, Article, ScanProgress, db
 import logging
 from sqlalchemy import desc, asc
 from scheduler import get_next_scan_time
-from feed_updater import update_all_feeds, update_single_feed, current_scan_progress, reset_scan_progress
+from feed_updater import update_all_feeds, update_single_feed, reset_scan_progress
 
 feed_bp = Blueprint('feed', __name__)
 
@@ -209,13 +209,14 @@ def refresh_single_feed(feed_id):
     try:
         feed = RSSFeed.query.get_or_404(feed_id)
         # Update scan progress for single feed
-        current_scan_progress.update({
-            'is_scanning': True,
-            'current_feed': feed.title or feed.url,
-            'current_index': 1,
-            'total_feeds': 1,
-            'completed': False
-        })
+        progress = ScanProgress.get_current()
+        progress.update(
+            is_scanning=True,
+            current_feed=feed.title or feed.url,
+            current_index=1,
+            total_feeds=1,
+            completed=False
+        )
         result = update_single_feed(feed)
         # Reset scan progress after completion
         reset_scan_progress()
@@ -305,10 +306,20 @@ def get_feeds():
             'next_automatic_scan': next_scan.isoformat() if next_scan else None
         })
 
+    # Get current scan progress from database
+    scan_progress = ScanProgress.get_current()
+    progress_data = {
+        'is_scanning': scan_progress.is_scanning,
+        'current_feed': scan_progress.current_feed,
+        'current_index': scan_progress.current_index,
+        'total_feeds': scan_progress.total_feeds,
+        'completed': scan_progress.completed
+    }
+
     # Include current scan progress in response
     response_data = {
         'feeds': feed_data,
-        'scan_progress': current_scan_progress,
+        'scan_progress': progress_data,
         'next_scan': next_scan.isoformat() if next_scan else None
     }
 

@@ -36,3 +36,27 @@ class Article(db.Model):
     published_date = db.Column(db.DateTime)
     collected_date = db.Column(db.DateTime, default=datetime.utcnow)
     feed = db.relationship('RSSFeed', backref=db.backref('articles', lazy='dynamic'))
+
+class ScanProgress(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    is_scanning = db.Column(db.Boolean, default=False)
+    current_feed = db.Column(db.String(500))
+    current_index = db.Column(db.Integer, default=0)
+    total_feeds = db.Column(db.Integer, default=0)
+    completed = db.Column(db.Boolean, default=True)
+    last_updated = db.Column(db.DateTime, default=datetime.utcnow)
+
+    @staticmethod
+    def get_current():
+        progress = ScanProgress.query.first()
+        if not progress:
+            progress = ScanProgress()
+            db.session.add(progress)
+            db.session.commit()
+        return progress
+
+    def update(self, **kwargs):
+        for key, value in kwargs.items():
+            setattr(self, key, value)
+        self.last_updated = datetime.utcnow()
+        db.session.commit()
