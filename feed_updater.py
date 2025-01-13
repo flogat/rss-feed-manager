@@ -109,20 +109,24 @@ def update_all_feeds(trigger='manual'):
         )
 
         current_time = datetime.utcnow()
-        batch_size = 10  # Process feeds in batches of 10
+        batch_size = 3  # Process feeds in smaller batches
+        processed_count = 0
 
         # Process feeds in batches
         for i in range(0, total_feeds, batch_size):
             batch = feeds[i:i + batch_size]
+            batch_progress = 0
 
-            for index, feed in enumerate(batch, i + 1):
+            for feed in batch:
                 # Refresh the feed object for this iteration
                 feed = db.session.merge(feed)
+                processed_count += 1
+                batch_progress += 1
 
-                # Update scan progress
+                # Update scan progress more frequently
                 update_scan_progress(
                     current_feed=feed.title or feed.url,
-                    current_index=index,
+                    current_index=processed_count,
                     completed=False
                 )
 
@@ -141,7 +145,7 @@ def update_all_feeds(trigger='manual'):
                     latest_date = feed.last_article_date
                     articles_to_add = []
 
-                    for entry in parsed.entries:
+                    for entry_index, entry in enumerate(parsed.entries):
                         if not Article.query.filter_by(link=entry.link).first():
                             published_date = datetime(*entry.published_parsed[:6]) if 'published_parsed' in entry else None
                             article = Article(
@@ -155,6 +159,15 @@ def update_all_feeds(trigger='manual'):
                             new_articles += 1
                             if published_date and (not latest_date or published_date > latest_date):
                                 latest_date = published_date
+
+                        # Update progress within article processing
+                        if entry_index % 10 == 0:  # Update every 10 articles
+                            current_progress = processed_count - 1 + (batch_progress / batch_size)
+                            update_scan_progress(
+                                current_feed=f"{feed.title or feed.url} (processing articles...)",
+                                current_index=current_progress,
+                                completed=False
+                            )
 
                     # Batch add articles
                     if articles_to_add:
