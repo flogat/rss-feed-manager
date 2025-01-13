@@ -6,19 +6,8 @@ if [ ! "$BASH_VERSION" ]; then
     exit 1
 fi
 
-# Function to check if command exists
-command_exists() {
-    command -v "$1" >/dev/null 2>&1
-}
-
-# Ensure script is not run as root directly
-if [ "$EUID" -eq 0 ]; then 
-    echo "Please do not run this script as root"
-    exit 1
-fi
-
 # Check if systemd is available
-if ! command_exists systemctl; then
+if ! command -v systemctl >/dev/null 2>&1; then
     echo "systemd is required but not found"
     exit 1
 fi
@@ -41,10 +30,6 @@ echo "Using virtual environment: $VENV_PATH"
 echo "Creating service user..."
 sudo useradd -r -s /bin/false rss_manager 2>/dev/null || true
 
-# Set ownership of the installation directory
-echo "Setting directory permissions..."
-sudo chown -R rss_manager:rss_manager "$INSTALL_DIR"
-
 # Create systemd service file
 echo "Creating systemd service file..."
 cat << EOF | sudo tee /etc/systemd/system/rss-feed-manager.service
@@ -55,10 +40,11 @@ After=network.target
 [Service]
 Type=simple
 User=rss_manager
+Group=rss_manager
 WorkingDirectory=$INSTALL_DIR
-Environment="PATH=$VENV_PATH/bin:/usr/local/bin:/usr/bin:/bin"
-Environment="PYTHONPATH=$INSTALL_DIR"
-ExecStart=$VENV_PATH/bin/gunicorn --config gunicorn.conf.py wsgi:app
+Environment=PATH=/usr/local/bin:/usr/bin:/bin:$VENV_PATH/bin
+Environment=PYTHONPATH=$INSTALL_DIR
+ExecStart=/bin/bash -c 'source $VENV_PATH/bin/activate && exec gunicorn --config $INSTALL_DIR/gunicorn.conf.py wsgi:app'
 Restart=always
 RestartSec=10
 
