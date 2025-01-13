@@ -3,6 +3,7 @@ from datetime import datetime
 import logging
 from models import RSSFeed, Article, db
 import socket
+import threading
 
 # Global variables to track scan progress
 current_scan_progress = {
@@ -13,18 +14,29 @@ current_scan_progress = {
     'completed': True  # Initialize as completed
 }
 
+# Thread lock for scan progress updates
+scan_progress_lock = threading.Lock()
+
 # Set socket timeout for feedparser
 socket.setdefaulttimeout(10)  # 10 seconds timeout
 
 def reset_scan_progress():
+    """Reset scan progress with thread safety"""
     global current_scan_progress
-    current_scan_progress = {
-        'is_scanning': False,
-        'current_feed': None,
-        'current_index': 0,
-        'total_feeds': 0,
-        'completed': True
-    }
+    with scan_progress_lock:
+        current_scan_progress.update({
+            'is_scanning': False,
+            'current_feed': None,
+            'current_index': 0,
+            'total_feeds': 0,
+            'completed': True
+        })
+
+def update_scan_progress(progress_update):
+    """Update scan progress with thread safety"""
+    global current_scan_progress
+    with scan_progress_lock:
+        current_scan_progress.update(progress_update)
 
 def update_single_feed(feed):
     try:
@@ -85,28 +97,31 @@ def update_single_feed(feed):
         raise
 
 def update_all_feeds(trigger='manual'):
-    global current_scan_progress
-
     try:
         # Reset scan progress at the start
         reset_scan_progress()
 
         # Get all feeds within this session
         feeds = RSSFeed.query.all()
-        current_time = datetime.utcnow()
-        batch_size = 10  # Process feeds in batches of 10
+        total_feeds = len(feeds)
+
+        if total_feeds == 0:
+            return
 
         # Initialize scan progress
-        current_scan_progress.update({
+        update_scan_progress({
             'is_scanning': True,
             'current_feed': None,
             'current_index': 0,
-            'total_feeds': len(feeds),
+            'total_feeds': total_feeds,
             'completed': False
         })
 
+        current_time = datetime.utcnow()
+        batch_size = 10  # Process feeds in batches of 10
+
         # Process feeds in batches
-        for i in range(0, len(feeds), batch_size):
+        for i in range(0, total_feeds, batch_size):
             batch = feeds[i:i + batch_size]
 
             for index, feed in enumerate(batch, i + 1):
@@ -114,7 +129,7 @@ def update_all_feeds(trigger='manual'):
                 feed = db.session.merge(feed)
 
                 # Update scan progress
-                current_scan_progress.update({
+                update_scan_progress({
                     'current_feed': feed.title or feed.url,
                     'current_index': index,
                     'completed': False
@@ -176,5 +191,6 @@ def update_all_feeds(trigger='manual'):
         logging.error(f"Error in update_all_feeds: {str(e)}")
         raise
     finally:
-        # Reset scan progress when done
-        reset_scan_progress()
+        # Reset scan progress when done, but only if we started it
+        if current_scan_progress['is_scanning']:
+            reset_scan_progress()
