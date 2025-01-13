@@ -7,7 +7,7 @@ from models import RSSFeed, Article, db
 import logging
 from sqlalchemy import desc, asc
 from scheduler import get_next_scan_time
-from feed_updater import update_all_feeds, update_single_feed, current_scan_progress
+from feed_updater import update_all_feeds, update_single_feed, current_scan_progress, reset_scan_progress
 
 feed_bp = Blueprint('feed', __name__)
 
@@ -195,6 +195,8 @@ def delete_feed(feed_id):
 @login_required
 def refresh_feeds():
     try:
+        # Reset scan progress before starting
+        reset_scan_progress()
         update_all_feeds()
         return jsonify({'message': 'Feeds refreshed successfully'})
     except Exception as e:
@@ -206,10 +208,22 @@ def refresh_feeds():
 def refresh_single_feed(feed_id):
     try:
         feed = RSSFeed.query.get_or_404(feed_id)
+        # Update scan progress for single feed
+        current_scan_progress.update({
+            'is_scanning': True,
+            'current_feed': feed.title or feed.url,
+            'current_index': 1,
+            'total_feeds': 1,
+            'completed': False
+        })
         result = update_single_feed(feed)
+        # Reset scan progress after completion
+        reset_scan_progress()
         return jsonify(result)
     except Exception as e:
         logging.error(f"Error refreshing feed {feed_id}: {str(e)}")
+        # Reset scan progress on error
+        reset_scan_progress()
         return jsonify({'error': str(e)}), 500
 
 @feed_bp.route('/api/feeds', methods=['POST'])
@@ -267,7 +281,6 @@ def add_feeds_bulk():
 @login_required
 def get_feeds():
     next_scan = get_next_scan_time()
-
     feeds = RSSFeed.query.all()
     seven_days_ago = datetime.utcnow() - timedelta(days=7)
 
@@ -292,7 +305,7 @@ def get_feeds():
             'next_automatic_scan': next_scan.isoformat() if next_scan else None
         })
 
-    # Include scan progress in response
+    # Include current scan progress in response
     response_data = {
         'feeds': feed_data,
         'scan_progress': current_scan_progress,
