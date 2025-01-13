@@ -39,3 +39,15 @@ tzlocal==5.2
 urllib3==2.2.3
 Werkzeug==3.1.3
 WTForms==3.2.1
+apscheduler
+email-validator
+feedparser
+flask
+flask-login
+flask-migrate
+flask-sqlalchemy
+flask-wtf
+psycopg2-binary
+sqlalchemy
+trafilatura
+werkzeug
