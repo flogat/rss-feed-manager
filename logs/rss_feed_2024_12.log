@@ -6674,3 +6674,1186 @@ with app.app_context(). See the documentation for more information.
 2024-12-19 16:51:38,973 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:51:38] "GET /static/css/style.css HTTP/1.1" 200 -
 2024-12-19 16:51:40,394 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:51:40] "GET /api/feeds HTTP/1.1" 200 -
 2024-12-19 16:51:41,077 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:51:41] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:51:45,388 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:51:45] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:51:46,077 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:51:46] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:51:50,400 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:51:50] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:51:51,077 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:51:51] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:51:55,387 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:51:55] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:51:56,080 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:51:56] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:51:56,308 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:51:56] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:51:56,688 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:51:56] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:52:00,388 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:52:00] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:52:01,078 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:52:01] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:52:05,388 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:52:05] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:52:06,078 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:52:06] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:52:10,405 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:52:10] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:52:11,081 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:52:11] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:52:15,396 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:52:15] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:52:16,087 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:52:16] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:52:20,389 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:52:20] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:52:21,094 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:52:21] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:52:25,387 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:52:25] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:52:26,086 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:52:26] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:52:30,389 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:52:30] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:52:31,080 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:52:31] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:52:35,406 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:52:35] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:52:36,080 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:52:36] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:52:40,388 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:52:40] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:52:41,080 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:52:41] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:52:45,388 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:52:45] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:52:46,089 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:52:46] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:52:50,389 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:52:50] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:52:51,123 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:52:51] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:52:55,389 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:52:55] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:52:56,079 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:52:56] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:52:56,617 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:52:56] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:52:57,010 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:52:57] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:52:59,295 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:52:59] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:53:00,397 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:53:00] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:53:01,094 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:53:01] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:53:05,389 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:53:05] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:53:06,082 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:53:06] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:53:10,421 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:53:10] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:53:11,101 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:53:11] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:53:11,967 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:53:11] "POST /api/feeds/refresh HTTP/1.1" 200 -
+2024-12-19 16:53:12,176 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:53:12] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:53:15,389 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:53:15] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:53:16,084 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:53:16] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:53:20,390 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:53:20] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:53:21,096 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:53:21] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:53:22,481 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:53:22] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:53:24,179 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:53:24] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:53:25,389 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:53:25] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:53:25,768 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:53:25] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:53:26,080 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:53:26] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:53:26,722 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:53:26] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:53:30,398 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:53:30] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:53:31,079 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:53:31] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:53:35,398 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:53:35] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:53:36,078 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:53:36] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:53:40,391 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:53:40] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:53:41,078 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:53:41] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:53:45,388 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:53:45] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:53:46,086 - werkzeug - INFO - 172.31.196.129 - - [19/Dec/2024 16:53:46] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-19 16:54:36,264 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 16:54:36,265 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 16:54:36 UTC)" (scheduled at 2024-12-19 16:54:36.264188+00:00)
+2024-12-19 16:54:36,265 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 16:57:36.264188+00:00 (in 179.998769 seconds)
+2024-12-19 16:54:36,267 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 16:57:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 16:54:36,818 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 16:54:36,818 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 16:54:36 UTC)" (scheduled at 2024-12-19 16:54:36.818173+00:00)
+2024-12-19 16:54:36,819 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 16:57:36.818173+00:00 (in 179.999077 seconds)
+2024-12-19 16:54:36,821 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 16:57:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 16:57:36,265 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 16:57:36,265 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:00:36.264188+00:00 (in 179.998301 seconds)
+2024-12-19 16:57:36,266 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:00:36 UTC)" (scheduled at 2024-12-19 16:57:36.264188+00:00)
+2024-12-19 16:57:36,266 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:00:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 16:57:36,818 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 16:57:36,819 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:00:36.818173+00:00 (in 179.998856 seconds)
+2024-12-19 16:57:36,819 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:00:36 UTC)" (scheduled at 2024-12-19 16:57:36.818173+00:00)
+2024-12-19 16:57:36,820 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:00:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:00:36,264 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:00:36,264 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:03:36.264188+00:00 (in 179.999235 seconds)
+2024-12-19 17:00:36,265 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:03:36 UTC)" (scheduled at 2024-12-19 17:00:36.264188+00:00)
+2024-12-19 17:00:36,266 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:03:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:00:36,818 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:00:36,819 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:03:36.818173+00:00 (in 179.998613 seconds)
+2024-12-19 17:00:36,819 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:03:36 UTC)" (scheduled at 2024-12-19 17:00:36.818173+00:00)
+2024-12-19 17:00:36,820 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:03:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:03:36,264 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:03:36,265 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:06:36.264188+00:00 (in 179.998577 seconds)
+2024-12-19 17:03:36,265 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:06:36 UTC)" (scheduled at 2024-12-19 17:03:36.264188+00:00)
+2024-12-19 17:03:36,268 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:06:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:03:36,819 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:03:36,819 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:06:36.818173+00:00 (in 179.998649 seconds)
+2024-12-19 17:03:36,819 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:06:36 UTC)" (scheduled at 2024-12-19 17:03:36.818173+00:00)
+2024-12-19 17:03:36,820 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:06:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:06:36,264 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:06:36,265 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:09:36.264188+00:00 (in 179.998696 seconds)
+2024-12-19 17:06:36,265 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:09:36 UTC)" (scheduled at 2024-12-19 17:06:36.264188+00:00)
+2024-12-19 17:06:36,266 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:09:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:06:36,818 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:06:36,818 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:09:36.818173+00:00 (in 179.999337 seconds)
+2024-12-19 17:06:36,818 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:09:36 UTC)" (scheduled at 2024-12-19 17:06:36.818173+00:00)
+2024-12-19 17:06:36,819 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:09:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:09:36,264 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:09:36,264 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:12:36.264188+00:00 (in 179.999227 seconds)
+2024-12-19 17:09:36,265 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:12:36 UTC)" (scheduled at 2024-12-19 17:09:36.264188+00:00)
+2024-12-19 17:09:36,265 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:12:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:09:36,818 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:09:36,819 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:12:36.818173+00:00 (in 179.998971 seconds)
+2024-12-19 17:09:36,819 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:12:36 UTC)" (scheduled at 2024-12-19 17:09:36.818173+00:00)
+2024-12-19 17:09:36,820 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:12:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:12:36,264 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:12:36,265 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:15:36.264188+00:00 (in 179.998388 seconds)
+2024-12-19 17:12:36,266 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:15:36 UTC)" (scheduled at 2024-12-19 17:12:36.264188+00:00)
+2024-12-19 17:12:36,267 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:15:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:12:36,818 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:12:36,819 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:15:36.818173+00:00 (in 179.999108 seconds)
+2024-12-19 17:12:36,819 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:15:36 UTC)" (scheduled at 2024-12-19 17:12:36.818173+00:00)
+2024-12-19 17:12:36,820 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:15:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:15:36,265 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:15:36,265 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:18:36.264188+00:00 (in 179.998449 seconds)
+2024-12-19 17:15:36,265 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:18:36 UTC)" (scheduled at 2024-12-19 17:15:36.264188+00:00)
+2024-12-19 17:15:36,266 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:18:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:15:36,818 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:15:36,819 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:18:36.818173+00:00 (in 179.999042 seconds)
+2024-12-19 17:15:36,819 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:18:36 UTC)" (scheduled at 2024-12-19 17:15:36.818173+00:00)
+2024-12-19 17:15:36,819 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:18:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:18:36,265 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:18:36,266 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:21:36.264188+00:00 (in 179.997892 seconds)
+2024-12-19 17:18:36,266 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:21:36 UTC)" (scheduled at 2024-12-19 17:18:36.264188+00:00)
+2024-12-19 17:18:36,267 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:21:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:18:36,818 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:18:36,818 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:21:36.818173+00:00 (in 179.999285 seconds)
+2024-12-19 17:18:36,819 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:21:36 UTC)" (scheduled at 2024-12-19 17:18:36.818173+00:00)
+2024-12-19 17:18:36,820 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:21:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:21:36,264 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:21:36,266 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:24:36.264188+00:00 (in 179.997788 seconds)
+2024-12-19 17:21:36,266 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:24:36 UTC)" (scheduled at 2024-12-19 17:21:36.264188+00:00)
+2024-12-19 17:21:36,268 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:24:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:21:36,818 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:21:36,818 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:24:36.818173+00:00 (in 179.999232 seconds)
+2024-12-19 17:21:36,819 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:24:36 UTC)" (scheduled at 2024-12-19 17:21:36.818173+00:00)
+2024-12-19 17:21:36,820 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:24:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:24:36,265 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:24:36,266 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:27:36.264188+00:00 (in 179.997761 seconds)
+2024-12-19 17:24:36,266 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:27:36 UTC)" (scheduled at 2024-12-19 17:24:36.264188+00:00)
+2024-12-19 17:24:36,267 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:27:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:24:36,818 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:24:36,819 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:27:36.818173+00:00 (in 179.999169 seconds)
+2024-12-19 17:24:36,819 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:27:36 UTC)" (scheduled at 2024-12-19 17:24:36.818173+00:00)
+2024-12-19 17:24:36,820 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:27:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:27:36,264 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:27:36,265 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:30:36.264188+00:00 (in 179.998744 seconds)
+2024-12-19 17:27:36,265 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:30:36 UTC)" (scheduled at 2024-12-19 17:27:36.264188+00:00)
+2024-12-19 17:27:36,266 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:30:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:27:36,819 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:27:36,819 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:30:36.818173+00:00 (in 179.998288 seconds)
+2024-12-19 17:27:36,820 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:30:36 UTC)" (scheduled at 2024-12-19 17:27:36.818173+00:00)
+2024-12-19 17:27:36,821 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:30:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:30:36,264 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:30:36,264 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:33:36.264188+00:00 (in 179.999218 seconds)
+2024-12-19 17:30:36,265 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:33:36 UTC)" (scheduled at 2024-12-19 17:30:36.264188+00:00)
+2024-12-19 17:30:36,265 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:33:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:30:36,818 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:30:36,818 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:33:36.818173+00:00 (in 179.999266 seconds)
+2024-12-19 17:30:36,819 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:33:36 UTC)" (scheduled at 2024-12-19 17:30:36.818173+00:00)
+2024-12-19 17:30:36,819 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:33:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:33:36,264 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:33:36,265 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:36:36.264188+00:00 (in 179.998340 seconds)
+2024-12-19 17:33:36,266 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:36:36 UTC)" (scheduled at 2024-12-19 17:33:36.264188+00:00)
+2024-12-19 17:33:36,268 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:36:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:33:36,818 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:33:36,819 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:36:36.818173+00:00 (in 179.998880 seconds)
+2024-12-19 17:33:36,819 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:36:36 UTC)" (scheduled at 2024-12-19 17:33:36.818173+00:00)
+2024-12-19 17:33:36,820 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:36:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:36:36,266 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:36:36,266 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:39:36.264188+00:00 (in 179.997715 seconds)
+2024-12-19 17:36:36,266 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:39:36 UTC)" (scheduled at 2024-12-19 17:36:36.264188+00:00)
+2024-12-19 17:36:36,267 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:39:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:36:36,818 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:36:36,819 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:39:36.818173+00:00 (in 179.998667 seconds)
+2024-12-19 17:36:36,819 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:39:36 UTC)" (scheduled at 2024-12-19 17:36:36.818173+00:00)
+2024-12-19 17:36:36,820 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:39:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:39:36,264 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:39:36,264 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:42:36.264188+00:00 (in 179.999273 seconds)
+2024-12-19 17:39:36,265 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:42:36 UTC)" (scheduled at 2024-12-19 17:39:36.264188+00:00)
+2024-12-19 17:39:36,266 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:42:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:39:36,818 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:39:36,818 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:42:36.818173+00:00 (in 179.999443 seconds)
+2024-12-19 17:39:36,818 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:42:36 UTC)" (scheduled at 2024-12-19 17:39:36.818173+00:00)
+2024-12-19 17:39:36,819 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:42:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:42:36,264 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:42:36,265 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:45:36.264188+00:00 (in 179.998998 seconds)
+2024-12-19 17:42:36,265 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:45:36 UTC)" (scheduled at 2024-12-19 17:42:36.264188+00:00)
+2024-12-19 17:42:36,266 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:45:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-12-19 17:42:36,818 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-12-19 17:42:36,818 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2024-12-19 17:45:36.818173+00:00 (in 179.999232 seconds)
+2024-12-19 17:42:36,819 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:45:36 UTC)" (scheduled at 2024-12-19 17:42:36.818173+00:00)
+2024-12-19 17:42:36,820 - apscheduler.executors.default - ERROR - Job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2024-12-19 17:45:36 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/apscheduler/executors/base.py", line 131, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/scheduler.py", line 9, in <lambda>
+    func=lambda: update_all_feeds(trigger='automatic'),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/feed_manager.py", line 356, in update_all_feeds
+    feeds = RSSFeed.query.all()
+            ^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/model.py", line 23, in __get__
+    cls, session=cls.__fsa__.session()  # type: ignore[arg-type]
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 220, in __call__
+    sess = self.registry()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/sqlalchemy/util/_collections.py", line 632, in __call__
+    key = self.scopefunc()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/flask_sqlalchemy/session.py", line 111, in _app_ctx_id
+    return id(app_ctx._get_current_object())  # type: ignore[attr-defined]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/VentureWeeklyTracker/.pythonlibs/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
