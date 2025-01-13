@@ -1410,3 +1410,12 @@ with app.app_context(). See the documentation for more information.
 2025-01-13 14:51:50,380 - apscheduler.executors.default - INFO - Running job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2025-01-13 14:54:50 UTC)" (scheduled at 2025-01-13 14:51:50.379062+00:00)
 2025-01-13 14:51:50,817 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:51:50] "GET /api/feeds HTTP/1.1" 200 -
 2025-01-13 14:51:55,811 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:51:55] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:52:00,819 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:52:00] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:52:05,840 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:52:05] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:52:10,826 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:52:10] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:52:15,815 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:52:15] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:52:20,833 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:52:20] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:52:25,860 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:52:25] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:52:30,823 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:52:30] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:52:35,873 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:52:35] "GET /api/feeds HTTP/1.1" 200 -
+2025-01-13 14:52:40,820 - werkzeug - INFO - 172.31.196.13 - - [13/Jan/2025 14:52:40] "GET /api/feeds HTTP/1.1" 200 -
