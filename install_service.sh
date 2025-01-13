@@ -24,11 +24,14 @@ if [ ! -d "$VENV_PATH" ]; then
     exit 1
 fi
 
-echo "Using virtual environment: $VENV_PATH"
+# Verify current user
+if [ -z "$USER" ]; then
+    echo "Could not determine current user"
+    exit 1
+fi
 
-# Create service user if it doesn't exist
-echo "Creating service user..."
-sudo useradd -r -s /bin/false rss_manager 2>/dev/null || true
+echo "Using virtual environment: $VENV_PATH"
+echo "Service will run as user: $USER"
 
 # Create systemd service file
 echo "Creating systemd service file..."
@@ -39,11 +42,12 @@ After=network.target
 
 [Service]
 Type=simple
-User=rss_manager
-Group=rss_manager
+User=$USER
+Group=$USER
 WorkingDirectory=$INSTALL_DIR
 Environment=PATH=/usr/local/bin:/usr/bin:/bin:$VENV_PATH/bin
 Environment=PYTHONPATH=$INSTALL_DIR
+Environment=HOME=$HOME
 ExecStart=/bin/bash -c 'source $VENV_PATH/bin/activate && exec gunicorn --config $INSTALL_DIR/gunicorn.conf.py wsgi:app'
 Restart=always
 RestartSec=10
