@@ -1,7 +1,6 @@
 import feedparser
 from datetime import datetime
 import logging
-import time
 from models import RSSFeed, Article, db
 
 # Global variables to track scan progress
@@ -87,18 +86,16 @@ def update_all_feeds(trigger='manual'):
             })
 
             try:
-                # Add 1-second pause between feeds
-                if index > 1:  # Don't pause before the first feed
-                    time.sleep(1)
-
+                # No sleep - process feeds as quickly as possible
                 parsed = feedparser.parse(feed.url)
                 feed.title = parsed.feed.title if hasattr(parsed.feed, 'title') else feed.url
                 feed.last_updated = current_time
-                feed.last_scan_time = current_time  # Ensure this is set before any potential error
+                feed.last_scan_time = current_time
                 feed.last_scan_trigger = trigger
                 feed.status = 'active'
                 feed.error_count = 0
-                # Commit the scan time update immediately to ensure it's saved
+
+                # Commit these basic updates immediately
                 db.session.commit()
 
                 current_count = Article.query.filter_by(feed_id=feed.id).count()
@@ -124,17 +121,18 @@ def update_all_feeds(trigger='manual'):
                 if latest_date:
                     feed.last_article_date = latest_date
 
+                db.session.commit()
+
             except Exception as e:
                 feed.status = 'error'
                 feed.error_count += 1
                 feed.last_error = str(e)
-                feed.last_scan_time = current_time  # Still record the scan attempt time
+                feed.last_scan_time = current_time
                 feed.last_scan_trigger = trigger
-                db.session.commit()  # Commit the error status and scan time
+                db.session.commit()
                 logging.error(f"Error updating feed {feed.url}: {str(e)}")
                 continue
 
-        db.session.commit()
     except Exception as e:
         logging.error(f"Error in update_all_feeds: {str(e)}")
         raise
