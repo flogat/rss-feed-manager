@@ -27,15 +27,11 @@ fi
 INSTALL_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo "Installing from directory: $INSTALL_DIR"
 
-# Try to detect virtual environment
-if [ -n "$VIRTUAL_ENV" ]; then
-    VENV_PATH="$VIRTUAL_ENV"
-elif [ -d "venv" ]; then
-    VENV_PATH="$INSTALL_DIR/venv"
-elif [ -d ".venv" ]; then
-    VENV_PATH="$INSTALL_DIR/.venv"
-else
-    echo "No virtual environment found. Please activate your virtual environment first."
+# Use virtual environment from user's home directory
+VENV_PATH="$HOME/.venv"
+if [ ! -d "$VENV_PATH" ]; then
+    echo "Virtual environment not found at $VENV_PATH"
+    echo "Please ensure Python virtual environment is set up in your home directory"
     exit 1
 fi
 

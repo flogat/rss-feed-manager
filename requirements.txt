@@ -57,3 +57,7 @@ flask-login
 flask-wtf
 twilio
 trafilatura
+flask-login
+oauthlib
+slack_sdk
+openai
