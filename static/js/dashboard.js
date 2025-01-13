@@ -77,15 +77,10 @@ function startCountdownTimer(nextScanTimeISO) {
     window.countdownInterval = setInterval(updateCountdown, 1000);
 }
 
-let currentSort = {
-    column: 'title',
-    direction: 'asc'
-};
-
 function loadFeeds() {
     $.get('/api/feeds')
         .done(function(response) {
-            updateFeedsDisplay(response, currentSort);
+            updateFeedsDisplay(response);
         })
         .fail(function(xhr) {
             const error = xhr.responseJSON ? xhr.responseJSON.error : 'Failed to load feeds';
@@ -93,7 +88,7 @@ function loadFeeds() {
         });
 }
 
-function updateFeedsDisplay(response, sort = currentSort) {
+function updateFeedsDisplay(response, sortConfig = { column: 'title', direction: 'asc' }) {
     const feeds = response.feeds;
     const scanProgress = response.scan_progress;
     const nextScan = response.next_scan;
@@ -144,8 +139,8 @@ function updateFeedsDisplay(response, sort = currentSort) {
 
     // Sort feeds based on current sort settings
     feeds.sort((a, b) => {
-        let aVal = a[sort.column];
-        let bVal = b[sort.column];
+        let aVal = a[sortConfig.column];
+        let bVal = b[sortConfig.column];
 
         // Handle null values
         if (aVal === null && bVal === null) return 0;
@@ -154,11 +149,11 @@ function updateFeedsDisplay(response, sort = currentSort) {
 
         // Compare based on type
         if (typeof aVal === 'string') {
-            return sort.direction === 'asc' ?
+            return sortConfig.direction === 'asc' ?
                 aVal.localeCompare(bVal) :
                 bVal.localeCompare(aVal);
         }
-        return sort.direction === 'asc' ? aVal - bVal : bVal - aVal;
+        return sortConfig.direction === 'asc' ? aVal - bVal : bVal - aVal;
     });
 
     // Render feeds
@@ -195,6 +190,12 @@ function updateFeedsDisplay(response, sort = currentSort) {
 }
 
 $(document).ready(function() {
+    // Initialize sort state
+    let currentSort = {
+        column: 'title',
+        direction: 'asc'
+    };
+
     // Initial load
     loadFeeds();
 
@@ -248,7 +249,15 @@ $(document).ready(function() {
             icon.removeClass('bi-sort-up').addClass('bi-sort-down');
         }
 
-        loadFeeds();
+        // Reload feeds with new sort
+        $.get('/api/feeds')
+            .done(function(response) {
+                updateFeedsDisplay(response, currentSort);
+            })
+            .fail(function(xhr) {
+                const error = xhr.responseJSON ? xhr.responseJSON.error : 'Failed to load feeds';
+                showError(error);
+            });
     });
 
     // Handle individual feed refresh
@@ -279,7 +288,12 @@ $(document).ready(function() {
                 }
 
                 // Full reload after a delay to get all updated stats
-                setTimeout(() => loadFeeds(currentSort), 500);
+                setTimeout(() => {
+                    $.get('/api/feeds')
+                        .done(function(response) {
+                            updateFeedsDisplay(response, currentSort);
+                        });
+                }, 500);
             })
             .fail(function(xhr) {
                 const error = xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error occurred';
@@ -307,7 +321,10 @@ $(document).ready(function() {
             method: 'DELETE'
         })
             .done(function(response) {
-                loadFeeds(currentSort);
+                $.get('/api/feeds')
+                    .done(function(response) {
+                        updateFeedsDisplay(response, currentSort);
+                    });
             })
             .fail(function(xhr) {
                 const error = xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error occurred';
@@ -317,18 +334,22 @@ $(document).ready(function() {
 
     // Handle refresh all feeds
     $('#refreshFeeds').click(function() {
-        $(this).prop('disabled', true);
+        const button = $(this);
+        button.prop('disabled', true);
 
         $.post('/api/feeds/refresh')
             .done(function(response) {
-                loadFeeds(currentSort);
+                $.get('/api/feeds')
+                    .done(function(response) {
+                        updateFeedsDisplay(response, currentSort);
+                    });
             })
             .fail(function(xhr) {
                 const error = xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error occurred';
                 showError('Error refreshing feeds: ' + error);
             })
             .always(function() {
-                $(this).prop('disabled', false);
+                button.prop('disabled', false);
             });
     });
 
@@ -351,7 +372,10 @@ $(document).ready(function() {
                 }
                 $('#addFeedModal').modal('hide');
                 $('#feedUrls').val('');
-                loadFeeds(currentSort);
+                $.get('/api/feeds')
+                    .done(function(response) {
+                        updateFeedsDisplay(response, currentSort);
+                    });
             })
             .fail(function(xhr) {
                 const error = xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error occurred';
@@ -385,5 +409,3 @@ $(document).ready(function() {
         $('#downloadModal').modal('hide');
     });
 });
-
-// Initialize sort state globally

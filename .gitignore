@@ -27,6 +27,8 @@ wheels/
 # Databases
 *.db
 *.sqlite3
+instance/*
+!instance/.gitkeep
 
 # Environment variables
 .env
@@ -50,7 +52,3 @@ Thumbs.db
 *.log
 logs/
 log/
-
-# Instance folder
-instance/*
-!instance/.gitkeep
