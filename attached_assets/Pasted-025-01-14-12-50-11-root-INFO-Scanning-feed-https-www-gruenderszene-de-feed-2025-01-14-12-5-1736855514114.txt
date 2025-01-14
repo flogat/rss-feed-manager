@@ -1,0 +1,72 @@
+025-01-14 12:50:11 - root - INFO - Scanning feed: https://www.gruenderszene.de/feed
+
+2025-01-14 12:50:20 - root - INFO - Successfully updated feed: https://www.crowdfundinsider.com/feed/ (Added 0 articles)
+
+2025-01-14 12:50:20 - root - INFO - Scanning feed: "fintech" - Google News
+
+2025-01-14 12:50:21 - root - INFO - Successfully updated feed: https://www.gruenderszene.de/feed (Added 0 articles)
+
+2025-01-14 12:50:21 - root - INFO - Scanning feed: https://www.ft.com/currencies?format=rss
+
+2025-01-14 12:50:22 - root - INFO - Successfully updated feed: https://www.crowdfundinsider.com/feed/ (Added 0 articles)
+
+2025-01-14 12:50:22 - root - INFO - Scanning feed: "fintech" - Google News
+
+2025-01-14 12:50:22 - root - INFO - Successfully updated feed: https://www.crowdfundinsider.com/feed/ (Added 0 articles)
+
+2025-01-14 12:50:22 - root - INFO - Scanning feed: "fintech" - Google News
+
+2025-01-14 12:50:22 - root - INFO - Successfully updated feed: https://www.crowdfundinsider.com/feed/ (Added 0 articles)
+
+2025-01-14 12:50:22 - root - INFO - Scanning feed: "fintech" - Google News
+
+2025-01-14 12:50:22 - root - INFO - Successfully updated feed: https://www.crowdfundinsider.com/feed/ (Added 0 articles)
+
+2025-01-14 12:50:22 - root - INFO - Successfully updated feed: https://www.crowdfundinsider.com/feed/ (Added 0 articles)
+
+2025-01-14 12:50:22 - root - INFO - Scanning feed: "fintech" - Google News
+
+2025-01-14 12:50:22 - root - INFO - Scanning feed: "fintech" - Google News
+
+2025-01-14 12:50:22 - root - INFO - Successfully updated feed: https://www.crowdfundinsider.com/feed/ (Added 0 articles)
+
+2025-01-14 12:50:22 - root - INFO - Scanning feed: "fintech" - Google News
+
+2025-01-14 12:50:22 - root - INFO - Successfully updated feed: https://www.crowdfundinsider.com/feed/ (Added 0 articles)
+
+2025-01-14 12:50:22 - root - INFO - Scanning feed: "fintech" - Google News
+
+2025-01-14 12:50:29 - apscheduler.scheduler - WARNING - Execution of job "Refresh RSS Feeds (trigger: interval[0:03:00], next run at: 2025-01-14 12:50:29 CET)" skipped: maximum number of running instances reached (1)
+
+2025-01-14 12:50:30 - root - INFO - Successfully updated feed: https://news.google.com/news/rss/search/section/q/fintech?ned=us&gl=GB&hl=en (Added 0 articles)
+
+2025-01-14 12:50:30 - root - INFO - Scanning feed: https://www.digitalkompakt.de/feed/
+
+2025-01-14 12:50:32 - root - INFO - Successfully updated feed: https://news.google.com/news/rss/search/section/q/fintech?ned=us&gl=GB&hl=en (Added 0 articles)
+
+2025-01-14 12:50:32 - root - INFO - Scanning feed: https://www.digitalkompakt.de/feed/
+
+2025-01-14 12:50:32 - root - INFO - Successfully updated feed: https://news.google.com/news/rss/search/section/q/fintech?ned=us&gl=GB&hl=en (Added 0 articles)
+
+2025-01-14 12:50:32 - root - INFO - Scanning feed: https://www.digitalkompakt.de/feed/
+
+2025-01-14 12:50:32 - root - INFO - Successfully updated feed: https://news.google.com/news/rss/search/section/q/fintech?ned=us&gl=GB&hl=en (Added 0 articles)
+
+2025-01-14 12:50:32 - root - INFO - Scanning feed: https://www.digitalkompakt.de/feed/
+
+2025-01-14 12:50:32 - root - INFO - Successfully updated feed: https://news.google.com/news/rss/search/section/q/fintech?ned=us&gl=GB&hl=en (Added 0 articles)
+
+2025-01-14 12:50:32 - root - INFO - Successfully updated feed: https://news.google.com/news/rss/search/section/q/fintech?ned=us&gl=GB&hl=en (Added 0 articles)
+
+2025-01-14 12:50:32 - root - INFO - Scanning feed: https://www.digitalkompakt.de/feed/
+
+2025-01-14 12:50:32 - root - INFO - Scanning feed: https://www.digitalkompakt.de/feed/
+
+2025-01-14 12:50:32 - root - INFO - Successfully updated feed: https://news.google.com/news/rss/search/section/q/fintech?ned=us&gl=GB&hl=en (Added 0 articles)
+
+2025-01-14 12:50:32 - root - INFO - Scanning feed: https://www.digitalkompakt.de/feed/
+
+2025-01-14 12:50:32 - root - INFO - Successfully updated feed: https://news.google.com/news/rss/search/section/q/fintech?ned=us&gl=GB&hl=en (Added 0 articles)
+
+2025-01-14 12:50:32 - root - INFO - Scanning feed: https://www.digitalkompakt.de/feed/
+
