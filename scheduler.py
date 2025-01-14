@@ -11,6 +11,7 @@ def init_scheduler(app):
     global scheduler
     with scheduler_lock:
         if scheduler is None:
+            logging.info("Initializing background scheduler")
             scheduler = BackgroundScheduler()
             scheduler.add_job(
                 func=lambda: run_update_with_context(app),
@@ -31,12 +32,20 @@ def init_scheduler(app):
 
 def run_update_with_context(app):
     """Run the update with the provided app context"""
+    logging.info("Starting scheduled feed update")
     with app.app_context():
-        update_all_feeds(trigger='automatic')
+        try:
+            update_all_feeds(trigger='automatic')
+            logging.info("Scheduled feed update completed successfully")
+        except Exception as e:
+            logging.error(f"Error during scheduled feed update: {str(e)}")
 
 def get_next_scan_time():
     """Helper function to safely get next scan time"""
     global scheduler
     if scheduler and scheduler.get_job('refresh_feeds'):
-        return scheduler.get_job('refresh_feeds').next_run_time
+        next_run = scheduler.get_job('refresh_feeds').next_run_time
+        logging.debug(f"Next scheduled scan time: {next_run}")
+        return next_run
+    logging.warning("Scheduler or refresh job not found")
     return None

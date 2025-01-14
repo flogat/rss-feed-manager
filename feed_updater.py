@@ -19,6 +19,7 @@ def reset_scan_progress():
             total_feeds=0,
             completed=True
         )
+        logging.info("Scan progress reset")
     except Exception as e:
         logging.error(f"Error resetting scan progress: {str(e)}")
 
@@ -27,11 +28,16 @@ def update_scan_progress(**kwargs):
     try:
         progress = ScanProgress.get_current()
         progress.update(**kwargs)
+        if 'current_feed' in kwargs:
+            logging.info(f"Scanning feed: {kwargs['current_feed']}")
+        if 'current_index' in kwargs and 'total_feeds' in kwargs:
+            logging.info(f"Progress: {kwargs['current_index']}/{kwargs['total_feeds']} feeds")
     except Exception as e:
         logging.error(f"Error updating scan progress: {str(e)}")
 
 def update_single_feed(feed):
     try:
+        logging.info(f"Starting feed update for: {feed.url}")
         current_time = datetime.utcnow()
         # Set timeout for feedparser
         parsed = feedparser.parse(feed.url)
@@ -47,6 +53,7 @@ def update_single_feed(feed):
         latest_date = feed.last_article_date
         articles_to_add = []
 
+        logging.info(f"Processing articles for feed: {feed.title or feed.url}")
         for entry in parsed.entries:
             if not Article.query.filter_by(link=entry.link).first():
                 published_date = datetime(*entry.published_parsed[:6]) if 'published_parsed' in entry else None
@@ -65,6 +72,7 @@ def update_single_feed(feed):
         # Batch add articles
         if articles_to_add:
             try:
+                logging.info(f"Adding {len(articles_to_add)} new articles for feed: {feed.title or feed.url}")
                 db.session.bulk_save_objects(articles_to_add)
                 db.session.commit()
             except SQLAlchemyError as e:
@@ -78,6 +86,7 @@ def update_single_feed(feed):
 
         try:
             db.session.commit()
+            logging.info(f"Feed update completed successfully for {feed.title or feed.url}. Added {new_articles} new articles")
         except SQLAlchemyError as e:
             db.session.rollback()
             logging.error(f"Error updating feed: {str(e)}")
@@ -96,6 +105,7 @@ def update_single_feed(feed):
         feed.status = 'error'
         feed.error_count += 1
         feed.last_error = str(e)
+        logging.error(f"Error updating feed {feed.url}: {str(e)}")
         try:
             db.session.commit()
         except SQLAlchemyError as commit_error:
@@ -104,6 +114,7 @@ def update_single_feed(feed):
         raise
 
 def update_all_feeds(trigger='manual'):
+    logging.info(f"Starting {trigger} feed update process")
     try:
         # Reset scan progress at the start
         reset_scan_progress()
@@ -113,6 +124,7 @@ def update_all_feeds(trigger='manual'):
         total_feeds = len(feeds)
 
         if total_feeds == 0:
+            logging.info("No feeds found to update")
             return
 
         # Initialize scan progress
@@ -127,6 +139,8 @@ def update_all_feeds(trigger='manual'):
         current_time = datetime.utcnow()
         batch_size = 1  # Process one feed at a time for more granular updates
         processed_count = 0
+        successful_updates = 0
+        failed_updates = 0
 
         # Process feeds in batches
         for i in range(0, total_feeds, batch_size):
@@ -177,6 +191,7 @@ def update_all_feeds(trigger='manual'):
 
                             # Update progress for every few articles
                             if entry_index % 5 == 0:  # Update every 5 articles
+                                logging.debug(f"Processing article {entry_index + 1} for feed: {feed.title or feed.url}")
                                 update_scan_progress(
                                     current_feed=f"{feed.title or feed.url} (processing article {entry_index + 1})",
                                     current_index=processed_count - 1 + ((entry_index + 1) / len(parsed.entries)),
@@ -189,6 +204,7 @@ def update_all_feeds(trigger='manual'):
                     # Batch add articles with error handling
                     if articles_to_add:
                         try:
+                            logging.info(f"Adding {len(articles_to_add)} new articles for feed: {feed.title or feed.url}")
                             db.session.bulk_save_objects(articles_to_add)
                             db.session.commit()
                         except SQLAlchemyError as e:
@@ -202,12 +218,15 @@ def update_all_feeds(trigger='manual'):
 
                     try:
                         db.session.commit()
+                        successful_updates += 1
+                        logging.info(f"Successfully updated feed: {feed.title or feed.url} (Added {new_articles} articles)")
                     except SQLAlchemyError as e:
                         db.session.rollback()
                         logging.error(f"Error updating feed status: {str(e)}")
                         continue
 
                 except Exception as feed_error:
+                    failed_updates += 1
                     db.session.rollback()
                     feed.status = 'error'
                     feed.error_count += 1
@@ -222,9 +241,12 @@ def update_all_feeds(trigger='manual'):
                     logging.error(f"Error updating feed {feed.url}: {str(feed_error)}")
                     continue
 
+        logging.info(f"Feed update process completed. Success: {successful_updates}, Failed: {failed_updates}")
+
     except Exception as e:
         logging.error(f"Error in update_all_feeds: {str(e)}")
         raise
     finally:
         # Reset scan progress when done
         reset_scan_progress()
+        logging.info("Feed update process finished")
