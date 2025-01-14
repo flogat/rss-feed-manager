@@ -33,8 +33,26 @@ fi
 # Create logs directory with proper permissions
 LOGS_DIR="$INSTALL_DIR/logs"
 mkdir -p "$LOGS_DIR"
-chmod 755 "$LOGS_DIR"
+
+# Set proper permissions for logs directory
+chmod 775 "$LOGS_DIR"  # rwxrwxr-x
+# Create log files with proper permissions
+touch "$LOGS_DIR/app.log" \
+      "$LOGS_DIR/gunicorn_access.log" \
+      "$LOGS_DIR/gunicorn_error.log" \
+      "$LOGS_DIR/service.log" \
+      "$LOGS_DIR/service.error.log"
+
+# Set proper ownership and permissions for log files
 chown -R $USER:$USER "$LOGS_DIR"
+chmod 664 "$LOGS_DIR"/*.log  # rw-rw-r--
+
+# If SELinux is enabled, set proper context
+if command -v semanage >/dev/null 2>&1; then
+    echo "Setting SELinux context for log directory..."
+    sudo semanage fcontext -a -t var_log_t "$LOGS_DIR(/.*)?"
+    sudo restorecon -Rv "$LOGS_DIR"
+fi
 
 echo "Using virtual environment: $VENV_PATH"
 echo "Service will run as user: $USER"
@@ -55,20 +73,21 @@ WorkingDirectory=$INSTALL_DIR
 Environment=PATH=/usr/local/bin:/usr/bin:/bin:$VENV_PATH/bin
 Environment=PYTHONPATH=$INSTALL_DIR
 Environment=HOME=$HOME
+ExecStartPre=/bin/mkdir -p $LOGS_DIR
+ExecStartPre=/bin/chown -R $USER:$USER $LOGS_DIR
+ExecStartPre=/bin/chmod -R u+rw,g+rw $LOGS_DIR
 ExecStart=/bin/bash -c 'source $VENV_PATH/bin/activate && exec gunicorn --config $INSTALL_DIR/gunicorn.conf.py wsgi:app'
 Restart=always
 RestartSec=10
 StandardOutput=append:$LOGS_DIR/service.log
 StandardError=append:$LOGS_DIR/service.error.log
 
+# Ensure proper file permissions
+UMask=0002
+
 [Install]
 WantedBy=multi-user.target
 EOF
-
-# Set proper permissions for log files
-touch "$LOGS_DIR/service.log" "$LOGS_DIR/service.error.log"
-chown $USER:$USER "$LOGS_DIR/service.log" "$LOGS_DIR/service.error.log"
-chmod 644 "$LOGS_DIR/service.log" "$LOGS_DIR/service.error.log"
 
 # Reload systemd to recognize the new service
 echo "Reloading systemd daemon..."
