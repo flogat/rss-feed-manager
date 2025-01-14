@@ -8,49 +8,59 @@ from scheduler import init_scheduler
 
 def setup_logging():
     """Configure centralized logging with monthly rotation"""
-    # Ensure logs directory exists
-    os.makedirs('logs', exist_ok=True)
+    try:
+        # Get absolute path for logs directory
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        logs_dir = os.path.join(base_dir, 'logs')
 
-    # Create formatter with consistent format for all logs
-    formatter = logging.Formatter(
-        '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-        '%Y-%m-%d %H:%M:%S'
-    )
+        # Ensure logs directory exists with proper permissions
+        os.makedirs(logs_dir, mode=0o755, exist_ok=True)
 
-    # Set up file handler with monthly rotation for application logs
-    app_log_file = os.path.join('logs', 'app.log')
-    app_file_handler = TimedRotatingFileHandler(
-        app_log_file,
-        when='midnight',
-        interval=30,  # Monthly rotation
-        backupCount=12,  # Keep 12 months of logs
-        encoding='utf-8'
-    )
-    app_file_handler.setFormatter(formatter)
-    app_file_handler.setLevel(logging.INFO)
+        # Create formatter with consistent format for all logs
+        formatter = logging.Formatter(
+            '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+            '%Y-%m-%d %H:%M:%S'
+        )
 
-    # Set up console handler for development
-    console_handler = logging.StreamHandler()
-    console_handler.setFormatter(formatter)
-    console_handler.setLevel(logging.DEBUG if app.debug else logging.INFO)
+        # Set up file handler with monthly rotation for application logs
+        app_log_file = os.path.join(logs_dir, 'app.log')
+        app_file_handler = TimedRotatingFileHandler(
+            app_log_file,
+            when='midnight',
+            interval=30,  # Monthly rotation
+            backupCount=12,  # Keep 12 months of logs
+            encoding='utf-8'
+        )
+        app_file_handler.setFormatter(formatter)
+        app_file_handler.setLevel(logging.INFO)
 
-    # Configure root logger
-    root_logger = logging.getLogger()
-    root_logger.setLevel(logging.DEBUG if app.debug else logging.INFO)
+        # Set up console handler for development
+        console_handler = logging.StreamHandler()
+        console_handler.setFormatter(formatter)
+        console_handler.setLevel(logging.DEBUG if app.debug else logging.INFO)
 
-    # Remove any existing handlers
-    root_logger.handlers = []
+        # Configure root logger
+        root_logger = logging.getLogger()
+        root_logger.setLevel(logging.DEBUG if app.debug else logging.INFO)
 
-    # Add our handlers
-    root_logger.addHandler(app_file_handler)
-    root_logger.addHandler(console_handler)
+        # Remove any existing handlers
+        root_logger.handlers = []
 
-    # Specific logger configurations
-    logging.getLogger('sqlalchemy').setLevel(logging.WARNING)
-    logging.getLogger('werkzeug').setLevel(logging.INFO)
+        # Add our handlers
+        root_logger.addHandler(app_file_handler)
+        root_logger.addHandler(console_handler)
 
-    # Log startup message
-    logging.info('Application logging initialized')
+        # Specific logger configurations
+        logging.getLogger('sqlalchemy').setLevel(logging.WARNING)
+        logging.getLogger('werkzeug').setLevel(logging.INFO)
+
+        # Log startup message with path information
+        logging.info(f'Application logging initialized. Log directory: {logs_dir}')
+        logging.info(f'Log file path: {app_log_file}')
+
+    except Exception as e:
+        print(f"Error setting up logging: {str(e)}")
+        raise
 
 if __name__ == "__main__":
     # Initialize logging first

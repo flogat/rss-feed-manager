@@ -14,11 +14,13 @@ keepalive = 2
 
 # Logging
 # Ensure logs directory exists
-os.makedirs('logs', exist_ok=True)
+base_dir = os.path.dirname(os.path.abspath(__file__))
+logs_dir = os.path.join(base_dir, 'logs')
+os.makedirs(logs_dir, mode=0o755, exist_ok=True)
 
 # Configure logging paths in the logs directory
-accesslog = os.path.join('logs', 'gunicorn_access.log')
-errorlog = os.path.join('logs', 'gunicorn_error.log')
+accesslog = os.path.join(logs_dir, 'gunicorn_access.log')
+errorlog = os.path.join(logs_dir, 'gunicorn_error.log')
 capture_output = True  # Capture and redirect application stdout/stderr to logging
 loglevel = 'info'
 
