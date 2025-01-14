@@ -11,23 +11,25 @@ def setup_logging():
     # Ensure logs directory exists
     os.makedirs('logs', exist_ok=True)
 
-    # Create formatter
+    # Create formatter with consistent format for all logs
     formatter = logging.Formatter(
-        '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+        '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        '%Y-%m-%d %H:%M:%S'
     )
 
-    # Set up file handler with monthly rotation
-    log_file = os.path.join('logs', 'rss_feed.log')
-    file_handler = TimedRotatingFileHandler(
-        log_file,
+    # Set up file handler with monthly rotation for application logs
+    app_log_file = os.path.join('logs', 'app.log')
+    app_file_handler = TimedRotatingFileHandler(
+        app_log_file,
         when='midnight',
         interval=30,  # Monthly rotation
-        backupCount=12  # Keep 12 months of logs
+        backupCount=12,  # Keep 12 months of logs
+        encoding='utf-8'
     )
-    file_handler.setFormatter(formatter)
-    file_handler.setLevel(logging.INFO)
+    app_file_handler.setFormatter(formatter)
+    app_file_handler.setLevel(logging.INFO)
 
-    # Set up console handler
+    # Set up console handler for development
     console_handler = logging.StreamHandler()
     console_handler.setFormatter(formatter)
     console_handler.setLevel(logging.DEBUG if app.debug else logging.INFO)
@@ -40,14 +42,15 @@ def setup_logging():
     root_logger.handlers = []
 
     # Add our handlers
-    root_logger.addHandler(file_handler)
+    root_logger.addHandler(app_file_handler)
     root_logger.addHandler(console_handler)
 
     # Specific logger configurations
-    # Set SQLAlchemy logging to WARNING to reduce noise
     logging.getLogger('sqlalchemy').setLevel(logging.WARNING)
-    # Set Werkzeug logging to INFO
     logging.getLogger('werkzeug').setLevel(logging.INFO)
+
+    # Log startup message
+    logging.info('Application logging initialized')
 
 if __name__ == "__main__":
     # Initialize logging first
