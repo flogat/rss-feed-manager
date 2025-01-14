@@ -13,8 +13,14 @@ def setup_logging():
         base_dir = os.path.dirname(os.path.abspath(__file__))
         logs_dir = os.path.join(base_dir, 'logs')
 
-        # Ensure logs directory exists with proper permissions
-        os.makedirs(logs_dir, mode=0o755, exist_ok=True)
+        # Ensure logs directory exists
+        if not os.path.exists(logs_dir):
+            try:
+                os.makedirs(logs_dir, mode=0o775, exist_ok=True)
+            except PermissionError as e:
+                print(f"Error creating logs directory: {e}")
+                print(f"Please ensure {logs_dir} exists and has proper permissions")
+                raise
 
         # Create formatter with consistent format for all logs
         formatter = logging.Formatter(
@@ -24,6 +30,28 @@ def setup_logging():
 
         # Set up file handler with monthly rotation for application logs
         app_log_file = os.path.join(logs_dir, 'app.log')
+
+        # Ensure log file exists with proper permissions
+        if not os.path.exists(app_log_file):
+            try:
+                # Create the file
+                with open(app_log_file, 'a') as f:
+                    pass
+                os.chmod(app_log_file, 0o664)
+            except PermissionError as e:
+                print(f"Error creating or setting permissions for log file: {e}")
+                print(f"Please ensure {app_log_file} has proper permissions")
+                raise
+
+        # Test write access to log file
+        try:
+            with open(app_log_file, 'a') as f:
+                f.write('')
+        except PermissionError as e:
+            print(f"Error writing to log file: {e}")
+            print(f"Please check permissions for {app_log_file}")
+            raise
+
         app_file_handler = TimedRotatingFileHandler(
             app_log_file,
             when='midnight',
@@ -57,6 +85,9 @@ def setup_logging():
         # Log startup message with path information
         logging.info(f'Application logging initialized. Log directory: {logs_dir}')
         logging.info(f'Log file path: {app_log_file}')
+
+        # Test log file write
+        logging.info('Logging system initialized successfully')
 
     except Exception as e:
         print(f"Error setting up logging: {str(e)}")

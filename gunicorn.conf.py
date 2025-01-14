@@ -24,6 +24,16 @@ errorlog = os.path.join(logs_dir, 'gunicorn_error.log')
 capture_output = True  # Capture and redirect application stdout/stderr to logging
 loglevel = 'info'
 
+# Ensure Gunicorn can write to its log files
+def on_starting(server):
+    """Ensure log files exist and have proper permissions before starting"""
+    for log_file in [accesslog, errorlog]:
+        # Create log file if it doesn't exist
+        if not os.path.exists(log_file):
+            open(log_file, 'a').close()
+        # Set permissions to 664
+        os.chmod(log_file, 0o664)
+
 # Log formatting
 access_log_format = '%(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"'
 

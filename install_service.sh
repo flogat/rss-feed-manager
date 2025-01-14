@@ -33,6 +33,20 @@ fi
 echo "Using virtual environment: $VENV_PATH"
 echo "Service will run as user: $USER"
 
+# Create logs directory with proper permissions
+LOGS_DIR="$INSTALL_DIR/logs"
+echo "Creating logs directory at: $LOGS_DIR"
+mkdir -p "$LOGS_DIR"
+
+# Set ownership and permissions for logs directory
+sudo chown -R $USER:$USER "$LOGS_DIR"
+sudo chmod 775 "$LOGS_DIR"
+
+# Create and set permissions for log files
+touch "$LOGS_DIR/app.log"
+sudo chown $USER:$USER "$LOGS_DIR/app.log"
+sudo chmod 664 "$LOGS_DIR/app.log"
+
 # Create systemd service file
 echo "Creating systemd service file..."
 cat << EOF | sudo tee /etc/systemd/system/rss-feed-manager.service
@@ -48,6 +62,9 @@ WorkingDirectory=$INSTALL_DIR
 Environment=PATH=/usr/local/bin:/usr/bin:/bin:$VENV_PATH/bin
 Environment=PYTHONPATH=$INSTALL_DIR
 Environment=HOME=$HOME
+# Ensure directory permissions
+ExecStartPre=/bin/bash -c 'mkdir -p $LOGS_DIR && chown -R $USER:$USER $LOGS_DIR && chmod 775 $LOGS_DIR'
+ExecStartPre=/bin/bash -c 'touch $LOGS_DIR/app.log && chown $USER:$USER $LOGS_DIR/app.log && chmod 664 $LOGS_DIR/app.log'
 ExecStart=/bin/bash -c 'source $VENV_PATH/bin/activate && exec gunicorn --config $INSTALL_DIR/gunicorn.conf.py wsgi:app'
 Restart=always
 RestartSec=10
