@@ -73,9 +73,6 @@ WorkingDirectory=$INSTALL_DIR
 Environment=PATH=/usr/local/bin:/usr/bin:/bin:$VENV_PATH/bin
 Environment=PYTHONPATH=$INSTALL_DIR
 Environment=HOME=$HOME
-ExecStartPre=/bin/mkdir -p $LOGS_DIR
-ExecStartPre=/bin/chown -R $USER:$USER $LOGS_DIR
-ExecStartPre=/bin/chmod -R u+rw,g+rw $LOGS_DIR
 ExecStart=/bin/bash -c 'source $VENV_PATH/bin/activate && exec gunicorn --config $INSTALL_DIR/gunicorn.conf.py wsgi:app'
 Restart=always
 RestartSec=10
