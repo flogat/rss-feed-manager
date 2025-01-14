@@ -35,7 +35,7 @@ def create_app():
         "pool_recycle": 3600,
         "pool_timeout": 30,
         "max_overflow": 5,
-        "echo": True,  # Log SQL queries for debugging
+        "echo": False,  # Disable SQL query logging
     }
 
     # Initialize extensions
