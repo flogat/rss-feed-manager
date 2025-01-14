@@ -33,8 +33,6 @@ fi
 # Create logs directory with proper permissions
 LOGS_DIR="$INSTALL_DIR/logs"
 mkdir -p "$LOGS_DIR"
-
-# Set proper permissions for logs directory
 chmod 775 "$LOGS_DIR"  # rwxrwxr-x
 chown -R $USER:$USER "$LOGS_DIR"
 
@@ -65,13 +63,6 @@ StandardError=append:$LOGS_DIR/service.error.log
 
 # Ensure proper file permissions
 UMask=0002
-
-# Security directives
-ProtectSystem=full
-ProtectHome=read-only
-NoNewPrivileges=true
-PrivateTmp=true
-RestrictSUIDSGID=true
 
 [Install]
 WantedBy=multi-user.target
