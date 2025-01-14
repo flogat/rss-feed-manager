@@ -61,3 +61,4 @@ flask-login
 oauthlib
 slack_sdk
 openai
+gunicorn
