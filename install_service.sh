@@ -36,23 +36,7 @@ mkdir -p "$LOGS_DIR"
 
 # Set proper permissions for logs directory
 chmod 775 "$LOGS_DIR"  # rwxrwxr-x
-# Create log files with proper permissions
-touch "$LOGS_DIR/app.log" \
-      "$LOGS_DIR/gunicorn_access.log" \
-      "$LOGS_DIR/gunicorn_error.log" \
-      "$LOGS_DIR/service.log" \
-      "$LOGS_DIR/service.error.log"
-
-# Set proper ownership and permissions for log files
 chown -R $USER:$USER "$LOGS_DIR"
-chmod 664 "$LOGS_DIR"/*.log  # rw-rw-r--
-
-# If SELinux is enabled, set proper context
-if command -v semanage >/dev/null 2>&1; then
-    echo "Setting SELinux context for log directory..."
-    sudo semanage fcontext -a -t var_log_t "$LOGS_DIR(/.*)?"
-    sudo restorecon -Rv "$LOGS_DIR"
-fi
 
 echo "Using virtual environment: $VENV_PATH"
 echo "Service will run as user: $USER"
