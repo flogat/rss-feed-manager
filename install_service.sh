@@ -82,6 +82,13 @@ StandardError=append:$LOGS_DIR/service.error.log
 # Ensure proper file permissions
 UMask=0002
 
+# Security directives
+ProtectSystem=full
+ProtectHome=read-only
+NoNewPrivileges=true
+PrivateTmp=true
+RestrictSUIDSGID=true
+
 [Install]
 WantedBy=multi-user.target
 EOF
