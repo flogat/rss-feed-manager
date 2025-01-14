@@ -30,15 +30,8 @@ if [ -z "$USER" ]; then
     exit 1
 fi
 
-# Create logs directory with proper permissions
-LOGS_DIR="$INSTALL_DIR/logs"
-mkdir -p "$LOGS_DIR"
-chmod 775 "$LOGS_DIR"  # rwxrwxr-x
-chown -R $USER:$USER "$LOGS_DIR"
-
 echo "Using virtual environment: $VENV_PATH"
 echo "Service will run as user: $USER"
-echo "Logs directory: $LOGS_DIR"
 
 # Create systemd service file
 echo "Creating systemd service file..."
@@ -52,17 +45,12 @@ Type=simple
 User=$USER
 Group=$USER
 WorkingDirectory=$INSTALL_DIR
-Environment=PATH=$VENV_PATH/bin:/usr/local/bin:/usr/bin:/bin
+Environment=PATH=/usr/local/bin:/usr/bin:/bin:$VENV_PATH/bin
 Environment=PYTHONPATH=$INSTALL_DIR
 Environment=HOME=$HOME
-ExecStart=$VENV_PATH/bin/gunicorn --config $INSTALL_DIR/gunicorn.conf.py wsgi:app
+ExecStart=/bin/bash -c 'source $VENV_PATH/bin/activate && exec gunicorn --config $INSTALL_DIR/gunicorn.conf.py wsgi:app'
 Restart=always
 RestartSec=10
-StandardOutput=append:$LOGS_DIR/service.log
-StandardError=append:$LOGS_DIR/service.error.log
-
-# Ensure proper file permissions
-UMask=0002
 
 [Install]
 WantedBy=multi-user.target
@@ -88,5 +76,4 @@ Installation complete! You can manage the service with these commands:
 - Stop service: sudo systemctl stop rss-feed-manager
 - Restart service: sudo systemctl restart rss-feed-manager
 - View logs: sudo journalctl -u rss-feed-manager
-- Application logs are in: $LOGS_DIR
 "
