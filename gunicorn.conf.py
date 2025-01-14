@@ -13,10 +13,10 @@ timeout = 30
 keepalive = 2
 
 # Logging
-# Use our application's logging system instead of separate files
-accesslog = None  # Disable access log file (will go through app logging)
-errorlog = None  # Disable error log file (will go through app logging)
-capture_output = True  # Capture and redirect stdout/stderr to logging
+# Use stdout/stderr for Gunicorn's own logging
+accesslog = '-'  # Log to stdout
+errorlog = '-'   # Log to stderr
+capture_output = True  # Capture and redirect application stdout/stderr to logging
 loglevel = 'info'
 
 # Process naming
