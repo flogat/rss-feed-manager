@@ -7,9 +7,6 @@ from flask_migrate import Migrate
 from sqlalchemy.orm import DeclarativeBase
 import logging
 
-# Set up logging
-logging.basicConfig(level=logging.DEBUG)
-
 class Base(DeclarativeBase):
     pass
 

@@ -13,8 +13,10 @@ timeout = 30
 keepalive = 2
 
 # Logging
-accesslog = '-'
-errorlog = '-'
+# Use our application's logging system instead of separate files
+accesslog = None  # Disable access log file (will go through app logging)
+errorlog = None  # Disable error log file (will go through app logging)
+capture_output = True  # Capture and redirect stdout/stderr to logging
 loglevel = 'info'
 
 # Process naming
