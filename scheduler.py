@@ -38,7 +38,7 @@ def init_scheduler(app):
             scheduler.add_job(
                 func=lambda: run_update_with_context(app),
                 trigger="interval",
-                minutes=3,
+                minutes=30,  # Changed from 3 to 30 minutes
                 id='refresh_feeds',
                 name='Refresh RSS Feeds',
                 replace_existing=True  # Replace any existing job with same ID
