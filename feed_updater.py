@@ -15,21 +15,62 @@ logging.basicConfig(level=logging.DEBUG)
 # Set socket timeout for feedparser
 socket.setdefaulttimeout(5)  # Reduced from 10 to 5 seconds timeout
 
+def parse_proxy_url(proxy_url):
+    """Parse and normalize proxy URL"""
+    if not proxy_url:
+        return None
+
+    # If it doesn't start with a protocol, assume http://
+    if not proxy_url.startswith(('http://', 'https://')):
+        proxy_url = 'http://' + proxy_url
+
+    try:
+        parsed = urllib.parse.urlparse(proxy_url)
+        return proxy_url if parsed.netloc else None
+    except Exception as e:
+        logging.error(f"Error parsing proxy URL {proxy_url}: {str(e)}")
+        return None
+
 def get_proxy_handlers():
     """Get proxy handlers from environment variables"""
     proxy_handlers = []
 
-    # Get system proxy settings
-    http_proxy = os.environ.get('http_proxy') or os.environ.get('HTTP_PROXY')
-    https_proxy = os.environ.get('https_proxy') or os.environ.get('HTTPS_PROXY')
+    # Log all environment variables for debugging
+    logging.debug("Environment variables:")
+    for key, value in os.environ.items():
+        if 'proxy' in key.lower():
+            logging.debug(f"{key}: {value}")
 
-    if http_proxy or https_proxy:
-        logging.info(f"Using proxy settings - HTTP: {http_proxy}, HTTPS: {https_proxy}")
+    # Common proxy environment variable names
+    proxy_vars = [
+        ('http_proxy', 'http'),
+        ('HTTP_PROXY', 'http'),
+        ('https_proxy', 'https'),
+        ('HTTPS_PROXY', 'https'),
+        # Add more variations if needed
+        ('all_proxy', 'all'),
+        ('ALL_PROXY', 'all')
+    ]
 
-        if http_proxy:
-            proxy_handlers.append(urllib.request.ProxyHandler({'http': http_proxy}))
-        if https_proxy:
-            proxy_handlers.append(urllib.request.ProxyHandler({'https': https_proxy}))
+    proxies = {}
+    for var_name, proxy_type in proxy_vars:
+        proxy_url = os.environ.get(var_name)
+        if proxy_url:
+            parsed_url = parse_proxy_url(proxy_url)
+            if parsed_url:
+                proxies[proxy_type] = parsed_url
+                logging.info(f"Found {proxy_type} proxy: {parsed_url}")
+
+    if proxies:
+        logging.info("Using proxy configuration:")
+        for proxy_type, url in proxies.items():
+            logging.info(f"- {proxy_type}: {url}")
+            if proxy_type in ('http', 'all'):
+                proxy_handlers.append(urllib.request.ProxyHandler({'http': url}))
+            if proxy_type in ('https', 'all'):
+                proxy_handlers.append(urllib.request.ProxyHandler({'https': url}))
+    else:
+        logging.warning("No proxy configuration found in environment variables")
 
     return proxy_handlers
 
@@ -40,13 +81,15 @@ def parse_feed_with_proxy(url):
     if handlers:
         # Create an opener with the proxy handlers
         opener = urllib.request.build_opener(*handlers)
+        # Set a modern User-Agent
         feedparser.USER_AGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
 
         try:
             logging.info(f"Fetching feed {url} with proxy")
             # Use the opener to fetch the feed
             response = opener.open(url)
-            return feedparser.parse(response)
+            feed_content = response.read()
+            return feedparser.parse(feed_content)
         except Exception as e:
             logging.error(f"Error fetching feed with proxy: {str(e)}")
             # Fallback to direct connection if proxy fails
