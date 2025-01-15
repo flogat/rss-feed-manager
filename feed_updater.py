@@ -17,39 +17,23 @@ socket.setdefaulttimeout(5)  # Reduced from 10 to 5 seconds timeout
 
 def parse_proxy_url(proxy_url):
     """Parse and normalize proxy URL"""
-    logging.info(f"Attempting to parse proxy URL: '{proxy_url}'")
-
     if not proxy_url:
-        logging.warning("Empty proxy URL provided")
         return None
 
     # If it doesn't start with a protocol, assume http://
     if not proxy_url.startswith(('http://', 'https://')):
-        original_url = proxy_url
         proxy_url = 'http://' + proxy_url
-        logging.info(f"Added http:// prefix to proxy URL: '{original_url}' -> '{proxy_url}'")
 
     try:
         parsed = urllib.parse.urlparse(proxy_url)
-        if parsed.netloc:
-            logging.info(f"Successfully parsed proxy URL: '{proxy_url}' -> netloc: '{parsed.netloc}', scheme: '{parsed.scheme}'")
-            return proxy_url
-        else:
-            logging.error(f"Parsed proxy URL '{proxy_url}' has no netloc component")
-            return None
+        return proxy_url if parsed.netloc else None
     except Exception as e:
-        logging.error(f"Error parsing proxy URL '{proxy_url}': {str(e)}")
+        logging.error(f"Error parsing proxy URL: {str(e)}")
         return None
 
 def get_proxy_handlers():
     """Get proxy handlers from environment variables"""
     proxy_handlers = []
-
-    # Log all environment variables for debugging
-    logging.debug("Environment variables:")
-    for key, value in os.environ.items():
-        if 'proxy' in key.lower():
-            logging.debug(f"{key}: {value}")
 
     # Common proxy environment variable names
     proxy_vars = [
@@ -57,41 +41,27 @@ def get_proxy_handlers():
         ('HTTP_PROXY', 'http'),
         ('https_proxy', 'https'),
         ('HTTPS_PROXY', 'https'),
-        # Add more variations if needed
         ('all_proxy', 'all'),
         ('ALL_PROXY', 'all')
     ]
 
     proxies = {}
-    logging.info("Checking for proxy environment variables...")
     for var_name, proxy_type in proxy_vars:
         proxy_url = os.environ.get(var_name, os.environ.get(var_name.upper()))
-        logging.info(f"Checking {var_name}: {'FOUND' if proxy_url else 'NOT FOUND'}")
         if proxy_url:
-            logging.info(f"Processing {var_name}={proxy_url}")
             parsed_url = parse_proxy_url(proxy_url)
             if parsed_url:
                 proxies[proxy_type] = parsed_url
-                logging.info(f"Added {proxy_type} proxy: {parsed_url}")
-            else:
-                logging.warning(f"Failed to parse proxy URL from {var_name}: {proxy_url}")
 
     if proxies:
-        logging.info("Creating proxy handlers with configuration:")
         for proxy_type, url in proxies.items():
-            logging.info(f"- Setting up {proxy_type} proxy handler with URL: {url}")
             if proxy_type in ('http', 'all'):
-                handler = urllib.request.ProxyHandler({'http': url})
-                proxy_handlers.append(handler)
-                logging.info(f"Added HTTP proxy handler with URL: {url}")
+                proxy_handlers.append(urllib.request.ProxyHandler({'http': url}))
             if proxy_type in ('https', 'all'):
-                handler = urllib.request.ProxyHandler({'https': url})
-                proxy_handlers.append(handler)
-                logging.info(f"Added HTTPS proxy handler with URL: {url}")
+                proxy_handlers.append(urllib.request.ProxyHandler({'https': url}))
     else:
-        logging.warning("No valid proxy configuration found in environment variables")
+        logging.info("No proxy configuration found")
 
-    logging.info(f"Returning {len(proxy_handlers)} proxy handlers")
     return proxy_handlers
 
 def parse_feed_with_proxy(url):
@@ -116,7 +86,7 @@ def parse_feed_with_proxy(url):
             logging.info(f"Falling back to direct connection for {url}")
             return feedparser.parse(url)
     else:
-        logging.info(f"No proxy configured, fetching feed {url} directly")
+        logging.info(f"Fetching feed {url} directly")
         return feedparser.parse(url)
 
 def reset_scan_progress():
