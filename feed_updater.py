@@ -4,9 +4,57 @@ import logging
 from models import RSSFeed, Article, ScanProgress, db
 import socket
 from sqlalchemy.exc import SQLAlchemyError
+import os
+import urllib.request
+import urllib.error
+import urllib.parse
+
+# Configure logging
+logging.basicConfig(level=logging.DEBUG)
 
 # Set socket timeout for feedparser
 socket.setdefaulttimeout(5)  # Reduced from 10 to 5 seconds timeout
+
+def get_proxy_handlers():
+    """Get proxy handlers from environment variables"""
+    proxy_handlers = []
+
+    # Get system proxy settings
+    http_proxy = os.environ.get('http_proxy') or os.environ.get('HTTP_PROXY')
+    https_proxy = os.environ.get('https_proxy') or os.environ.get('HTTPS_PROXY')
+
+    if http_proxy or https_proxy:
+        logging.info(f"Using proxy settings - HTTP: {http_proxy}, HTTPS: {https_proxy}")
+
+        if http_proxy:
+            proxy_handlers.append(urllib.request.ProxyHandler({'http': http_proxy}))
+        if https_proxy:
+            proxy_handlers.append(urllib.request.ProxyHandler({'https': https_proxy}))
+
+    return proxy_handlers
+
+def parse_feed_with_proxy(url):
+    """Parse feed URL with proxy support"""
+    handlers = get_proxy_handlers()
+
+    if handlers:
+        # Create an opener with the proxy handlers
+        opener = urllib.request.build_opener(*handlers)
+        feedparser.USER_AGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+
+        try:
+            logging.info(f"Fetching feed {url} with proxy")
+            # Use the opener to fetch the feed
+            response = opener.open(url)
+            return feedparser.parse(response)
+        except Exception as e:
+            logging.error(f"Error fetching feed with proxy: {str(e)}")
+            # Fallback to direct connection if proxy fails
+            logging.info(f"Falling back to direct connection for {url}")
+            return feedparser.parse(url)
+    else:
+        logging.info(f"No proxy configured, fetching feed {url} directly")
+        return feedparser.parse(url)
 
 def reset_scan_progress():
     """Reset scan progress in database"""
@@ -39,8 +87,13 @@ def update_single_feed(feed):
     try:
         logging.info(f"Starting feed update for: {feed.url}")
         current_time = datetime.utcnow()
-        # Set timeout for feedparser
-        parsed = feedparser.parse(feed.url)
+
+        # Use proxy-aware feed parser
+        parsed = parse_feed_with_proxy(feed.url)
+
+        if not parsed.feed:
+            logging.error(f"No feed data found for {feed.url}")
+            raise Exception("No feed data found")
 
         feed.title = parsed.feed.title if hasattr(parsed.feed, 'title') else feed.url
         feed.last_updated = current_time
@@ -169,7 +222,7 @@ def update_all_feeds(trigger='manual'):
                         completed=False
                     )
 
-                    parsed = feedparser.parse(feed.url)
+                    parsed = parse_feed_with_proxy(feed.url)
                     feed_articles_retrieved = len(parsed.entries)
                     total_articles_retrieved += feed_articles_retrieved
 
