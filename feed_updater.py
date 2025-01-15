@@ -65,7 +65,7 @@ def get_proxy_handlers():
     proxies = {}
     logging.info("Checking for proxy environment variables...")
     for var_name, proxy_type in proxy_vars:
-        proxy_url = os.environ.get(var_name)
+        proxy_url = os.environ.get(var_name, os.environ.get(var_name.upper()))
         logging.info(f"Checking {var_name}: {'FOUND' if proxy_url else 'NOT FOUND'}")
         if proxy_url:
             logging.info(f"Processing {var_name}={proxy_url}")
