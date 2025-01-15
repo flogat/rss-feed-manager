@@ -17,18 +17,28 @@ socket.setdefaulttimeout(5)  # Reduced from 10 to 5 seconds timeout
 
 def parse_proxy_url(proxy_url):
     """Parse and normalize proxy URL"""
+    logging.info(f"Attempting to parse proxy URL: '{proxy_url}'")
+
     if not proxy_url:
+        logging.warning("Empty proxy URL provided")
         return None
 
     # If it doesn't start with a protocol, assume http://
     if not proxy_url.startswith(('http://', 'https://')):
+        original_url = proxy_url
         proxy_url = 'http://' + proxy_url
+        logging.info(f"Added http:// prefix to proxy URL: '{original_url}' -> '{proxy_url}'")
 
     try:
         parsed = urllib.parse.urlparse(proxy_url)
-        return proxy_url if parsed.netloc else None
+        if parsed.netloc:
+            logging.info(f"Successfully parsed proxy URL: '{proxy_url}' -> netloc: '{parsed.netloc}', scheme: '{parsed.scheme}'")
+            return proxy_url
+        else:
+            logging.error(f"Parsed proxy URL '{proxy_url}' has no netloc component")
+            return None
     except Exception as e:
-        logging.error(f"Error parsing proxy URL {proxy_url}: {str(e)}")
+        logging.error(f"Error parsing proxy URL '{proxy_url}': {str(e)}")
         return None
 
 def get_proxy_handlers():
@@ -53,25 +63,35 @@ def get_proxy_handlers():
     ]
 
     proxies = {}
+    logging.info("Checking for proxy environment variables...")
     for var_name, proxy_type in proxy_vars:
         proxy_url = os.environ.get(var_name)
+        logging.info(f"Checking {var_name}: {'FOUND' if proxy_url else 'NOT FOUND'}")
         if proxy_url:
+            logging.info(f"Processing {var_name}={proxy_url}")
             parsed_url = parse_proxy_url(proxy_url)
             if parsed_url:
                 proxies[proxy_type] = parsed_url
-                logging.info(f"Found {proxy_type} proxy: {parsed_url}")
+                logging.info(f"Added {proxy_type} proxy: {parsed_url}")
+            else:
+                logging.warning(f"Failed to parse proxy URL from {var_name}: {proxy_url}")
 
     if proxies:
-        logging.info("Using proxy configuration:")
+        logging.info("Creating proxy handlers with configuration:")
         for proxy_type, url in proxies.items():
-            logging.info(f"- {proxy_type}: {url}")
+            logging.info(f"- Setting up {proxy_type} proxy handler with URL: {url}")
             if proxy_type in ('http', 'all'):
-                proxy_handlers.append(urllib.request.ProxyHandler({'http': url}))
+                handler = urllib.request.ProxyHandler({'http': url})
+                proxy_handlers.append(handler)
+                logging.info(f"Added HTTP proxy handler with URL: {url}")
             if proxy_type in ('https', 'all'):
-                proxy_handlers.append(urllib.request.ProxyHandler({'https': url}))
+                handler = urllib.request.ProxyHandler({'https': url})
+                proxy_handlers.append(handler)
+                logging.info(f"Added HTTPS proxy handler with URL: {url}")
     else:
-        logging.warning("No proxy configuration found in environment variables")
+        logging.warning("No valid proxy configuration found in environment variables")
 
+    logging.info(f"Returning {len(proxy_handlers)} proxy handlers")
     return proxy_handlers
 
 def parse_feed_with_proxy(url):
