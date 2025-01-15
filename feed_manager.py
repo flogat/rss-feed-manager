@@ -152,7 +152,9 @@ def download_all_articles():
         if start_date:
             query = query.filter(Article.published_date >= datetime.fromisoformat(start_date))
         if end_date:
-            query = query.filter(Article.published_date <= datetime.fromisoformat(end_date))
+            # Add one day to include the entire end date
+            end_datetime = datetime.fromisoformat(end_date) + timedelta(days=1)
+            query = query.filter(Article.published_date < end_datetime)
 
         si = StringIO()
         cw = csv.writer(si)
