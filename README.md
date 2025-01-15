@@ -54,6 +54,21 @@ The application will be available at `http://localhost:5000`
 4. Export collected articles as CSV
 5. View individual articles and their content
 
+## Admin Password Reset
+
+If you need to reset the admin password, use the provided script:
+
+```bash
+# Make the script executable (first time only)
+chmod +x reset_admin_password.sh
+
+# Reset the admin password
+./reset_admin_password.sh <new_password>
+
+Example:
+./reset_admin_password.sh mynewpassword123
+```
+
 ## Setting up as a System Service
 
 The project includes an automated installation script that sets up the RSS Feed Manager as a system service. This script will:
