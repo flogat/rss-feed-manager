@@ -31,9 +31,17 @@ task = "packager.installForAll"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "gunicorn -c gunicorn.conf.py wsgi:app"
+args = "gunicorn --config gunicorn.conf.py wsgi:app"
 waitForPort = 5000
+
+[[ports]]
+localPort = 80
+externalPort = 3000
 
 [[ports]]
 localPort = 5000
 externalPort = 80
+
+[[ports]]
+localPort = 8080
+externalPort = 8080

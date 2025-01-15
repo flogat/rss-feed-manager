@@ -28,7 +28,7 @@ def parse_proxy_url(proxy_url):
         parsed = urllib.parse.urlparse(proxy_url)
         return proxy_url if parsed.netloc else None
     except Exception as e:
-        logging.error(f"Error parsing proxy URL: {str(e)}")
+        logging.warning(f"Invalid proxy URL format: {str(e)}")
         return None
 
 def get_proxy_handlers():
@@ -59,8 +59,6 @@ def get_proxy_handlers():
                 proxy_handlers.append(urllib.request.ProxyHandler({'http': url}))
             if proxy_type in ('https', 'all'):
                 proxy_handlers.append(urllib.request.ProxyHandler({'https': url}))
-    else:
-        logging.info("No proxy configuration found")
 
     return proxy_handlers
 
@@ -75,18 +73,15 @@ def parse_feed_with_proxy(url):
         feedparser.USER_AGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
 
         try:
-            logging.info(f"Fetching feed {url} with proxy")
             # Use the opener to fetch the feed
             response = opener.open(url)
             feed_content = response.read()
             return feedparser.parse(feed_content)
         except Exception as e:
-            logging.error(f"Error fetching feed with proxy: {str(e)}")
+            logging.error(f"Error fetching feed: {str(e)}")
             # Fallback to direct connection if proxy fails
-            logging.info(f"Falling back to direct connection for {url}")
             return feedparser.parse(url)
     else:
-        logging.info(f"Fetching feed {url} directly")
         return feedparser.parse(url)
 
 def reset_scan_progress():
