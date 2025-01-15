@@ -47,6 +47,26 @@ touch "$LOGS_DIR/app.log"
 sudo chown $USER:$USER "$LOGS_DIR/app.log"
 sudo chmod 664 "$LOGS_DIR/app.log"
 
+# Get current proxy settings
+CURRENT_HTTP_PROXY=${HTTP_PROXY:-${http_proxy:-""}}
+CURRENT_HTTPS_PROXY=${HTTPS_PROXY:-${https_proxy:-""}}
+
+echo "Current proxy settings:"
+echo "HTTP_PROXY: $CURRENT_HTTP_PROXY"
+echo "HTTPS_PROXY: $CURRENT_HTTPS_PROXY"
+
+# Create environment file for proxy settings
+ENV_FILE="/etc/rss-feed-manager.env"
+echo "Creating environment file at $ENV_FILE"
+cat << EOF | sudo tee "$ENV_FILE"
+HTTP_PROXY=$CURRENT_HTTP_PROXY
+HTTPS_PROXY=$CURRENT_HTTPS_PROXY
+http_proxy=$CURRENT_HTTP_PROXY
+https_proxy=$CURRENT_HTTPS_PROXY
+EOF
+
+sudo chmod 644 "$ENV_FILE"
+
 # Create systemd service file
 echo "Creating systemd service file..."
 cat << EOF | sudo tee /etc/systemd/system/rss-feed-manager.service
@@ -62,6 +82,8 @@ WorkingDirectory=$INSTALL_DIR
 Environment=PATH=/usr/local/bin:/usr/bin:/bin:$VENV_PATH/bin
 Environment=PYTHONPATH=$INSTALL_DIR
 Environment=HOME=$HOME
+# Load proxy settings from environment file
+EnvironmentFile=$ENV_FILE
 # Ensure directory permissions
 ExecStartPre=/bin/bash -c 'mkdir -p $LOGS_DIR && chown -R $USER:$USER $LOGS_DIR && chmod 775 $LOGS_DIR'
 ExecStartPre=/bin/bash -c 'touch $LOGS_DIR/app.log && chown $USER:$USER $LOGS_DIR/app.log && chmod 664 $LOGS_DIR/app.log'
