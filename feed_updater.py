@@ -6,7 +6,7 @@ import socket
 from sqlalchemy.exc import SQLAlchemyError
 
 # Set socket timeout for feedparser
-socket.setdefaulttimeout(10)  # 10 seconds timeout
+socket.setdefaulttimeout(5)  # Reduced from 10 to 5 seconds timeout
 
 def reset_scan_progress():
     """Reset scan progress in database"""
@@ -145,7 +145,7 @@ def update_all_feeds(trigger='manual'):
         )
 
         current_time = datetime.utcnow()
-        batch_size = 1  # Process one feed at a time for more granular updates
+        batch_size = 5  # Increased from 1 to 5 for more efficient processing
         processed_count = 0
         successful_updates = 0
         failed_updates = 0
