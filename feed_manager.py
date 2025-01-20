@@ -113,28 +113,17 @@ def download_feed_articles(feed_id):
         feed = RSSFeed.query.get_or_404(feed_id)
         articles = Article.query.filter_by(feed_id=feed_id).order_by(Article.published_date.desc()).all()
 
-        si = StringIO()
-        cw = csv.writer(si)
-        # Write headers according to new structure
-        cw.writerow(['Title', 'Link', 'Publication Date', 'Source', 'Category', 'Summary'])
-
-        # Write article data
-        source_name = feed.title or feed.url
+        # Generate output with title~url format
+        output_lines = []
         for article in articles:
-            cw.writerow([
-                sanitize_text(article.title),
-                article.link,
-                article.published_date.isoformat() if article.published_date else '',
-                sanitize_text(source_name),
-                'Startups',
-                sanitize_text(article.description)
-            ])
+            clean_title = sanitize_text(article.title)
+            output_lines.append(f"{clean_title}~{article.link}")
 
-        output = si.getvalue()
-        si.close()
+        output = '\n'.join(output_lines)
+
         return output, 200, {
-            'Content-Type': 'text/csv',
-            'Content-Disposition': f'attachment; filename=articles_{feed_id}.csv'
+            'Content-Type': 'text/plain',
+            'Content-Disposition': f'attachment; filename=articles_{feed_id}.txt'
         }
     except Exception as e:
         logging.error(f"Error downloading articles for feed {feed_id}: {str(e)}")
@@ -156,30 +145,17 @@ def download_all_articles():
             end_datetime = datetime.fromisoformat(end_date) + timedelta(days=1)
             query = query.filter(Article.published_date < end_datetime)
 
-        si = StringIO()
-        cw = csv.writer(si)
-        # Headers according to new structure
-        cw.writerow(['Title', 'Link', 'Publication Date', 'Source', 'Category', 'Summary'])
-
+        # Generate output with title~url format
+        output_lines = []
         for article in query.all():
-            # Get the feed information for each article
-            feed = RSSFeed.query.get(article.feed_id)
-            source_name = feed.title if feed else 'Unknown Source'
+            clean_title = sanitize_text(article.title)
+            output_lines.append(f"{clean_title}~{article.link}")
 
-            cw.writerow([
-                sanitize_text(article.title),
-                article.link,
-                article.published_date.isoformat() if article.published_date else '',
-                sanitize_text(source_name),
-                'Startups',  # Default category for now
-                sanitize_text(article.description)
-            ])
+        output = '\n'.join(output_lines)
 
-        output = si.getvalue()
-        si.close()
         return output, 200, {
-            'Content-Type': 'text/csv',
-            'Content-Disposition': 'attachment; filename=all_articles.csv'
+            'Content-Type': 'text/plain',
+            'Content-Disposition': 'attachment; filename=articles.txt'
         }
     except Exception as e:
         logging.error(f"Error downloading all articles: {str(e)}")
