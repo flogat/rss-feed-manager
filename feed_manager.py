@@ -113,8 +113,10 @@ def download_feed_articles(feed_id):
         feed = RSSFeed.query.get_or_404(feed_id)
         articles = Article.query.filter_by(feed_id=feed_id).order_by(Article.published_date.desc()).all()
 
-        # Generate output with title~url format
-        output_lines = []
+        # Start with header row
+        output_lines = ["Title~Link"]
+
+        # Add article entries
         for article in articles:
             clean_title = sanitize_text(article.title)
             output_lines.append(f"{clean_title}~{article.link}")
@@ -145,8 +147,10 @@ def download_all_articles():
             end_datetime = datetime.fromisoformat(end_date) + timedelta(days=1)
             query = query.filter(Article.published_date < end_datetime)
 
-        # Generate output with title~url format
-        output_lines = []
+        # Start with header row
+        output_lines = ["Title~Link"]
+
+        # Add article entries
         for article in query.all():
             clean_title = sanitize_text(article.title)
             output_lines.append(f"{clean_title}~{article.link}")
