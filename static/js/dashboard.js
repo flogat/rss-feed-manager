@@ -171,22 +171,40 @@ function updateFeedsDisplay(response, sortConfig = { column: 'title', direction:
                 <td>${feed.last_scan_trigger}</td>
                 <td>${feed.status}</td>
                 <td>
-                    <a href="/feeds/${feed.id}/articles" class="btn btn-sm btn-primary">
+                    <a href="/feeds/${feed.id}/articles" class="btn btn-sm btn-primary" 
+                       data-bs-toggle="tooltip" 
+                       data-bs-placement="top" 
+                       title="View detailed list of all articles from this feed">
                         <i class="bi bi-list-ul"></i>
                     </a>
-                    <button class="btn btn-sm btn-secondary refresh-feed" data-feed-id="${feed.id}">
+                    <button class="btn btn-sm btn-secondary refresh-feed" 
+                            data-feed-id="${feed.id}"
+                            data-bs-toggle="tooltip" 
+                            data-bs-placement="top" 
+                            title="Manually refresh this feed to check for new articles">
                         <i class="bi bi-arrow-clockwise"></i>
                     </button>
-                    <button class="btn btn-sm btn-info download-feed" data-feed-id="${feed.id}">
+                    <button class="btn btn-sm btn-info download-feed" 
+                            data-feed-id="${feed.id}"
+                            data-bs-toggle="tooltip" 
+                            data-bs-placement="top" 
+                            title="Download all articles from this feed as a CSV file">
                         <i class="bi bi-download"></i>
                     </button>
-                    <button class="btn btn-sm btn-danger delete-feed" data-feed-id="${feed.id}">
+                    <button class="btn btn-sm btn-danger delete-feed" 
+                            data-feed-id="${feed.id}"
+                            data-bs-toggle="tooltip" 
+                            data-bs-placement="top" 
+                            title="Permanently remove this feed and all its articles">
                         <i class="bi bi-trash"></i>
                     </button>
                 </td>
             </tr>
         `);
     });
+
+    // Initialize tooltips after rendering
+    $('[data-bs-toggle="tooltip"]').tooltip();
 }
 
 $(document).ready(function() {
