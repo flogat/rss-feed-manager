@@ -11,7 +11,11 @@
             {% endif %}
         </h5>
         <div>
-            <a href="{{ url_for('feed.download_all_articles') if not feed else url_for('feed.download_feed_articles', feed_id=feed.id) }}" class="btn btn-info">
+            <a href="{{ url_for('feed.download_all_articles') if not feed else url_for('feed.download_feed_articles', feed_id=feed.id) }}" 
+               class="btn btn-info"
+               data-bs-toggle="tooltip"
+               data-bs-placement="left"
+               title="Download all articles as a CSV file for offline viewing or analysis">
                 <i class="bi bi-download"></i> Download CSV
             </a>
         </div>
@@ -21,9 +25,21 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th class="sortable" data-sort="title">Title <i class="bi bi-sort-alpha-down"></i></th>
-                        <th class="sortable" data-sort="source">Source <i class="bi bi-sort-alpha-down"></i></th>
-                        <th class="sortable" data-sort="published_date">Published Date <i class="bi bi-sort-down"></i></th>
+                        <th class="sortable" 
+                            data-sort="title"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Click to sort articles by title">Title <i class="bi bi-sort-alpha-down"></i></th>
+                        <th class="sortable" 
+                            data-sort="source"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Click to sort articles by source feed">Source <i class="bi bi-sort-alpha-down"></i></th>
+                        <th class="sortable" 
+                            data-sort="published_date"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Click to sort articles by publication date">Published Date <i class="bi bi-sort-down"></i></th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -34,10 +50,19 @@
                         <td>{{ article.feed.title or article.feed.url }}</td>
                         <td>{{ article.published_date|relative_time if article.published_date else 'Unknown' }}</td>
                         <td>
-                            <a href="{{ article.link }}" target="_blank" class="btn btn-sm btn-primary">
+                            <a href="{{ article.link }}" 
+                               target="_blank" 
+                               class="btn btn-sm btn-primary"
+                               data-bs-toggle="tooltip"
+                               data-bs-placement="top"
+                               title="Open the original article in a new tab">
                                 <i class="bi bi-box-arrow-up-right"></i>
                             </a>
-                            <button class="btn btn-sm btn-info view-content" data-article-id="{{ article.id }}">
+                            <button class="btn btn-sm btn-info view-content" 
+                                    data-article-id="{{ article.id }}"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="top"
+                                    title="Preview the article content in a popup window">
                                 <i class="bi bi-eye"></i>
                             </button>
                         </td>
