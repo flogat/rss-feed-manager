@@ -124,8 +124,8 @@ def download_feed_articles(feed_id):
         output = '\n'.join(output_lines)
 
         return output, 200, {
-            'Content-Type': 'text/plain',
-            'Content-Disposition': f'attachment; filename=articles_{feed_id}.txt'
+            'Content-Type': 'text/csv',
+            'Content-Disposition': f'attachment; filename=articles_{feed_id}.csv'
         }
     except Exception as e:
         logging.error(f"Error downloading articles for feed {feed_id}: {str(e)}")
@@ -158,8 +158,8 @@ def download_all_articles():
         output = '\n'.join(output_lines)
 
         return output, 200, {
-            'Content-Type': 'text/plain',
-            'Content-Disposition': 'attachment; filename=articles.txt'
+            'Content-Type': 'text/csv',
+            'Content-Disposition': 'attachment; filename=articles.csv'
         }
     except Exception as e:
         logging.error(f"Error downloading all articles: {str(e)}")
